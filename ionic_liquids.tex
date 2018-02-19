@@ -15,7 +15,15 @@
 \usepackage{xcolor}
 \usepackage{float}
 \usepackage{flafter}
+
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{commath}
+\usepackage{graphicx,bm}
+\usepackage[]{subfig}
+\usepackage{epstopdf}
 
 \biboptions{sort&compress}
 \modulolinenumbers[5]
@@ -223,14 +231,24 @@ with $\lambda_{\,\text{vdW}}$ and $\lambda_{\,\text{Coul}}$ being the coupling p
 
 In this work, we perform independent simulation at each state of $\lambda_{\text{Coul}}$, while the expanded ensemble (EE) method~\cite{Lyubartsev_1992} is applied for sampling the states associated to the $\lambda_{\,\text{vdW}}$ set. In short, an EE is constructed as a weighted sum of subensembles, each assuming a different value of the variable chosen to explore the free energy landscape, which in our case is $\lambda_{\,\text{vdW}}$. This way, the sampling of the EE involves both sampling each subensamble with fixed variables (N,P,T,$\lambda_{\,\text{vdW}}$) and transitions in $\lambda_{\,\text{vdW}}$. Thus, the remarkable feature of the EE method is the possibility of exploring the whole alchemical route in a single simulation. In this work, we perform a sequential sampling of the EE \cite{Chodera_2011_2}, which consists in sampling each subensamble via NPT MD for a determined number of steps $N^{\text{EE}}$ followed with an attemp to change $\lambda_{\,\text{vdW}}$ using MC, and so on. In addition, the set of (arbitrary) weights $\eta$ of the subensambles enters in the acceptance criteria of MC, so it is possible to tune $\eta$ in order to enhance the sampling. If differences $\eta_i$ - $\eta_j$ were closed to $\Delta G_{ji}$, we expect an uniform sampling in $\lambda_{\,\text{vdW}}$~\cite{Lyubartsev_1992}. Of course, this can be achieved only iteratively. As demonstrated in Ref.~\citenum{Chodera_2011_2}, smaller values of $N^{EE}$ generates more decorrelated configurations of the physical variables. Therefore, we employ $N^{EE}$ = 5. This value, together with the chosen $\lambda_{\, \text{vdW}}$ set resulted to be satisfactory, as up to three preliminar simulations of the EE were enough to determine the weights required for a uniform sampling of $\lambda_{\, \text{vdW}}$. Those simulations were about 10 ns. The time at each $\lambda_{\text{Coul}}$ was also 10 ns, while the final simulations of the EE were in the range of 20-40 ns, depending on the system. Finally, MBAR \cite{Shirts_2008} was applied form the sample of each $\lambda$ to estimate the free energy.
 
-We implemented in LAMMPS~\cite{Plimpton1995} the expanded ensemble methodology, as well as the codes regarding the \textit{soft-core} and DSF potential with linear coupling. All of this is available in repository https://github.com/atoms-ufrj/USER-ALCHEMICAL. The electrostatic interactions were calculated using the damped shifted force (DSF) method~\cite{Fennell2006} with $\alpha$ = 0.2 {\AA}$^{-1}$, with the exception of hexane, for which we considered full Coulombic interactions. For the systems modelled as rigid molecules, we employ the NPT method of Kamberaj~\textit{et al.}~\cite{Kamberaj_2005} using $\Delta t$ = 1 fs. For flexible systems, we employ the scheme due to Shinoda~\textit{et al}.~\cite{Shinoda2004}. PLAYMOL
+We implemented in LAMMPS~\cite{Plimpton1995} the expanded ensemble methodology, as well as the codes regarding the \textit{soft-core} and DSF potential with linear coupling. All of this is available at https://github.com/atoms-ufrj/USER-ALCHEMICAL. The electrostatic interactions were calculated using the damped shifted force (DSF) method~\cite{Fennell2006} with $\alpha$ = 0.2 {\AA}$^{-1}$, with the exception of hexane, for which we considered full Coulombic interactions. For the systems modelled as rigid molecules, we employ the NPT method of Kamberaj~\textit{et al.}~\cite{Kamberaj_2005} using $\Delta t$ = 1 fs. For flexible systems, we employ the scheme due to Shinoda~\textit{et al}.~\cite{Shinoda2004}. Initial configurations were build using the PLAYMOL software available at https://github.com/atoms-ufrj/playmol.
 
 \section{Results and discussion}
 \label{sec:results}
 
 \subsection{Simulation strategies of ionic liquids}
 \label{sec:prel_results}
-In this section, we present results of preliminary simulations which to set the methodology employed in the simulations for free energy calculations. First, we considerd the ionic liquids as flexible ions.
+
+In this section, we present results of preliminary simulations, which aimed at setting up a computational efficient protocol for the ionic liquids studied here.  As alternatives to standard approaches, in this work we assess the possibility of modeling the ions as rigid bodies and employing the DSF method for calculating the electrostatic interactions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{ions_paper.pdf}
+\caption{[emim]$^{+}$ [B(CN)\textsubscript{4}]$^{-}$ [Tf\textsubscript{2}N]$^{-}$.}
+\label{fig:scheme}
+\end{figure}
+
+rigid-body configurations: We first carried out simulations of the isolated ion pairs in order to obtain the minimum energy configurations with respect to the corresponding (classical) model for each case.
 
 \begin{table*}[htp]
 \caption{Densidades de [emim][B(CN)\textsubscript{4}] calculadas a partir simulaciones de NPT DM 298.15 K y 1 atm. La densidad experimental corresponde a $\rho^{\text{exp}}$ = 1.036 g/cm$^{3}$~\cite{Doma_ska_2011}.}
@@ -259,6 +277,40 @@ Weber y Kirchner.~\cite{Weber_2016} &  298.41 $\pm$ 0.03 & 1.1 $\pm$ 0.8 & 1.022
 \end{tablenotes}
 \end{threeparttable}
 \end{table*}
+
+
+\begin{figure*}
+\centering
+\subfloat[text for the first subfigure\label{sfig:testa}]{%
+  \includegraphics[width=.4\linewidth]{koller}%
+}
+\subfloat[text for the second subfigure\label{sfig:testa}]{%
+  \includegraphics[width=.4\linewidth]{batista}%
+}
+
+\subfloat[text for the second subfigure\label{sfig:testa}]{%
+  \includegraphics[width=.4\linewidth]{Liu}%
+}
+\subfloat[text for the second subfigure\label{sfig:testa}]{%
+  \includegraphics[width=.4\linewidth]{Weber}%
+}
+\caption{}
+\label{}
+\end{figure*}
+
+
+\begin{figure}
+\centering
+\subfloat[text for the first subfigure\label{sfig:testa}]{%
+  \includegraphics[width=\linewidth]{Ludwig}%
+}
+
+\subfloat[text for the second subfigure\label{sfig:testa}]{%
+  \includegraphics[width=\linewidth]{Ludwig_anion}%
+}
+\caption{}
+\label{}
+\end{figure}
 
 \subsection{Henry constant of CO\textsubscript{2} in [emim][B(CN)\textsubscript{4}] and [emim][Tf\textsubscript{2}N]}
 \label{sec:henry_results}
@@ -292,6 +344,19 @@ Weber y Kirchner~\cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 \end{threeparttable}
 \end{adjustbox}
 \end{table*}
+
+\begin{figure}
+\centering
+\subfloat[text for the first subfigure\label{sfig:testa}]{%
+  \includegraphics[width=\linewidth]{kollerall.pdf}%
+}
+
+\subfloat[text for the second subfigure\label{sfig:testa}]{%
+  \includegraphics[width=\linewidth]{ludwigall.pdf}%
+}
+\caption{}
+\label{}
+\end{figure}
 
 \subsection{Inifinite-dilution activity coefficient in [emim] [B(CN)\textsubscript{4}]}
 \label{sec:act_results}
