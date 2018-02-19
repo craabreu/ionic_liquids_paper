@@ -1,6 +1,7 @@
 %\documentclass[3p,preprint]{elsarticle}
 \documentclass[3p,twocolumn]{elsarticle}
-\usepackage{lineno,hyperref}
+\usepackage[hidelinks,colorlinks,citecolor=blue]{hyperref}
+\usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{ifthen}
 \usepackage{commath}
@@ -13,8 +14,8 @@
 \usepackage{booktabs}
 \usepackage{colortbl} 
 \usepackage{xcolor}
-\usepackage{float}
-\usepackage{flafter}
+
+
 
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
 
@@ -24,7 +25,7 @@
 \usepackage{graphicx,bm}
 \usepackage[]{subfig}
 \usepackage{epstopdf}
-
+\usepackage{float}
 \biboptions{sort&compress}
 \modulolinenumbers[5]
 
@@ -243,52 +244,43 @@ Among the force fields described in Sec.~\ref{sec:force_field_il}, only in Ref.~
 
 In this section, we present results of preliminary simulations, which aimed at setting up a (more) computationally efficient protocol for the ionic liquids studied here. As alternatives to standard approaches, we assess the possibility of modeling the ions as rigid bodies and employing the DSF method~\cite{Fennell2006} for calculating the electrostatic interactions. For that, we compare the simulated properties of density and radial distribution functions to that obtained when considering the ions as flexible molecules and the Ewald method for the Coulombic interactions.
 
-For the determining the initial configuration to specify for the rigid bodies we performed a preliminary study of the dihedrals in the ethyl group of [emim]$^{+}$, as we consider that its flexibility  may introduce a more significant conformational change in the cation. Small anions are usually simulated as rigid bodies. The nomenclature of the atoms are shown in Fig.~\ref{fig:atoms_name}. In the \textit{united-atoms} version of [emim]$^{+}$,  the nomenclature is identical, but hydrogens ranging from H4 to H11 are eliminated.
+For the determining the initial configuration to specify for the rigid bodies we performed a preliminary study of the dihedrals in the ethyl group of [emim]$^{+}$, as we consider that its flexibility  may introduce a more significant conformational change in the cation. Small anions are usually simulated as rigid bodies. The nomenclature of the atoms are shown in Fig. In the \textit{united-atoms} version of [emim]$^{+}$,  the nomenclature is identical, but hydrogens ranging from H4 to H11 are eliminated.
 
 Using the software TRAVIS~\cite{Brehm_2011}, for each model we obtain the combined distribution function for the angles of the dihedrals C1-N2-C5-C6 and C2-N2-C5-C6 sampled in NPT simulations of 250 ion pairs. We chose this analysis, in place of individual histograms, as it provides simultaneously rigidity of the ring. In Figure we present the results for each model, together withe the color scale associated to the histograms.
 
-A first inspection of Fig.~\ref{fig:dihedrals}, reveals a similar behavior of the models of Refs.~\cite{Koller_2012} and Liu.~\cite{Liu_2014}. This was previsible 
+A first inspection of Fig.~\ref{fig:atoms_id} reveals a similar behavior of the models developed by Koller~\textit{et al.}~\cite{Koller_2012} and Liu~\textit{et al.}~\cite{Liu_2014}. This was expected as in both cases are based on AMBER. In addition, Figs are symmetric, which means that atoms C1-N2-C2 are coplanar.
 
-\begin{figure}
+In the case of , the most likely angles of 90 and 270 
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{ions_paper.pdf}
 \caption{[emim]$^{+}$ [B(CN)\textsubscript{4}]$^{-}$ [Tf\textsubscript{2}N]$^{-}$.}
-\label{fig:atoms_name}
+\label{fig:atoms_id}
 \end{figure}
 
-%\begin{figure*}
-%\centering
-%\subfloat[text for the first subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=.4\linewidth]{koller}%
-%}
-%\subfloat[text for the second subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=.4\linewidth]{batista}%
-%}
-%
-%\subfloat[text for the second subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=.4\linewidth]{Liu}%
-%}
-%\subfloat[text for the second subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=.4\linewidth]{Weber}%
-%}
-%\caption{ggggg}
-%\label{fig:dihedrals}
-%\end{figure*}
+\begin{figure*}
+\centering
+  \includegraphics[width=.4\linewidth]{koller.png}%
+  \includegraphics[width=.4\linewidth]{batista.png}%
 
-%\begin{figure}
-%\centering
-%\subfloat[text for the first subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=\linewidth]{Ludwig}%
-%}
-%
-%\subfloat[text for the second subfigure\label{sfig:testa}]{%
-%  \includegraphics[width=\linewidth]{Ludwig_anion}%
-%}
-%\caption{}
-%\label{}
-%\end{figure}
+  \includegraphics[width=.4\linewidth]{Liu.png}%
+  \includegraphics[width=.4\linewidth]{Weber.png}%
+\caption{}
+\label{k}
+\end{figure*}
 
-\begin{table*}[htp]
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=\linewidth]{Ludwig.png}%
+
+  \includegraphics[width=\linewidth]{Ludwig_anion.png}%
+\caption{lala}
+\label{e}
+\end{figure}
+
+\begin{table*}
 \caption{Densidades de [emim][B(CN)\textsubscript{4}] calculadas a partir simulaciones de NPT DM 298.15 K y 1 atm. La densidad experimental corresponde a $\rho^{\text{exp}}$ = 1.036 g/cm$^{3}$~\cite{Doma_ska_2011}.}
 \begin{threeparttable}
 \begin{tabular}{ c  c  c  c  c}  
@@ -319,7 +311,7 @@ Weber y Kirchner.~\cite{Weber_2016} &  298.41 $\pm$ 0.03 & 1.1 $\pm$ 0.8 & 1.022
 \subsection{Henry constant of CO\textsubscript{2} in [emim][B(CN)\textsubscript{4}] and [emim][Tf\textsubscript{2}N]}
 \label{sec:henry_results}
 
-\begin{table*}[htp]
+\begin{table*}
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
@@ -351,21 +343,21 @@ Weber y Kirchner~\cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 
 \begin{figure}
 \centering
-\subfloat[text for the first subfigure\label{sfig:testa}]{%
+\subfloat[text for the first subfigure]{%
   \includegraphics[width=\linewidth]{kollerall.pdf}%
 }
 
-\subfloat[text for the second subfigure\label{sfig:testa}]{%
+\subfloat[text for the second subfigure]{%
   \includegraphics[width=\linewidth]{ludwigall.pdf}%
 }
 \caption{}
-\label{}
+\label{f}
 \end{figure}
 
 \subsection{Inifinite-dilution activity coefficient in [emim] [B(CN)\textsubscript{4}]}
 \label{sec:act_results}
 
-\begin{table*}[htp]
+\begin{table*}
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
@@ -390,7 +382,7 @@ agua TIP4P/2005   &  0.9948 $\pm$ 0.0003 & 0.2 & 2.015 $\pm$ 0.004 & -9.01 $\pm$
 \end{adjustbox}
 \end{table*}
 
-\begin{table*}[htp]
+\begin{table*}
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
@@ -417,6 +409,8 @@ agua TIP4P/2005& 1.38 $\pm$ 0.008 & -6.32 $\pm$ 0.03 & -4.94 $\pm$ 0.03 & 2 $\pm
 
 \section{Concluding remarks}
 \label{sec:conclusion}
+
+
 
 \section*{Acknowledgments}
 The authors acknowledge the financial support provided by Petrobras (project code CENPES 16113). 
