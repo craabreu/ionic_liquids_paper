@@ -1,0 +1,3 @@
+#!/bin/bash
+for file in `ls *.eps`; do
+    convert -dentisy 300 "$(basename "$file" .eps.txt"
