@@ -1,6 +1,6 @@
 %\documentclass[3p,preprint]{elsarticle}
 \documentclass[3p,twocolumn]{elsarticle}
-\usepackage[hidelinks,colorlinks,citecolor=blue]{hyperref}
+\usepackage[draft,unicode=true,hidelinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{ifthen}
@@ -15,19 +15,19 @@
 \usepackage{colortbl} 
 \usepackage{xcolor}
 
-
-
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
 
-\usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{commath}
 \usepackage{graphicx,bm}
-\usepackage[]{subfig}
 \usepackage{epstopdf}
 \usepackage{float}
 \biboptions{sort&compress}
 \modulolinenumbers[5]
+\usepackage{subfig}
+
+\usepackage[T1]{fontenc}
+
 
 \journal{Journal of \LaTeX\ Templates}
 
@@ -205,18 +205,18 @@ The versatility of ILs for different applications is in part due to the fact tha
 
 In this paper, we consider four models of [emim][B(CN)\textsubscript{4}]. Koller~\textit{et al.}~\cite{Koller_2012} were the first to introduce a specific non-polarizable force field of [emim][B(CN)\textsubscript{4}]. They tested three variations of a \textit{united-atoms} model, in which the alkyl groups $\text{CH}_3$ and $\text{CH}_2$ of [emim]$^{+}$ are replaced by pseudo-atoms. Among them, the ``FF-3'' model best reproduces the experimental values of density, self-diffusion coefficients and viscosity. In short, both the intramolecular and Lennard-Jones parameters of the cation were taken from the work of Liu~\textit{et al.}~\cite{Liu_2006}, which in turn is based on the AMBER~\cite{Cornell_1995} framework. The intramolecular parameters involving the boron atom were extracted from the DREIDING~\cite{Mayo_1990} force field and the anionic vdW parameters were refined based on the values reported by Price~\textit{et al.}~\cite{Price_2001}. The atomic partial charges were derived using the EA-RESP method~\cite{Basma_2001} from \textit{Post-Hartree-Fock ab-initio} calculations at MP2/6–31G$^\ast$+ level of theory, which automatically resulted in total charges on the ions of $\pm$0.8426e. 
 
-The potential parameters of [B(CN)\textsubscript{4}]$^{-}$ derived by Koller~\textit{et al.}~\cite{Koller_2012} were employed by Batista~\textit{et al.}~\cite{Batista_2015} to study aqueous solutions of [emim][B(CN)\textsubscript{4}]. In this case,  the authors considered the \textit{all-atom} model of [emim]$^{+}$ developed by Cadena and Maginn~\cite{Cadena_2006}. The atomic partial charges were obtained using the CHELP procedure~\cite{Breneman_1990}, resulting in net charges of $\pm$0.889$e$ on the ions. It should be noted that those force fields consider different scaling factors for 1-4 non-bonded interactions: Cadena and Maginn~\cite{Cadena_2006} use values of 1.0 y 0.4 for the Lennard-Jones and Coulombic interactions, respectively, while in Koller~\textit{et al.}~\cite{Koller_2012} the corresponding factors are 0.5 y 5/6, in accordance with AMBER force field. Batista~\textit{et al.}~\cite{Batista_2015} employ the same factors as Cadena and Maginn~\cite{Cadena_2006} (J.P. Coutinho, personal communication).
+The potential parameters of [B(CN)\textsubscript{4}]$^{-}$ derived by Koller~\textit{et al.}~\cite{Koller_2012} were employed by Batista~\textit{et al.}~\cite{Batista_2015} to study aqueous solutions of [emim][B(CN)\textsubscript{4}]. In this case,  the authors considered the \textit{all-atom} model of [emim]$^{+}$ developed by Cadena and Maginn \cite{Cadena_2006}. The atomic partial charges were obtained using the CHELP procedure \cite{Breneman_1990}, resulting in net charges of $\pm$0.889$e$ on the ions. It should be noted that those force fields consider different scaling factors for 1-4 non-bonded interactions: Cadena and Maginn \cite{Cadena_2006} use values of 1.0 y 0.4 for the Lennard-Jones and Coulombic interactions, respectively, while in Koller \textit{et al.} \cite{Koller_2012} the corresponding factors are 0.5 y 5/6, in accordance with AMBER force field. Batista \textit{et al.} \cite{Batista_2015} employ the same factors as Cadena and Maginn \cite{Cadena_2006} (J.P. Coutinho, personal communication).
 
-Another set of parameters for [emim][B(CN)\textsubscript{4}] was derived by Liu \textit{et al.}.~\cite{Liu_2014} in a study that investigates the dynamics of CO\textsubscript{2} and N\textsubscript{2} in that IL. Parameters corresponding to the intramolecular and Lennard-Jones interactions were extracted from GAFF~\cite{Wang_2004}, while the atomic partial charges were computed using the RESP method~\cite{Bayly_1993} from \textit{DFT}/B3LYP/6-311+G(d) calculations. The net charges of the ions were manually adjusted to a value of $\pm$0.8$e$.
+Another set of parameters for \mbox{[emim][B(CN)\textsubscript{4}]} was derived by Liu \textit{et al.}\cite{Liu_2014} in a study that investigates the dynamics of CO\textsubscript{2} and N\textsubscript{2} in that IL. Parameters corresponding to the intramolecular and Lennard-Jones interactions were extracted from GAFF~\cite{Wang_2004}, while the atomic partial charges were computed using the RESP method~\cite{Bayly_1993} from \textit{DFT}/B3LYP/6-311+G(d) calculations. The net charges of the ions were manually adjusted to a value of $\pm$0.8$e$.
 
 We also consider the parametrization recently reported by Weber and Kirchner~\cite{Weber_2016}, which is based on the force field developed by P{\'{a}}dua and Canongia Lopes~\cite{Canongia_Lopes_2006}. The potential parameters for the anion are not specified in Refs.~\citenum{Weber_2016} and~\citenum{Canongia_Lopes_2006}, and we obtained them by a direct communication with the authors of Ref.~\citenum{Weber_2016}. The atomic partial charges were derived using the RESP procedure from \textit{Hartree-Fock} calculations at 6-31++G$^{\ast \ast}$ level of theory, resulting in net charges of $\pm$0.8$e$.
 
-Finally, for [emim][Tf\textsubscript{2}N] we use the model of K\"{o}ddermann~\textit{et al}~\cite{K_ddermann_2007}, which result from ``refining'' the force field due to P{\'{a}}dua and Canongia Lopes~\cite{Canongia_Lopes_2006}. This ``refining'' was characterized by their authors as unusual, given that the LJ parameters were modified, while keeping the partial charges at their original values. This model was recently employed by Kerl~\textit{et al.}~\cite{Kerl__2017}, who were able to accurately predict Henry's constant for CO\textsubscript{2} at several temperatures.
+Finally, for [emim][Tf\textsubscript{2}N] we use the model of K\"{o}ddermann~\textit{et al.} \cite{K_ddermann_2007}, which result from refining the force field due to P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}. This refining was characterized by their authors as unusual, given that the LJ parameters were modified, while keeping the partial charges at their original values. This model was recently employed by Kerl \textit{et al.} \cite{Kerl__2017}, who were able to accurately predict Henry's constant for CO\textsubscript{2} at several temperatures.
 
 \subsection{Solutes}
 \label{sec:force_field_sol}
 
-The solutes considered here are hexane, benzene, CO\textsubscript{2}, ethanol, cyclohexane and water. Hexane and benzene were modeled using the OPLS-AA force field~\cite{Jorgensen_1996}, while the TRAPPE potential~\cite{Chen_2001,Potoff_2001} was employed for ethanol and CO\textsubscript{2}. Cyclohexane was simulated using a rigid-body model~\cite{munoz2015lennard} whose sites only interact via the Lennard-Jones potential and for water we employ the TIP4P/2005 model~\cite{Abascal_2005,Vega_2011}. 
+The solutes considered here are hexane, benzene, CO\textsubscript{2}, ethanol, cyclohexane and water. Hexane and benzene were modeled using the OPLS-AA force field~\cite{Jorgensen_1996}, while the TRAPPE potential~\cite{Chen_2001,Potoff_2001} was employed for ethanol and CO\textsubscript{2}. Cyclohexane was simulated using a rigid-body model~\cite{munoz2015lennard} whose sites only interact via the Lennard-Jones potential and for water we employ the TIP4P/2005 model~\cite{Abascal_2005}, \cite{Vega_2011}. 
 
 \section{Computational methods}
 \label{sec:sim_details}
@@ -255,12 +255,11 @@ In this section, we present and compare the results obtained for the following t
 
 First, we describe the approach for defining the rigid bodies. For that, we carried out an analysis of key dihedrals, particularly those whose flexibility could lead to significant conformational changes in [emim]$^{+}$ and [Tf\textsubscript{2}N]$^{-}$. On the other hand, small and highly symmetric anions, such as PF\textsubscript{6} and BF\textsubscript{4} are usually modeled as rigid bodies~\cite{HANKE_2001,Hanke_2003,Lynden_Bell_2006}, which justifies that strategy in the case of [B(CN)\textsubscript{4}]$^{-}$. The atomic nomenclatureare adopted in this paper is shown in Fig~\ref{fig:atoms_id}. In the \textit{united-atoms} version of [emim]$^{+}$, the nomenclature is identical, but the hydrogens ranging from H4 to H11 are eliminated.  
 
-Using the software TRAVIS~\cite{Brehm_2011}, for each model we obtain the combined distribution function (CDF) of the dihedral angles containing the ehtyl chain atoms, which are C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT simulations of 250 ion pairs. The CDF, as an alternative of individual histograms, provides a way to  simultaneously analyse the rigidity of the ring. In Fig.~\ref{fig:dihedrals} we present the results of CDF for each model, together with the color scale associated to the histograms.
+Using the software TRAVIS~\cite{Brehm_2011}, for each model we obtain the combined distribution function (CDF) of the dihedral angles corresponding to the torsions in C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT simulations of 250 ion pairs. The CDF, as an alternative of individual histograms, provides a way to  simultaneously analyze the rigidity of the ring. In Fig.~\ref{fig:dihedrals_emim} we present the results of the CDF for each model.
 
-A first inspection of Fig.~\ref{fig:atoms_id} reveals a similar behavior of the models developed by Koller~\textit{et al.}~\cite{Koller_2012} and Liu~\textit{et al.}~\cite{Liu_2014}. This was expected as both were developed based on AMBER force field. In addition, Figs are symmetric, which means that atoms C1-N2-C2 are coplanar.
+A first inspection of Fig. reveals a similar behavior of the models of [emim]$^{+}$ due to Koller~\textit{et al.}~\cite{Koller_2012} and Liu~\textit{et al.}~\cite{Liu_2014}. This was expected as both were developed based on the AMBER force field. In addition, Figs.(a) and(b) are symmetric, which means that atoms C1-N2-C2 are coplanar. Koller is the most rigid model, with The most likely angles in Fig.~(a) can be found in a narrow region around 90 and 270. Given that these angles correspond to the same configuration in the \textit{united-atom} version, we build all the rigid bodies specifying 90 for the dihedral angle of C5-C5-N2-C1. The other models present a larger flexibility of the ethyl chain, with high probability regions that extend  ina broad of angle values. However, in the case of Liu and Batista, it was possible to the following approach: we consider the most likely angles as obtained by the indificual histogram of the dihedral C5-C5-N2-C1, which were employed to construct two types of rigid bodies. In the case of Liu , 50 of the rigid bodies were build specifying the angle of 90 for the dihedral C6-C5-N2-C1 and -90 of the others. For Batista, we employed the angles 102.6  and -102.6 for buildign both types for rigid bodies in an equal proportion.
 
-In the case of , the most likely angles of 90 and 270 
-
+ 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{ions_paper.pdf}
@@ -270,13 +269,17 @@ In the case of , the most likely angles of 90 and 270
 
 \begin{figure*}
 \centering
-  \includegraphics[width=.4\linewidth]{koller.png}%
-  \includegraphics[width=.4\linewidth]{batista.png}%
-
-  \includegraphics[width=.4\linewidth]{Liu.png}%
-  \includegraphics[width=.4\linewidth]{Weber.png}%
-\caption{}
-\label{fig:dihedrals}
+\subfloat[Koller~\textit{et al.}~\cite{Koller_2012}]{%
+  \includegraphics[width=.4\linewidth]{koller.png}}%
+\subfloat[Batista~\textit{et al.}~\cite{Batista_2015}]{%  
+  \includegraphics[width=.4\linewidth]{batista.png}}%
+  
+\subfloat[Liu~\textit{et al.}~\cite{Liu_2014}]{%
+  \includegraphics[width=.4\linewidth]{Liu.png}}%
+\subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
+  \includegraphics[width=.4\linewidth]{Weber.png}}%
+\caption{Combined distribution function (CDF) of [emim]}
+\label{fig:dihedrals_emim}
 \end{figure*}
 
 
@@ -285,8 +288,8 @@ In the case of , the most likely angles of 90 and 270
   \includegraphics[width=\linewidth]{Ludwig.png}%
 
   \includegraphics[width=\linewidth]{Ludwig_anion.png}%
-\caption{lala}
-\label{e}
+\caption{Combined distribution function (CDF) of anion}
+\label{fig:dihedrals_anion}
 \end{figure}
 
 \begin{table*}
@@ -352,15 +355,15 @@ Weber y Kirchner~\cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 
 \begin{figure}
 \centering
-\subfloat[text for the first subfigure]{%
+\subfloat[[emim][BCN4]-CO\textsubscript{2}]{%
   \includegraphics[width=\linewidth]{kollerall.pdf}%
 }
 
-\subfloat[text for the second subfigure]{%
+\subfloat[[emim][BCN4]-CO\textsubscript{2}]{%
   \includegraphics[width=\linewidth]{ludwigall.pdf}%
 }
-\caption{}
-\label{f}
+\caption{Spatial distribution function}
+\label{fig:sdf}
 \end{figure}
 
 \subsection{Inifinite-dilution activity coefficient in [emim] [B(CN)\textsubscript{4}]}
@@ -414,7 +417,7 @@ agua TIP4P/2005& 1.38 $\pm$ 0.008 & -6.32 $\pm$ 0.03 & -4.94 $\pm$ 0.03 & 2 $\pm
 \end{table*}
 
 \subsection{Study of concentrated solutions of CO\textsubscript{2} in [emim][B(CN)\textsubscript{4}] and [emim][Tf\textsubscript{2}N]}
-\label{sec:prel_results}
+\label{sec:results_conc}
 
 \section{Concluding remarks}
 \label{sec:conclusion}
