@@ -1,6 +1,6 @@
 %\documentclass[3p,preprint]{elsarticle}
 \documentclass[3p,twocolumn]{elsarticle}
-\usepackage[draft,unicode=true,hidelinks,colorlinks,citecolor=blue]{hyperref}
+\usepackage[draft,hidelinks,colorlinks,citecolor=blue]{hyperref}
 \usepackage{lineno}
 \usepackage{amsmath}
 \usepackage{ifthen}
@@ -14,6 +14,7 @@
 \usepackage{booktabs}
 \usepackage{colortbl} 
 \usepackage{xcolor}
+\usepackage{mhchem}
 
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
 
@@ -209,7 +210,7 @@ The potential parameters of [B(CN)\textsubscript{4}]$^{-}$ derived by Koller~\te
 
 Another set of parameters for \mbox{[emim][B(CN)\textsubscript{4}]} was derived by Liu \textit{et al.}\cite{Liu_2014} in a study that investigates the dynamics of CO\textsubscript{2} and N\textsubscript{2} in that IL. Parameters corresponding to the intramolecular and Lennard-Jones interactions were extracted from GAFF~\cite{Wang_2004}, while the atomic partial charges were computed using the RESP method~\cite{Bayly_1993} from \textit{DFT}/B3LYP/6-311+G(d) calculations. The net charges of the ions were manually adjusted to a value of $\pm$0.8$e$.
 
-We also consider the parametrization recently reported by Weber and Kirchner~\cite{Weber_2016}, which is based on the force field developed by P{\'{a}}dua and Canongia Lopes~\cite{Canongia_Lopes_2006}. The potential parameters for the anion are not specified in Refs.~\citenum{Weber_2016} and~\citenum{Canongia_Lopes_2006}, and we obtained them by a direct communication with the authors of Ref.~\citenum{Weber_2016}. The atomic partial charges were derived using the RESP procedure from \textit{Hartree-Fock} calculations at 6-31++G$^{\ast \ast}$ level of theory, resulting in net charges of $\pm$0.8$e$.
+We also consider the parametrization recently reported by Weber and Kirchner \cite{Weber_2016}, which is based on the force field developed by P{\'{a}}dua and Canongia Lopes~\cite{Canongia_Lopes_2006}. The potential parameters for the anion are not specified in Refs.~\citenum{Weber_2016} and~\citenum{Canongia_Lopes_2006}, and we obtained them by a direct communication with the authors of Ref.~\citenum{Weber_2016}. The atomic partial charges were derived using the RESP procedure from \textit{Hartree-Fock} calculations at 6-31++G$^{\ast \ast}$ level of theory, resulting in net charges of $\pm$0.8$e$.
 
 Finally, for [emim][Tf\textsubscript{2}N] we use the model of K\"{o}ddermann~\textit{et al.} \cite{K_ddermann_2007}, which result from refining the force field due to P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}. This refining was characterized by their authors as unusual, given that the LJ parameters were modified, while keeping the partial charges at their original values. This model was recently employed by Kerl \textit{et al.} \cite{Kerl__2017}, who were able to accurately predict Henry's constant for CO\textsubscript{2} at several temperatures.
 
@@ -253,19 +254,22 @@ We end this section with a brief description of the procedure for generating the
 
 In this section, we present and compare the results obtained for the following two cases: (1) flexible ions and the Particle-Particle-Particle-Mesh (PPPM) method~\cite{Hockney_1988} with a tolerance of 1$\times$10$^{-4}$ for the evaluation of the Ewald sums~\cite{Ewald_1921}, and (2) ions modeled as rigid bodies with the DSF method~\cite{Fennell2006} for calculating the Coulombic interactions.
 
-First, we describe the approach for defining the rigid bodies. For that, we carried out an analysis of key dihedrals, particularly those whose flexibility could lead to significant conformational changes in [emim]$^{+}$ and [Tf\textsubscript{2}N]$^{-}$. On the other hand, small and highly symmetric anions, such as PF\textsubscript{6} and BF\textsubscript{4} are usually modeled as rigid bodies~\cite{HANKE_2001,Hanke_2003,Lynden_Bell_2006}, which justifies that strategy in the case of [B(CN)\textsubscript{4}]$^{-}$. The atomic nomenclatureare adopted in this paper is shown in Fig~\ref{fig:atoms_id}. In the \textit{united-atoms} version of [emim]$^{+}$, the nomenclature is identical, but the hydrogens ranging from H4 to H11 are eliminated.  
+First, we describe the approach for building the rigid bodies. For that, we carried out an analysis of key dihedrals, particularly those whose flexibility could lead to significant conformational changes in [emim]$^{+}$ and [Tf\textsubscript{2}N]$^{-}$. On the other hand, small and highly symmetric anions, such as PF\textsubscript{6} and BF\textsubscript{4} are usually modeled as rigid bodies~\cite{HANKE_2001,Hanke_2003,Lynden_Bell_2006}, which justifies that strategy in the case of [B(CN)\textsubscript{4}]$^{-}$. The atomic nomenclature adopted in this paper is shown in Fig~\ref{fig:atoms_id}. In the \textit{united-atoms} version of [emim]$^{+}$, the nomenclature is identical, but the hydrogens ranging from H4 to H11 are eliminated.
 
-Using the software TRAVIS~\cite{Brehm_2011}, for each model we obtain the combined distribution function (CDF) of the dihedral angles corresponding to the torsions in C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT simulations of 250 ion pairs. The CDF, as an alternative of individual histograms, provides a way to  simultaneously analyze the rigidity of the ring. In Fig.~\ref{fig:dihedrals_emim} we present the results of the CDF for each model.
-
-A first inspection of Fig. reveals a similar behavior of the models of [emim]$^{+}$ due to Koller~\textit{et al.}~\cite{Koller_2012} and Liu~\textit{et al.}~\cite{Liu_2014}. This was expected as both were developed based on the AMBER force field. In addition, Figs.(a) and(b) are symmetric, which means that atoms C1-N2-C2 are coplanar. Koller is the most rigid model, with The most likely angles in Fig.~(a) can be found in a narrow region around 90 and 270. Given that these angles correspond to the same configuration in the \textit{united-atom} version, we build all the rigid bodies specifying 90 for the dihedral angle of C5-C5-N2-C1. The other models present a larger flexibility of the ethyl chain, with high probability regions that extend  ina broad of angle values. However, in the case of Liu and Batista, it was possible to the following approach: we consider the most likely angles as obtained by the indificual histogram of the dihedral C5-C5-N2-C1, which were employed to construct two types of rigid bodies. In the case of Liu , 50 of the rigid bodies were build specifying the angle of 90 for the dihedral C6-C5-N2-C1 and -90 of the others. For Batista, we employed the angles 102.6  and -102.6 for buildign both types for rigid bodies in an equal proportion.
-
- 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{ions_paper.pdf}
 \caption{[emim]$^{+}$ [B(CN)\textsubscript{4}]$^{-}$ [Tf\textsubscript{2}N]$^{-}$.}
 \label{fig:atoms_id}
 \end{figure}
+
+Using the software TRAVIS~\cite{Brehm_2011}, for each model we obtain the combined distribution function (CDF) of the dihedral angles corresponding to the torsions in C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT simulations of 250 ion pairs. The CDF, as an alternative of individual histograms, provides a way to  simultaneously analyze the rigidity of the ring. In Fig.~\ref{fig:dihedrals_emim} we present the results for each model.
+
+A first inspection of Fig.~\ref{fig:dihedrals_emim} reveals a similar behavior of the models of [emim]$^{+}$ due to Koller \textit{et al.} \cite{Koller_2012} and Liu \textit{et al.} \cite{Liu_2014}. This was expected as both were developed based on the AMBER force field. In addition, Figs.~\ref{fig:dihedrals_emim}(a) and \ref{fig:dihedrals_emim}(b) are symmetric, which means that atoms C1, N2, and C2 are coplanar. The most likely angles in Fig.~\ref{fig:dihedrals_emim}(a) can be found in a narrow region around 90$^{\circ}$ and 270$^{\circ}$. Given that these angles correspond to the same configuration in the \textit{united-atom} representation, we build all the rigid bodies specifying the value of 90$^{\circ}$ for the dihedral angle of C6-C5-N2-C1. The other models showed a larger flexibility with high probability regions that extend in a broad range of angle values. Despite this, it was possible to build two types of rigid bodies, in equal proportion, by specifying the most probables dihedral angles of C6-C5-N2-C1. In the case of Liu \textit{et al.} \cite{Liu_2014}, those angles correspond to the values of  90$^{\circ}$ and -90$^{\circ}$, while for the model of Batista \textit{et al.} \cite{Batista_2015}, we employed the angles of 102.6$^{\circ}$ and -102.6$^{\circ}$. Fig.~\ref{fig:dihedrals_emim}(d) shows that the model of Weber and Kirchner \cite{Weber_2016} presents a non negligible probability of sampling the angle value of 0$^{\circ}$, which notably differs from what was observed for the other models and we defined four types of rigid bodies: 150$^{\circ}$, 180$^{\circ}$ and 210$^{\circ}$ were employed to build 30~\%, 25~\% and 30~\% of the rigid bodies, respectively; and for the remaining 15 \% we specified the angle of 0$^{\circ}$.
+
+In Table~\ref{table:props_dsf} we show the results of density for the strategies mentioned at the begining of this section considered to simulate [emim][B(CN)\textsubscript{4}]. When comparing the cases (1) and (2) for each model, we observe that the density values practically do not differ. In addition, the model of Koller \textit{et al.} \cite{Koller_2012} best reproduces the experimental density. The model due to Weber and Kirchner also presents a small deviation of 1 \%. 
+
+For the simulation strategies (1) and (2) we have also compared the results of relevant radial distribution functions (rdfs). In the Appendix. The better agreement is found for the force fields due to Koller \textit{et al.} \cite{Koller_2012} and Batista \textit{et al.} \cite{Batista_2015}. The model of Liu \textit{et al.} \cite{Liu_2014} presents small deviations and the simulation with rigid bodies qualitatively reproduces the results obtained for flexible ions. Although not shown here, this conclusions are valid for other calculated rdfs:  N(anion)-N(cation), C6(cation)-N(anion), C2(cation)-B(anion). The simulation with rigid bodies for the model of Weber y Kirchner\cite{Weber_2016} generates considerable discrepancies for the pairs of C5(catión)-N(anión), whose rdf present an anomaly at the distance of 4 {\AA}, and for C2(cation)-B(anion). That is why for this case, we have considered as rigid only the ring imidazolium, and let flexible the ethyl chain.
 
 \begin{figure*}
 \centering
@@ -282,6 +286,7 @@ A first inspection of Fig. reveals a similar behavior of the models of [emim]$^{
 \label{fig:dihedrals_emim}
 \end{figure*}
 
+For the system [emim][Tf\textsubscript{2}N] we carried out an analogous study of dihedrals. The CDF of dihedrals C1-N2-C5-C6 and C2-N2-C5-C6 is shown in Fig.~\ref{fig:die_ntf2}, which is similar to the one obtained for [emim]$^{+}$ modeled with the force field of Weber and Kirchner~\cite{Weber_2016}, but  the dihedral angle C1-N2-C5-C6 most likely corresponds to the value of 0$^{\circ}$. The similary was expected as both models are based on the force field of [emim]$^{+}$ developed by Canongia-Lopes and Pádua \cite{Canongia_Lopes_2006}. With regards to the anion [Tf\textsubscript{2}N]$^{-}$, Deetlefs \textit{et al.}~\cite{Deetlefs_2006} have determined the conformer population of the liquid phase employing neutron difraction. They observed that [Tf\textsubscript{2}N]$^{-}$ is mostly in \textit{trans} configuration (Fig.~\ref{fig:kdderman_a}). Fig.~\ref{fig:cddf_anion}, which corresponds to the CDF for the contiguous dihedrals: C1-S1-N1-S2 y S1-N1-S2-C2, verifies qualitatively what was observed by Deetlefs \textit{et al.} \cite{Deetlefs_2006}. However, in this case we have not employed the strategy of rigid bodies, because the flexibility of the anion gives rise to highly different conformation and a more rigorous strategy for determinaning the proportion of rigid bodies is required.  Thus, for the simulation of solvation of CO\textsubscript{2} in  [emim][Tf\textsubscript{2}N] will be carried out considering flexible ions and the DSF method with $\alpha$ = 0.2 {\AA}$^{-1}$. The simulated density for the pure ionic liquid was 1.495 $\pm$ 0.009 (g/cm$^3$), which has an error of 1.12\% with respect to the experimental density 1.513 g/cm$^3$)~\cite{Tokuda_2005}.
 
 \begin{figure}[H]
 \centering
@@ -323,6 +328,8 @@ Weber y Kirchner.~\cite{Weber_2016} &  298.41 $\pm$ 0.03 & 1.1 $\pm$ 0.8 & 1.022
 \subsection{Henry constant of CO\textsubscript{2} in [emim][B(CN)\textsubscript{4}] and [emim][Tf\textsubscript{2}N]}
 \label{sec:henry_results}
 
+For each model of [emim][B(CN)\textsubscript{4}] described in Sec~\ref{sec:force_field_il}, in Table \ref{table:henry} we present the results of solvation free energy of CO\textsubscript{2} along with the Henry constant ($K_s$), as obtained from Eq.~\ref{eq:henry_eq}, which we compare with the experimental value reported by Mahurin \textit{et al.} \cite{Mahurin_2010}. Table \ref{table:henry} also includes the simulated results for [emim][Tf\textsubscript{2}N] and the experimental $K_s$ obtained by Finotello \textit{et al.}\cite{Finotello_2008}. The uncertainties were calculated using standard error propagation.
+
 \begin{table*}
 \centering
 \begin{adjustbox}{width=1\textwidth}
@@ -353,6 +360,14 @@ Weber y Kirchner~\cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 \end{adjustbox}
 \end{table*}
 
+It should be pointed out that the simulated $\Delta G$ of the model due to Liu \textit{et al.}~\cite{Liu_2014} is statistically identical to the value of -0.91 $\pm$ 0.03 kcal/mol reported by those authors, who applied the BAR method to independent simulations in $\lambda_{\text{LJ}}$ and $\lambda_{\, \text{Coul}}$. Moreove, the value of $\Delta G$ obtained for [emim][Tf\textsubscript{2}N] is very close -0.534 kcal/mol, which was obtained by Kerl \textit{et al.} \cite{Kerl__2017} using FEP method and no uncertainty is reported.
+
+In Table \ref{table:henry} we observe that the model of Koller y col.~\cite{Koller_2012} best reproduces the experimental value of $K_s$. Furthermore, the models with more errors in $K_s$, neither were able to reproduce the experimental density (Table \ref{table:props_dsf}). If we  look at the $\Delta G_{\, \text{LJ}}$ profiles in Fig. we can see that for the models of Batista \textit{et al.} \cite{Batista_2015} and Liu \textit{et al.}~\cite{Liu_2014}, the maximum of free energy occur at lower values of energy. This indicates that those models subestimate the interatomic interactions, which explains the ``facility'' to inset the solute in those systems and explains the results relative to simulated densities. 
+
+The $\Delta G_{\, \text{sim}}$ obtained for [emim][B(CN)\textsubscript{4}] suggest a more favorable solvation of CO\textsubscript{2} than in [emim][Tf\textsubscript{2}N]. The contribution to $K_s$ from a more negative $\Delta G_{\, \text{sim}}$ is compensated with the higher molar density of [emim][B(CN)\textsubscript{4}], which tradues in almost equal values of $K_s$ for both ionic liquids.
+
+We now proceed to analyse the spatial distribution functions (SDFs)\cite{Svishchev_1993} corresponding to simulations of the systems CO\textsubscript{2}-[emim][B(CN)\textsubscript{4}] and CO\textsubscript{2}-[emim][Tf\textsubscript{2}N] for a molar fraction for the solute of 0.1. obtained using the software packages TRAVIS~\cite{Brehm_2011} and VMD~\cite{HUMP96}. In Fig.~\ref{fig:sdf_ions} we present the SDFs of the cation and the anion around a molecule of CO\textsubscript{2}. The isovalues were determined from a visual inspection in VDM, so as to obtain the probabilities corresponding to the first peak of the RDFs. In what follows, we refer to first solvation shell. Fig.~\ref{fig:ludwig_sdf} correspond to ions [emim]$^{+}$ and [Tf\textsubscript{2}N]$^{-}$, it can be seen that the region with low probability of finding an ion is larger than for [emim][B(CN)\textsubscript{4}]. In Fig.~\ref{fig:anions} the SDFs involving the anions only, the first solvation shell regarding [B(CN)\textsubscript{4}]$^{-}$ occur at a sligthly shorter distance than for [Tf\textsubscript{2}N]$^{-}$. In accordance with the more favorable solvation indicated by the values of the solvation free energies.
+
 \begin{figure}
 \centering
 \subfloat[[emim][BCN4]-CO\textsubscript{2}]{%
@@ -368,6 +383,13 @@ Weber y Kirchner~\cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 
 \subsection{Inifinite-dilution activity coefficient in [emim] [B(CN)\textsubscript{4}]}
 \label{sec:act_results}
+
+Having selected the model of [emim][B(CN)\textsubscript{4}] which best reproduces the experimental $K_s$ of CO\textsubscript{2}, we now proceed with the calculation of the infinite-dilution activity coefficient $\gamma^{\, \infty}$ for the solutes benzene, hexane, cyclohexane, ethanol and water; which were modeled with the force fields mentioned in Sec.~\ref{sec:force_field_sol}. We have chosen those solutes in order to compare with recent experimental data reported by Yan \textit{et al.}\cite{Yan_2010} and Doma{\'{n}}ska \textit{et al.} \cite{Doma_ska_2011}.
+
+The prediction of $\gamma^{\, \infty}$ we have the additional difficulty, given that the solute model has to be able to reproduce the pure solvation free energy, as well. In Table~\ref{table:mu_solutos} we present the simulated densities and the solvation free energies for the pure solutes $(\Delta G^{0}_{\text{sim}})$, which were compared to experimental data extracted from the work of Chang~\cite{Chang_2009}, which in turn has recomplied  En dicho trabajo se realiza una recopilación de $\Delta G^{0,\text{exp}}$ a partir de diversas fuentes bibliográficas.  Cabe mencionar que no fue posible hallar en la literatura el valor correspondiente a ciclohexano. El único soluto para el cual se logra reproducir el valor de $\Delta G^{0,\text{exp}}$ corresponde a etanol. Para los otros solutos, el error en la predicción se encuentra en torno del 10\%.
+
+Los resultados de $\gamma^{\, \infty}$ en el líquido iónico [emim][B(CN)\textsubscript{4}] se presentan en la Tabla~\ref{table:gamma}. En los casos de benceno y agua las predicciones son excelentes, aunque existe una compensación de errores, dadas las divergencias observadas en la Tabla~\ref{table:mu_solutos}. Estas divergencias hacen necesaria una revisión más exhaustiva, tanto de los datos experimentales de la energía libre de solvatación, como de los campos de fuerza de los solutos. Nótese que los datos experimentales de $\gamma^{\, \infty}$ relativos al hexano difieren de forma considerable para las temperaturas próximas de 298.15 K y 303 K, con lo cual en este caso se hace más dificil aún determinar la calidad de los resultados de la simulación.
+
 
 \begin{table*}
 \centering
