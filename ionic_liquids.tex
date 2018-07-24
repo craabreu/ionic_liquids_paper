@@ -103,7 +103,7 @@ The use of ionic liquids (ILs) as solvents for \ce{CO_2} sequestration occupies 
 
 Recently, the potentiality of ILs for \ce{CO_2} capture has been called into question by Carvalho \textit{et al.} \cite{Carvalho_2016}, who warn that the use of molar fraction to express solubility has, to some extent, perpetuated misconceptions regarding the supposed absorption capability of certain ILs. Although most thermodynamic models are formulated in terms of molar fractions, a key factor that dictates the absorption process efficiency is given by the amount of \ce{CO_2} that can be dissolved in a certain \textit{volume} or \textit{mass} of solvent. By expressing the solubility values in terms of molality and performing an exhaustive comparison between various ILs, Ref. \cite{Carvalho_2016} shows that most systems which promote a physical absorption of \ce{CO_2} exhibit a solubility similar or even lower than that observed for the heavy alkane eicosane. This is true for the ``popular'' \ce{[bmim][NTf_2]}, \ce{[bmim][PF_6]}, \ce{[bmim][BF_4]}, as well as for those synthesized from the fluorination of the cation or the anion, such as \ce{[(C_2H_2F_2)mim][NTf_2]} and \ce{[hmim][pFAP]}; the only exception being the family of ILs containing the anion tetracyanoborate \ce{[B(CN)_4]^-}.
 
-There is no obvious explanation accounting for the enhanced solubility promoted by the presence of the anion \ce{[B(CN)_4]^-}. In this sense, Molecular Simulation provides with a powerful tool for studying solvation processes. To the best of our knowledge, only one study in literature reports the free energy of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} \cite{Liu_2014_1} which, in addition, is overestimated. This motivated us to evaluate different force fields of \ce{[emim][B(CN)_4]} and, as we will show below, it was possible to select a model that successfully reproduces the experimental value of the Henry constant of \ce{CO_2}. For comparison, \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} were analyzed, both in the condition of infinite dilution and at high concentrations. The simulations confirmed what is observed in experiments: for \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}. The infinite-dilution activity coefficients of solutes hexane, benzene, cyclohexane, ethanol, and water in \ce{[emim][B(CN)_4]} were also calculated, and a comparison was made with experimental values recently reported in literature.
+There is no obvious explanation accounting for the enhanced solubility promoted by the presence of the anion \ce{[B(CN)_4]^-}. In this sense, molecular simulation provides with a powerful tool for studying solvation processes. To the best of our knowledge, only one study in literature reports the free energy of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} \cite{Liu_2014_1} which, in addition, is overestimated. This motivated us to evaluate different force fields of \ce{[emim][B(CN)_4]} and, as we will show below, it was possible to select a model that successfully reproduces the experimental value of the Henry constant of \ce{CO_2}. For comparison, \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} were analyzed, both in the condition of infinite dilution and at high concentrations. The simulations confirmed what is observed in experiments: for \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}. The infinite-dilution activity coefficients of solutes hexane, benzene, cyclohexane, ethanol, and water in \ce{[emim][B(CN)_4]} were also calculated, and a comparison was made with experimental values recently reported in literature.
 
 This paper is organized as follows: in Sec.~\ref{sec:theory} we present the theoretical background, which is followed by a brief description of the force fields used in this work. The methodological details are provided in Sec.~\ref{sec:sim_details} and the corresponding numerical results are given in Sec.~\ref{sec:results}. Finally, we present some concluding remarks in Sec.~\ref{sec:conclusion}.
 
@@ -113,49 +113,49 @@ This paper is organized as follows: in Sec.~\ref{sec:theory} we present the theo
 In this section, we present the formalism that allows us to compute the Henry constant and activity coefficient, both at infinite dilution, from the simulated free energy. For this, we rely on the work of Shirts \textit{et al.} \cite{Shirts_2003}. Then, we reformulate the equations in order to study concentrated solutions, which would be the more likely scenario in \ce{CO_2} capture processes.
 
 \subsection*{Solvation free energy}
-The solvation free energy, $\Delta G_{\text{solv}}$, is the reversible work needed to transfer a solute molecule from the gas phase to the solution. For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to connect the ``endpoint'' states, whose free energy difference is to be estimated. In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through a coupling parameter $\lambda$, which scales the intermolecular interactions taking values in the interval [0,1]: $\lambda$ = 1 corresponds to a fully interacting system, while for $\lambda$ = 0 the interactions between the solute and solvent molecules are completely turned-off.
+The solvation free energy, $\Delta G_{\text{solv}}$, is defined as the reversible work needed to transfer a solute molecule from the gas phase to the solution. For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to connect the ``endpoint'' states, whose free energy difference is to be estimated. In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the intermolecular interactions taking values in the interval [0,1]: $\lambda$ = 1 corresponds to a fully interacting system, while for $\lambda$ = 0 the interactions between the solute and solvent molecules are completely turned-off.
 
-In the following, the subscripts ``$s$'' and ``$\text{IL}$'' refer to the solute and the solvent (ionic liquid), respectively. For a system containing $N_{\text{IL}}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is defined as
+In the following, the subscripts ``$s$'' and ``$\text{IL}$'' refer to the solute and the solvent (ionic liquid), respectively. For a system containing $N_{\text{IL}}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_{\text{sim}} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_{LI},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_{LI},P,T,\lambda = 0)}, 
+\Delta G_{\text{sim}} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 0)}, 
 \end{equation}
-where $\bigtriangleup$ denotes the isobaric-isothermal partition function. Shirts \textit{et al}. \cite{Shirts_2003} presented a detailed mathematical derivation allowing to relate $\Delta G_{\text{sim}}$ to what is experimentally known as the solvation free energy and obtained the following expression: 
+where superscript ``$l$'' refers to the liquid solution, $\bigtriangleup$ denotes the isobaric-isothermal partition function, and $k_b$ is the Boltzmann's constant. Shirts \textit{et al.} \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_{\text{sim}}$ to what is experimentally known as the solvation free energy. They found out that
 \begin{equation}
 \begin{split}
 \label{eq:free_solv}
  \Delta G_{\text{solv}}& =  k_b T \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right)\\ &= \Delta G_{\text{sim}} - k_bT \ln \left( \frac{V^{\ast}}{V_1} \right) ,
 \end{split}
 \end{equation}
-where $k_b$ is the Boltzmann's constant, $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_{\text{LI}}$,P,T) and ($N_s^l$,$N_{\text{LI}}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid phase and $P_s$ is the partial pressure of the solute in the gas phase. It should be noted that in the derivation of Eq.~\ref{eq:free_solv}, the gas phase was treated as an ideal gas. 
+where $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_{\text{LI}}$,P,T) and ($N_s^l$,$N_{\text{LI}}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid phase and $P_s$ is the partial pressure of the solute in the gas phase. It should be noted that in the derivation of Eq.~\ref{eq:free_solv}, the gas phase was treated as an ideal gas. 
 
-For small solutes, such as those considered in this work, the magnitude of the term $V^{\ast}/V_1$ is typically on the order of the free energy uncertainties \cite{Shirts_2003}. Hence, that term could be neglected and will be omitted hereafter.
+For small solutes, such as those considered in this work, the magnitude of the term $V^{\ast}/V_1$ is typically on the order of the free energy uncertainties \cite{Shirts_2003}. Hence, that term can be neglected and will be omitted hereafter.
 
 \subsection*{Henry constant}
-If both $P_s$ and $c_s^{\ast}$ were not large, we can employ Eq.~\ref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is given by \cite{Prausnitz}
+If both $P_s$ and $c_s^{\ast}$ were not large, we can resort to Eq.~\ref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
 \begin{equation}
 \text{K}_s =\frac{P_s}{x_s}.
 \end{equation}
-Therefore, by simply expressing Eq.~\ref{eq:free_solv} in terms of the molar fraction $x_s$ and considering MW (molecular weight of the solution) = $\text{MW}_{\scaleto{LI}{4pt}}$ as well as $\rho$ (mass density of the solution) = $\rho_{\scaleto{LI}{4pt}}$, we obtain that
+Therefore, by simply expressing Eq.~\ref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that MW (molecular weight of the solution) = $\text{MW}_{\scaleto{IL}{4pt}}$, as well as $\rho$ (mass density of the solution) = $\rho_{\scaleto{IL}{4pt}}$, we obtain that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_{\scaleto{LI}{4pt}} R T \exp(\beta \, \Delta G_{\text{sim}}),
+K_s = \tilde{\rho}_{\scaleto{IL}{4pt}} R \, T \exp(\beta \, \Delta G_{\text{sim}}),
 \end{equation}
-where $R$ is the gas constant.
+where $\tilde{\rho}_{\scaleto{IL}{4pt}}$ is the molar density of the solvent and $R$ is the gas constant.
 
 \subsection*{Infinite-dilution activity coefficient}
 
-As will be shown below, the prediction of activity coefficients requires separate simulations in the pure solute, and in what follows we employ the superscript ``$0$'' to denote the pure solute properties.
+As will be shown below, the prediction of activity coefficients requires extra simulations involving the pure solute. In what follows, we use the superscript ``$0$'' to denote the pure solute properties.
 
-Using standard thermodynamic relations \cite{Tester}, we write the activity coefficient $\gamma_s$ in terms of residual chemical potentials, as follows
+Using standard thermodynamic relations \cite{Tester}, we write the activity coefficient $\gamma_s$ in terms of residual chemical potentials, as follows:
 \begin{equation}
 \label{eq:gamma}
 \ln \gamma_s = \frac{1}{RT} (\mu_s^R - \mu_s^{R,0}),
 \end{equation}
 where $\mu_s^R$ and $\mu_s^{R,0}$ are the residual chemical potentials of the solute in the solution and in the pure solute, respectively. It is worth noting that we have used the definition $\mu_s^{R}$ (P,T) = $\mu_s$ (P,T) - $\mu_s^{ig}$ (P,T), where the superscript $ig$ refers to a solution of ideal gases. Also, recall that $\mu_s^{ig} (P,T)$ = $\mu_s^{ig,0} (P,T)$ + $RT \ln x_s$, so we have that
 \begin{equation}
-\mu_s^R = \mu_s^l(N_s^l,N_{LI},P,T) - \mu_s^{ig,0}(P,T) - k_b T \ln x_s, 
+\mu_s^R = \mu_s^l(N_s^l,N_{LI},P,T) - \mu_s^{ig,0}(P,T) - k_b T \ln x_s.
 \end{equation}
-where $\mu_s^l$ is the chemical potential of the solute in the liquid solution and $x_s$ is the molar fraction. Replacing $\mu_s^{l}$ and $\mu_s^{ig,0}$ by the corresponding expressions derived in Ref. \cite{Shirts_2003} yields
+Replacing $\mu_s^{l}$ and $\mu_s^{ig,0}$ by the corresponding expressions derived in Ref.~\cite{Shirts_2003} yields
 \begin{equation}
 \label{eq:mu_res}
 \mu_s^R = \Delta G_{\text{sim}} - k_b T \ln \left( \frac{V^{\ast} P}{N_s^l k_b T} \right) -  k_b T \ln x_s.
@@ -166,12 +166,12 @@ Of course, an analogous equation holds for $\mu_s^{R,0}$:
 \mu_s^{R,0} = \Delta G_{\text{sim}}^{0} - k_b T \ln \left( \frac{V^{\ast,0} P}{N_s^{l,0} k_b T} \right).
 \end{equation}
 
-Considering $N_s^{l}$ = 1, which represents the infinite-dilute condition, and substituting Eqs.~\ref{eq:mu_res} and~\ref{eq:mu_res_0} into Eq.~\ref{eq:gamma}, we  obtain that
+If one makes $N_s^{l}$ = 1, and substitute Eqs.~\ref{eq:mu_res} and~\ref{eq:mu_res_0} into Eq.~\ref{eq:gamma}, the infinite-dilution activity coefficient, $\gamma^{\infty}_s$, can be predicted according to the following equation:
 \begin{equation}
 \label{eq:gamma_inf}
 \ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_{\text{sim}} - \Delta G_{\text{sim}}^{0} \right) + \frac{c_{\scaleto{LI}{4pt}}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
 \end{equation}
-where $c_{\scaleto{LI}{4pt}}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ correspond to the numerical densities of the solvent and the pure solute, respectively.
+where $c_{\scaleto{IL}{4pt}}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ are the numerical densities of the solvent and the pure solute, respectively.
 
 \subsection*{Partial pressure estimation}
 \label{sec:partial_pressure}
@@ -186,16 +186,24 @@ where $\phi_s$ is the fugacity coefficient of the solute. This equation, togethe
 \label{eq:fgas_d}
 f^{g}_s = \exp  \left( \beta \Delta G_{\text{sim}} \right) +  k_b T c_s^{\ast}, 
 \end{equation}
-where $f^{g}_s$ is the fugacity of the solute in the gas phase. Having calculated $f^{g}_s$, $P_s$ could be predicted using the following equation
+where $f^{g}_s$ is the fugacity of the solute in the gas phase. Having calculated $f^{g}_s$, $P_s$ can be predicted using the following equation
 \begin{equation}
 \label{eq:fgas}
 f^{g}_s = P_s \exp\left[ \frac{B_s(T) P_s}{R T} \right],
 \end{equation}
-where $B_s$ corresponds to the second virial coefficient. Here we employ the correlation for \ce{CO_2} introduced by Holste \textit{et al} \cite{Holste_1987}, which is
+where $B_s$ corresponds to the second virial coefficient. 
+
+Here we employ the correlation of $B_s$ for \ce{CO_2} introduced by Holste \textit{et al.} \cite{Holste_1987}, which is
 \begin{equation}
 B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
-where $B_0$ = 23.02991 cm$^3$/mol, $B_1$ = $-2.455297$ $\times$ 10$^3$ (Kcm$^3$/mol) and $B_2$ = -1.22675$\times$10$^7$ (K$^2$cm$^3$/mol). Actually, the prediction of $P_s$ should be iterative and in this work we propose the following scheme: (i) run an NPT simulation, (ii) calculate $\Delta G_{\text{sim}}$ and $f^{g}_s$ via Eq.~\ref{eq:fgas_d}, (iii) employ $f^{g}_s$ in Eq.~\ref{eq:fgas} to compute $P_s$ (iv) if $P_s$ $\neq$ P, repeat the above steps using $P_s$ as the specified pressure in a new NPT simulation. This is done until $P_s$ = P.
+where $B_0$ = 23.02991 cm$^3$/mol, $B_1$ = $-2.455297$ $\times$ 10$^3$ (Kcm$^3$/mol) and $B_2$ = -1.22675$\times$10$^7$ (K$^2$cm$^3$/mol).
+At equilibrium, $P_s$ = $P$.
+However, 
+equilibrium pressure
+We have found from preliminaries simulations that $\Delta G_{\text{sim}}$
+
+ Actually, the prediction of $P_s$ should be iterative and in this work we propose the following scheme: (i) run an NPT simulation, (ii) calculate $\Delta G_{\text{sim}}$ and $f^{g}_s$ via Eq.~\ref{eq:fgas_d}, (iii) employ $f^{g}_s$ in Eq.~\ref{eq:fgas} to compute $P_s$ (iv) if $P_s$ $\neq$ P, repeat the above steps using $P_s$ as the specified pressure in a new NPT simulation. This is done until $P_s$ = P.
 
 \section{Force fields}
 \label{sec:force_field}
