@@ -354,7 +354,7 @@ On the other hand, small and highly symmetric anions, such as \ce{PF_6} and \ce{
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=\linewidth]{ions_paper.pdf}
+\includegraphics[width=\linewidth]{atoms_id.pdf}
 \caption{Adopted nomenclature for 1-ethyl-3-methylimidazolium  (\ce{[emim]^+}), tetracyano borate (\ce{[B(CN)_4]^-}) and bis(trifluoromethylsulfonyl)amide (\ce{[NTf_2]^-}).}
 \label{fig:atoms_id}
 \end{figure}
@@ -504,8 +504,12 @@ Also, the first solvation shell due to [B(CN)\textsubscript{4}]$^{-}$ occurs at 
 \subfloat[]{%
   \includegraphics[width=\linewidth]{ludwigall.pdf}%
 }
+
+\subfloat[]{%
+  \includegraphics[width=\linewidth]{anionanion.pdf}%
+}
 \caption{Spatial distribution functions (SDFs) of (a) \ce{[B(CN)_4]^-} (green) and \ce{[emim]^+} (yellow) at the isosurface values of 0.138 and 0.12, respectively; and of (b) \ce{[NTf_2]^-} (blue) and \ce{[emim]^+} (white) at the isosurface values of 0.086 and 0.063, respectively.
-Fig. (c) corresponds to the SDFs of the anions, only.}
+Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \label{fig:sdf_ions}
 \end{figure}
 
@@ -593,17 +597,31 @@ $\text{[emim]}$[Tf\textsubscript{2}N]~\cite{K_ddermann_2007}  & 312.13 & 37 & 0.
 \end{threeparttable}
 \end{table*}
 
-In Fig. we present the results of each iteration according to the scheme proposed in Sec. \ref{sec:partial_pressure}. The predicted values of pressure ($P_s$) reproduce what is observed experimentaly, in the sense that $P_s$ for the system \ce{CO_2}-\ce{[emim][B(CN)_4]} is considerably smaller than the value obtained for \ce{CO_2}-[emim][Tf\textsubscript{2}N].
+In Fig.~\ref{fig:pressure} we present for each system our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
+The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
+Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably smaller for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
+In addition, we see that for  this system the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
 
 \begin{figure}[ht]
 \includegraphics[width=\linewidth]{pressure_est.pdf}
-\caption{$\Delta G_{\lambda_{\,\text{vdW}}}$ profiles corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, which was modeled according to the force fields of (circles) Koller \textit{et al.} \cite{Koller_2012}, (squares) Batista \textit{et al.} \cite{Batista_2015}, (up triangles) Liu \textit{et al.} \cite{Liu_2014}, and (x) Weber y Kirchner \cite{Weber_2016}.}
+\caption{ \ce{CO_2} \ce{[emim][B(CN)_4]} Koller \textit{et al.} \cite{Koller_2012}, (squares)}
 \label{fig:pressure}
 \end{figure}
 
 \section{Concluding remarks}
 \label{sec:conclusion}
 
+On of the goals of this study was to compare available force fields for \ce{[emim][B(CN)_4]}.
+The model that best reproduces the experimental density is the one developed by Koller.
+This is the only model that reparametrizes the LJ parameters for the boron atom.
+We demonstrate that it is possible to employ rigid bodies and the DSF method for the simulation. 
+computationally more efficient.
+Using the expanded ensemble method, we reproduced the solvation free energy.
+Koller best reproduces the experimental henry constants. 
+This model was evaluated also to predict inifinite-dilution activity coefficient.
+This property also depends in the solvation free energy of the pure solutes.
+The results at infinite-dilution suggest a more favorable solvation. and high concentrations 
+The pictures changes
 
 \section*{Acknowledgments}
 The authors acknowledge the financial support provided by Petrobras (project code CENPES 16113). 
