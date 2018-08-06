@@ -513,6 +513,40 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \label{fig:sdf_ions}
 \end{figure}
 
+\subsection{Study of concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]}
+\label{sec:results_conc}
+
+Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we carried out simulations at the thermodynamic conditions specified in Table \ref{table:solv}, which correspond to close values of \ce{CO_2} molality in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N].
+The differences in the \ce{CO_2} molar fractions in this case exemplifies the observation made by Carvalho \textit{et al.} \cite{Carvalho_2016}, mentioned at the introduction of this paper.
+
+\begin{table*}
+\centering
+\begin{threeparttable}
+\caption{Thermodynamic conditions employed in the simulations of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]~\cite{Makino_2014,Schilderman_2007}}
+\begin{tabular}{ c  c  c  c  c  }  
+\toprule
+Ionic liquid & T (K)  & P (atm)  & molar fraction $x_s$ & molality $m_s$ \\
+\midrule		
+$\text{[emim]}$[B(CN)\textsubscript{4}]~\cite{Koller_2012} & 313.15 & 21 & 0.352 & 2.4  \\
+$\text{[emim]}$[Tf\textsubscript{2}N]~\cite{K_ddermann_2007}  & 312.13 & 37 & 0.479 & 2.35  \\
+ \bottomrule
+\label{table:solv} 
+\end{tabular}
+\end{threeparttable}
+\end{table*}
+
+In Fig.~\ref{fig:pressure} we show for each system our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
+The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
+Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably lower for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
+In addition, we see that for  this system the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
+The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-[emim][Tf\textsubscript{2}N] were -0.755 $\pm$ 0.01 kcal/mol and -0.542 $\pm$ 0.005, respectively. However, since we employed a different molecule number of \ce{CO_2}, we cannot draw any conclusion regarding the presence of strong interactions with \ce{[emim][B(CN)_4]} that could explain the higher solubility.
+
+\begin{figure}[ht]
+\includegraphics[width=\linewidth]{pressure_est.pdf}
+\caption{ \ce{CO_2} \ce{[emim][B(CN)_4]} Koller \textit{et al.} \cite{Koller_2012}, (squares)}
+\label{fig:pressure}
+\end{figure}
+
 \subsection{Inifinite-dilution activity coefficient in \ce{[emim][B(CN)_4]}}
 \label{sec:act_results}
 
@@ -575,61 +609,25 @@ water TIP4P/2005& 1.38 $\pm$ 0.008 & -6.32 $\pm$ 0.03 & -4.94 $\pm$ 0.03 & 2 $\p
 \end{threeparttable}
 \end{adjustbox}
 \end{table*}
-
-\subsection{Study of concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]}
-\label{sec:results_conc}
-
-Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we carried out simulations at the thermodynamic conditions specified in Table \ref{table:solv}, which correspond to close values of \ce{CO_2} molality in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N].
-The differences in \ce{CO_2} molar fractions for this ILs exemplifies the observations made by Carvalho \textit{et al.} \cite{Carvalho_2016}, mentioned at the introduction of this paper.
-
-\begin{table*}
-\centering
-\begin{threeparttable}
-\caption{Thermodynamic conditions employed in the simulations of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]~\cite{Makino_2014,Schilderman_2007}}
-\begin{tabular}{ c  c  c  c  c  }  
-\toprule
-Ionic liquid & T (K)  & P (atm)  & molar fraction $x_s$ & molality $m_s$ \\
-\midrule		
-$\text{[emim]}$[B(CN)\textsubscript{4}]~\cite{Koller_2012} & 313.15 & 21 & 0.352 & 2.4  \\
-$\text{[emim]}$[Tf\textsubscript{2}N]~\cite{K_ddermann_2007}  & 312.13 & 37 & 0.479 & 2.35  \\
- \bottomrule
-\label{table:solv} 
-\end{tabular}
-\end{threeparttable}
-\end{table*}
-
-In Fig.~\ref{fig:pressure} we show for each system our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
-The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
-Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably smaller for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
-In addition, we see that for  this system the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
-
-\begin{figure}[ht]
-\includegraphics[width=\linewidth]{pressure_est.pdf}
-\caption{ \ce{CO_2} \ce{[emim][B(CN)_4]} Koller \textit{et al.} \cite{Koller_2012}, (squares)}
-\label{fig:pressure}
-\end{figure}
-
 \section{Concluding remarks}
 \label{sec:conclusion}
 
-One of the goals of this paper was to compare available models of \ce{[emim][B(CN)_4]} in terms of their capability to reproduce the experimental Henry constant of \ce{CO_2}.
-We have found that only the model of Koller \textit{et al.} \cite{Koller_2012} achieves this goal.
-A key factor for this success seems to be the reparametrization of the LJ parameters for the boron atom, which is only performed in the work of Koller \textit{et al.}  \cite{Koller_2012} in order to reproduce the experimental density of the pure substance.
+One of the goals of this paper was to compare various available models of \ce{[emim][B(CN)_4]} in terms of their capability to reproduce the experimental Henry constant of \ce{CO_2}.
+We have found that only the force field developed by Koller \textit{et al.} \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8 \%.
+A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in that work, which also allows to accurately reproduce the experimental density of the pure substance.
 
-In the case of \ce{[emim][B(CN)_4]}, we were able to 
+We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
+Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, we concluded that the DSF method with $\alpha$ = 0.2 {\AA}$^{-1}$ is a suitable strategy.
+Other improvement was the use of rigid bodies to simulate \ce{[emim][B(CN)_4]}.
+This required preliminary simulations in order to examine the flexibility of the ethyl chain in \ce{[emim]^+} and the analysis was greatly facilitated by employing useful visualization tools.
+It should be remarked that the different models presented a different behavior, as well; reflecting ?
 
-to introduce computationally efficient strategies, such as the use of rigid bodies and the DSF method for evaluating the Co the simulations and perform them in a more computationally efficient way: the ILs were modelled as rigid bodies and using the DSF method to calculate the Coulombic interactions.
-This required some preliminary simulations in order to analyze the most probable conformations of the ions.
-This was carried out in a simple way and with very good results.
+The solvation free energy results at infinite-dilution condition suggest a slightly more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in  \ce{[emim][NTf_2]}.
+However, this picture completely changes at high concentrations: the simulations correctly predicted a considerable lower pressure to dissolve a certain mass of \ce{CO_2} in \ce{[emim][B(CN)_4]}.
 
-Using the expanded ensemble method, we reproduced the solvation free energy for both systems of interest:
-\ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} and at different thermodyanamic conditions. 
-At infinite-dilution those solvents performs in the solvation in \ce{[emim][B(CN)_4]} only slightly more favorable.
-This picture completely changed when we analyzed the systems at higher concentrations: the pressure required to dissolved a certain mass of \ce{CO_2} is considerable smaller that for \ce{[emim][NTf_2]}.
+Finally, we employed the model of Koller \textit{et al.} \cite{Koller_2012} to predict infinite-dilution activity coefficient of various solutes.
+In this case, the results were not satisfactory given the high errors associated to the free energy calculations of the pure solutes, making necessary a revision of the force fields for the solutes in a future work.
 
-This model was evaluated also to predict inifinite-dilution activity coefficient.
-This property also depends in the solvation free energy of the pure solutes.
- 
 \section*{Acknowledgments}
 The authors acknowledge the financial support provided by Petrobras (project code CENPES 16113). 
 
@@ -638,12 +636,5 @@ The authors acknowledge the financial support provided by Petrobras (project cod
 \bibliography{mybibfile}
 
 \end{document}
-%rigid treatment of the imidazolium ring \cite{Kobrak_2004,Lynden_Bell_2006}\cite{Rey_Castro_2007}
 
 
-%\begin{equation}
-%\begin{split}
-%\Delta G_{\text{sim}} - k_b T \ln \left( \frac{V^{\ast}}{V_1} \right) &= k_b T \ln \left(\frac{P_s}{x_s} \frac{1}{\tilde{\rho}_{\scaleto{LI}{4pt}}} \right) \\
-%&= k_b T \ln \left( \frac{K_s}{\tilde{\rho}_{\scaleto{LI}{4pt}} R T} \right),
-%\end{split}
-%\end{equation}
