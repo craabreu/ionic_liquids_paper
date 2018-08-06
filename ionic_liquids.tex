@@ -440,7 +440,7 @@ Weber y Kirchner. \cite{Weber_2016} & 1.015 & 2.1 & 1.022 & 1.4  \\
 \subsection{Henry constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
 
-In Table \ref{table:henry} we present the results of solvation free energies of \ce{CO_2} along with the Henry constants ($K_s$) obtained by means of Eq.~\eqref{eq:henry_eq}.
+In Table \ref{table:henry} we present the results of the solvation free energies of \ce{CO_2} along with the Henry constants ($K_s$) obtained by means of Eq.~\eqref{eq:henry_eq}.
 Table~\ref{table:henry} also contains the experimental $K_s$ reported by Mahurin \textit{et al.} \cite{Mahurin_2010} and Finotello \textit{et al.} \cite{Finotello_2008}.
 The uncertainties in $K_s$ were calculated using standard error propagation.
 
@@ -448,7 +448,7 @@ The uncertainties in $K_s$ were calculated using standard error propagation.
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
-\caption{Results of solvation free energies and Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N] at T = 298.15 K and P = 1 atm.
+\caption{Results of solvation free energies and Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N] at $T$ = $298.15~\text{K}$ and $P$ = $1~\text{atm}$.
 The experimental Henry constants in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N] correspond to 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010} and 39.0 $\pm$ 0.1 atm \cite{Finotello_2008}, respectively.}
 \begin{tabular}{ c c c  c  c  c  c }  
 \toprule
@@ -494,7 +494,7 @@ The SDFs of the ions around a \ce{CO_2} molecule were obtained by using the soft
 For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-[emim][Tf\textsubscript{2}N] systems with a \ce{CO_2} molar fraction of 0.1.
 The isovalues were visually determined so as to observe the first solvation shell.
 If we compare Figs.~\ref{fig:sdf_ions} (a) and (b), one notes that the region with a low probability of finding an ion is larger for \ce{[emim][NTf_2]}.
-Also, the first solvation shell due to [B(CN)\textsubscript{4}]$^{-}$ occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.
+Also, the first solvation shell due to [B(CN)\textsubscript{4}]$^{-}$ occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions} (c).
 \begin{figure}[ht]
 \centering
 \subfloat[]{%
@@ -516,13 +516,13 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \subsection{Study of concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]}
 \label{sec:results_conc}
 
-Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we carried out simulations at the thermodynamic conditions specified in Table \ref{table:solv}, which correspond to close values of \ce{CO_2} molality in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N].
-The differences in the \ce{CO_2} molar fractions in this case exemplifies the observation made by Carvalho \textit{et al.} \cite{Carvalho_2016}, mentioned at the introduction of this paper.
+Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we carried out simulations at the thermodynamic conditions specified in Table~\ref{table:solv}, which correspond to similar values of \ce{CO_2} molality.
+Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies the observation made by Carvalho \textit{et al.} \cite{Carvalho_2016}, which was mentioned at the introduction of this paper.
 
 \begin{table*}
 \centering
 \begin{threeparttable}
-\caption{Thermodynamic conditions employed in the simulations of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} and [emim][Tf\textsubscript{2}N]~\cite{Makino_2014,Schilderman_2007}}
+\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}~\cite{Makino_2014,Schilderman_2007}.}
 \begin{tabular}{ c  c  c  c  c  }  
 \toprule
 Ionic liquid & T (K)  & P (atm)  & molar fraction $x_s$ & molality $m_s$ \\
@@ -535,15 +535,16 @@ $\text{[emim]}$[Tf\textsubscript{2}N]~\cite{K_ddermann_2007}  & 312.13 & 37 & 0.
 \end{threeparttable}
 \end{table*}
 
-In Fig.~\ref{fig:pressure} we show for each system our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
+For each system, in Fig.~\ref{fig:pressure} we show our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
 The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
 Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably lower for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
-In addition, we see that for  this system the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
-The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-[emim][Tf\textsubscript{2}N] were -0.755 $\pm$ 0.01 kcal/mol and -0.542 $\pm$ 0.005, respectively. However, since we employed a different molecule number of \ce{CO_2}, we cannot draw any conclusion regarding the presence of strong interactions with \ce{[emim][B(CN)_4]} that could explain the higher solubility.
+In addition, we see that in this case the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
+The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} were -0.755 $\pm$ 0.01 kcal/mol and -0.542 $\pm$ 0.005, respectively.
+However, since we simulated a different molecule number of \ce{CO_2}, we cannot draw any definite conclusion regarding the presence of stronger interactions with \ce{[emim][B(CN)_4]}, which could be a factor contributing to the higher solubility.
 
 \begin{figure}[ht]
 \includegraphics[width=\linewidth]{pressure_est.pdf}
-\caption{ \ce{CO_2} \ce{[emim][B(CN)_4]} Koller \textit{et al.} \cite{Koller_2012}, (squares)}
+\caption{Prediction of the gas-phase fugacity and partial pressure of \ce{CO_2} for the systems \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}.}
 \label{fig:pressure}
 \end{figure}
 
@@ -556,7 +557,7 @@ The task of accurately predicting $\gamma^{\, \infty}$ is challenging since, acc
 In Table~\ref{table:mu_solutes} we show the simulated densities and the solvation free energies $(\Delta G^{0}_{\text{sim}})$ of the pure solutes, which we compare against the experimental data extracted from the work of Chang~\cite{Chang_2009}.
 It should be pointed out that we were unable to find the experimental $\Delta G^{0}_\text{exp}$ for cyclohexane.
 Note that only in the case of ethanol we successfully predicted the $\Delta G^{0}_\text{exp}$.
-The relative errors for the other solutes is around 10\%.
+The relative errors for the other solutes are around 10\%.
 
 The results of $\gamma^{\, \infty}$ are presented in Table~\ref{table:gamma}.
 For benzene and water, the predictions are very accurate, but this may be due to fortuitous error compensations given the divergences shown in Table~\ref{table:mu_solutes}.
@@ -567,7 +568,7 @@ It is therefore difficult to assess the reliability of our results in this case.
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
-\caption{Solvation free energy at $T = 298.15~/text{K}$ for the pure solutes benzene, hexane, cyclohexane, ethanol and water.}
+\caption{Solvation free energy at $T = 298.15~\text{K}$ for the pure solutes benzene, hexane, cyclohexane, ethanol and water.}
 \begin{tabular}{ c c c c c c c c }
 \toprule
 Solute & $\rho_{\text{sim}}$ & error (\%)\tnote{a} & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G^{0}_{\,\text{sim}}$ & $\Delta G^{\text{0,exp}}$   & error (\%)\tnote{a}\\
@@ -592,7 +593,7 @@ water TIP4P/2005   &  0.9948 $\pm$ 0.0003 & 0.2 & 2.015 $\pm$ 0.004 & -9.01 $\pm
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{threeparttable}
-\caption{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]} at $T = 298.15~/text{K}$ of the pure solutes benzene, hexane, cyclohexane, ethanol, and water.}
+\caption{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]} at $T = 298.15~\text{K}$ of the pure solutes benzene, hexane, cyclohexane, ethanol, and water.}
 \begin{tabular}{c c c c c c  >{\columncolor[gray]{0.8}} c}  
 \toprule
 Solute & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G_{\,\text{sim}}$  & $\gamma^{\,\infty,\text{sim}}$ & $\gamma^{\, \infty,\text{exp}}$ & $\gamma^{\, \infty,\text{exp}}$  \\
