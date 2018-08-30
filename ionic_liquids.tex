@@ -6,7 +6,7 @@
 \usepackage{ifthen}
 \usepackage{commath}
 \usepackage{amssymb}
-\usepackage{scalerel}
+%\usepackage{scalerel}
 \usepackage{natbib}
 \usepackage[version=4]{mhchem}
 
@@ -159,7 +159,7 @@ They found out that
  \Delta G_{\text{solv}}& =  k_b T \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right)\\ &= \Delta G_{\text{sim}} - k_bT \ln \left( \frac{V^{\ast}}{V_1} \right),
 \end{split}
 \end{equation}
-where $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_{\text{LI}}$,P,T) and ($N_s^l$,$N_{\text{LI}}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid-phase and $P_s$ is the partial pressure of the solute in the gas phase.
+where $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_\text{\tiny IL}$,P,T) and ($N_s^l$,$N_\text{\tiny IL}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid-phase and $P_s$ is the partial pressure of the solute in the gas phase.
 It should be noted that in the derivation of Eq.~\eqref{eq:free_solv}, the gas phase is treated as an ideal gas. 
 
 For small solutes, such as those considered in this work, the magnitude of the term $V^{\ast}/V_1$ is typically on the order of the free energy uncertainties \cite{Shirts_2003}.
@@ -170,12 +170,12 @@ If both $P_s$ and $c_s^{\ast}$ were not large, we can resort to Eq.~\eqref{eq:fr
 \begin{equation}
 \text{K}_s =\frac{P_s}{x_s}.
 \end{equation}
-Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that MW (molecular weight of the solution) = $\text{MW}_{\scaleto{IL}{4pt}}$, as well as $\rho$ (mass density of the solution) = $\rho_{\scaleto{IL}{4pt}}$, we obtain that
+Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that MW (molecular weight of the solution) = $\text{MW}_\text{\tiny IL}$, as well as $\rho$ (mass density of the solution) = $\rho_\text{\tiny IL}$, we obtain that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_{\scaleto{IL}{4pt}} R \, T \exp(\beta \, \Delta G_{\text{sim}}),
+K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp(\beta \, \Delta G_{\text{sim}}),
 \end{equation}
-where $\tilde{\rho}_{\scaleto{IL}{4pt}}$ is the molar density of the solvent and $R$ is the gas constant.
+where $\tilde{\rho}_\text{\tiny IL}$ is the molar density of the solvent and $R$ is the gas constant.
 
 \subsection*{Partial pressure estimation}
 \label{sec:partial_pressure}
@@ -238,9 +238,9 @@ Of course, an analogous equation holds for $\mu_s^{R,0}$:
 If one makes $N_s^{l}$ = 1, and substitute Eqs.~\eqref{eq:mu_res} and~\eqref{eq:mu_res_0} into Eq.~\eqref{eq:gamma}, the infinite-dilution activity coefficient, $\gamma^{\infty}_s$, can be predicted according to the following equation:
 \begin{equation}
 \label{eq:gamma_inf}
-\ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_{\text{sim}} - \Delta G_{\text{sim}}^{0} \right) + \frac{c_{\scaleto{LI}{4pt}}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
+\ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_{\text{sim}} - \Delta G_{\text{sim}}^{0} \right) + \frac{c_\text{\tiny IL}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
 \end{equation}
-where $c_{\scaleto{IL}{4pt}}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ are the numerical densities of the solvent and the pure solute, respectively.
+where $c_\text{\tiny IL}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ are the numerical densities of the solvent and the pure solute, respectively.
 
 \section{Force fields}
 \label{sec:force_field}
