@@ -8,7 +8,7 @@
 \usepackage{ifthen}
 \usepackage{commath}
 \usepackage{amssymb}
-\usepackage{natbib}
+\usepackage[]{natbib}
 \usepackage[version=4]{mhchem}
 
 \usepackage{adjustbox}   
@@ -72,34 +72,43 @@ ionic liquids \sep solvation free energy \sep  \ce{CO_2} Henry constant \sep inf
 \linenumbers
 
 \section{Introduction}
+
 \ce{CO_2} emissions from fossil-fuel power generation plants account for a large portion of the anthropogenic greenhouse gases \cite{totalenergy}.
-International efforts aimed at regulating and reducing \ce{CO_2} emissions are increasing \cite{Tong_2018} and, in this context, the development of technologies for the capture and storage of \ce{CO_2} plays an essential role \cite{Markewitz_2014}. 
+International efforts aimed at regulating and reducing \ce{CO_2} emissions are increasing \cite{Tong_2018} and, in this context, the development of technologies for the capture and storage of \ce{CO_2} plays an essential role \cite{Markewitz_2014}.
 
 The conventional process for \ce{CO_2} removal comprises a chemical absorption followed by stripping at high temperatures.
 The most commonly used solvents are volatile organic compounds, specially aqueous solutions of monoethanolamine (MEA).
-Despite its high absorption capability, the use of MEA suffers from a serious drawback due to the high cost of solvent recovery \cite{Merkel_2010}.
-Other disadvantages include corrosion and degradation by oxidation, solvent loss by evaporation, which also contributes to increase the environmental pollution and generates extra costs for replacing the solvent.
+Despite its high absorption capability, the use of MEA has a serious drawback, which is the high cost of solvent recovery \cite{Merkel_2010}.
+Other disadvantages include corrosion and degradation by oxidation, as well as solvent loss by evaporation.
+The latter also contributes to the increase of environmental pollution and generates extra costs for replacing the solvent.
 
-The use of ionic liquids (ILs) as solvents for \ce{CO_2} sequestration occupies a central place in the investigation of alternative technologies.
-The reasons are their well known properties, such as their almost negligible vapor pressure and high thermal stability.
+The use of ionic liquids (ILs) as solvents for \ce{CO_2} sequestration receives special attention in the investigation of alternative technologies.
+The reasons are their well-known properties such as almost negligible vapor pressure and high thermal stability.
 Furthermore, they are particularly attractive since they can be designed for specific applications, giving rise to the so-called task-specific ILs \cite{Seo_2014}.
-These remarkable properties makes ILs suitable for a wide variety of applications in separation processes \cite{Han_2010,Werner_2010}, catalysis \cite{P_rvulescu_2007}, energy \cite{MacFarlane_2014}, and material science \cite{Mecerreyes_2011,Tom_2015,Dupont_2010,Leones_2017,Kinik_2017}.
+These remarkable properties make ILs suitable for a wide variety of applications in separation processes \cite{Han_2010,Werner_2010}, catalysis \cite{P_rvulescu_2007}, energy management \cite{MacFarlane_2014}, and material science \cite{Mecerreyes_2011,Tom_2015,Dupont_2010,Leones_2017,Kinik_2017}.
 
-Recently, the potentiality of ILs for \ce{CO_2} capture has been called into question by Carvalho \textit{et al.} \cite{Carvalho_2016}, who warn that the use of molar fraction to express solubility has, to some extent, perpetuated misconceptions regarding the supposed absorption capability of certain ILs.
-Although most thermodynamic models are formulated in terms of molar fraction, a key factor that dictates the absorption process efficiency is given by the amount of \ce{CO_2} that can be dissolved in a certain \textit{volume} or \textit{mass} of solvent.
-By expressing the solubility values in terms of molality and performing an exhaustive comparison between various ILs, Ref. \cite{Carvalho_2016} shows that most systems which promote a physical absorption of \ce{CO_2} exhibit a solubility similar, or even lower, than that observed for the heavy alkane eicosane.
-This is true for the ``popular'' \ce{[bmim][NTf_2]}, \ce{[bmim][PF_6]}, \ce{[bmim][BF_4]}, as well as for those synthesized from the fluorination of the cation or the anion, such as \ce{[(C_2H_2F_2)mim][NTf_2]} and \ce{[hmim][pFAP]}; the only exception being the family of ILs containing the anion tetracyanoborate \ce{[B(CN)_4]^-}.
+Recently, Carvalho \textit{et al}. \cite{Carvalho_2016} called into question the potentiality of ILs for \ce{CO_2} capture.
+They warn that the use of molar fraction to express solubility has, to some extent, perpetuated misconceptions regarding the supposedly high absorption capability of certain ILs.
+Although most thermodynamic models are formulated in terms of molar fractions, a key factor that dictates the efficiency of absorption process  is given by the amount of \ce{CO_2} that can be dissolved in a certain \textit{volume} or \textit{mass} of solvent.
+By expressing the solubility values in terms of molality and performing an exhaustive comparison among various ILs, Carvalho \textit{et al}. \cite{Carvalho_2016} show that most systems which promote physical absorption of \ce{CO_2} exhibit solubilities which are similar, or even lower, than that observed for heavy alkanes such as eicosane.
+This is true for the popular ILs \ce{[bmim][NTf_2]}, \ce{[bmim][PF_6]}, \ce{[bmim][BF_4]}, as well as for those synthesized from the fluorination of the cation or the anion, such as \ce{[(C_2H_2F_2)mim][NTf_2]} and \ce{[hmim][pFAP]}.
+The only exception they found was the family of ILs containing the anion \ce{[B(CN)_4]^-} (tetracyanoborate).
 
 There is no obvious explanation accounting for the enhanced solubility promoted by the presence of \ce{[B(CN)_4]^-}.
-In this context, molecular simulation provides with a powerful tool for studying solvation processes.
-To the best of our knowledge, only one study in literature reports the free energy of solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} \cite{Liu_2014_1} which, in addition, is overestimated.
-This motivated us to evaluate different force fields of \ce{[emim][B(CN)_4]} and, as we will show below, it was possible to find a model that successfully reproduces the experimental value of the Henry constant of \ce{CO_2}.
-For comparison, \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} were analyzed, both at infinite dilution and at high concentrations of \ce{CO_2}.
-The simulations confirmed what is observed in experiments: for \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}.
-The infinite-dilution activity coefficients of solutes hexane, benzene, cyclohexane, ethanol, and water in \ce{[emim][B(CN)_4]} were also calculated, and a comparison was made with experimental values recently reported in literature.
+In this context, molecular simulation provides us with a powerful tool for studying solvation processes.
+To the best of our knowledge, only one study in the literature reports computation of solvation free energy for \ce{CO_2} in \ce{[emim][B(CN)_4]} by molecular simulation \cite{Liu_2014_1}.
+Nonetheless, the computed value is overestimated, as observed by deriving a Henry's law constant and comparing it to available experimental data.
+Such scarcity motivated us to carry out the present investigation, in which we have evaluated different force fields for \ce{[emim][B(CN)_4]} proposed in the literature.
+As we show here, it was possible to find a model that successfully reproduces the experimental value of the Henry constant of \ce{CO_2} in this IL.
+For comparison, we analyzed the solvation of \ce{CO_2} not only in \ce{[emim][B(CN)_4]}, but also in \ce{[emim][NTf_2]}, both at infinite dilution and at high concentrations.
+The simulations confirmed what is observed in experiments.
+For \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}, considering a given volume of solvent.
+In addition, we also calculated infinite-dilution activity coefficients of other solutes in \ce{[emim][B(CN)_4]} and compared the results with experimental values recently reported in literature.
+The solutes we considered were hexane, benzene, cyclohexane, ethanol, and water.
 
-This paper is organized as follows: in Sec.~\ref{sec:theory} we present the theoretical background, which is followed by a brief description of the force fields used in this work.
-The methodological details are provided in Sec.~\ref{sec:sim_details} and the corresponding numerical results are given in Sec.~\ref{sec:results}.
+This paper is organized as follows.
+In Sec.~\ref{sec:theory}, we present the theoretical background of this work, which is followed by a brief description of the employed force fields in Sec.~\ref{sec:force_field}.
+The methodological details are provided in Sec.~\ref{sec:sim_details}, while the corresponding numerical results are given in Sec.~\ref{sec:results}.
 Finally, we present some concluding remarks in Sec.~\ref{sec:conclusion}.
 
 \section{Theoretical background}
