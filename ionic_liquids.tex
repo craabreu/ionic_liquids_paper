@@ -114,16 +114,17 @@ Finally, we present some concluding remarks in Sec.~\ref{sec:conclusion}.
 \section{Theoretical background}
 \label{sec:theory}
 
-In this section, we present the formalism that allows us to compute the Henry constant and activity coefficient, both at infinite dilution, from the simulated free energy.
-For this, we rely on the work of Shirts \textit{et al.} \cite{Shirts_2003}.
-Then, we reformulate the equations in order to study concentrated solutions, which would be the more likely scenario in \ce{CO_2} capture processes.
+In this section, we present the formalism that allows us to compute solvation free energies from molecular dynamics simulations and, after that, obtain Henry constants and activity coefficients.
+For dealing with systems at infinite dilution, we rely on the work of Shirts \textit{et al}. \cite{Shirts_2003}.
+Then, we reformulate the equations in order to study concentrated solutions, which is a more likely scenario in the case of \ce{CO_2} capture processes.
 
 \subsection*{Solvation free energy}
-The solvation free energy, $\Delta G_{\text{solv}}$, is defined as the reversible work needed to transfer a solute molecule from the gas phase to the solution.
-For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to connect the ``endpoint'' states, whose free energy difference is to be estimated.
-In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the intermolecular interactions taking values in the interval [0,1]: $\lambda$ = 1 corresponds to a fully interacting system, while for $\lambda$ = 0 the interactions between the solute and solvent molecules are completely turned-off.
 
-In the following, the subscripts ``$s$'' and ``$\text{IL}$'' refer to the solute and the solvent (ionic liquid), respectively.
+The solvation free energy, $\Delta G_{\text{solv}}$, is defined as the reversible work needed to transfer a solute molecule from a gas phase to the solution.
+For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to reversibly connect the endpoint states whose difference in free energy is to be estimated.
+In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely .
+
+In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
 For a system containing $N_{\text{IL}}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
 \Delta G_{\text{sim}} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 0)}, 
