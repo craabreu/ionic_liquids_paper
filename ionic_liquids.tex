@@ -125,17 +125,17 @@ For dense systems, an efficient computation of solvation properties via molecula
 In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely .
 
 In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
-For a system containing $N_{\text{IL}}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
+For a system containing $N_\text{\tiny IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_{\text{sim}} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_{\text{IL}},P,T,\lambda = 0)}, 
+\Delta G_\text{sim} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_\text{\tiny IL},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_\text{\tiny IL},P,T,\lambda = 0)}, 
 \end{equation}
 where superscript ``$l$'' refers to the liquid solution, $\bigtriangleup$ denotes the isobaric-isothermal partition function, and $k_b$ is the Boltzmann's constant.
-Shirts \textit{et al.} \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_{\text{sim}}$ to what is experimentally known as the solvation free energy.
+Shirts \textit{et al.} \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally known as the solvation free energy.
 They found out that
 \begin{equation}
 \begin{split}
 \label{eq:free_solv}
- \Delta G_{\text{solv}}& =  k_b T \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right)\\ &= \Delta G_{\text{sim}} - k_bT \ln \left( \frac{V^{\ast}}{V_1} \right),
+ \Delta G_{\text{solv}}& =  k_b T \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right)\\ &= \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1} \right),
 \end{split}
 \end{equation}
 where $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_\text{\tiny IL}$,P,T) and ($N_s^l$,$N_\text{\tiny IL}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid-phase and $P_s$ is the partial pressure of the solute in the gas phase.
@@ -152,7 +152,7 @@ If both $P_s$ and $c_s^{\ast}$ were not large, we can resort to Eq.~\eqref{eq:fr
 Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that MW (molecular weight of the solution) = $\text{MW}_\text{\tiny IL}$, as well as $\rho$ (mass density of the solution) = $\rho_\text{\tiny IL}$, we obtain that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp(\beta \, \Delta G_{\text{sim}}),
+K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp(\beta \, \Delta G_\text{sim}),
 \end{equation}
 where $\tilde{\rho}_\text{\tiny IL}$ is the molar density of the solvent and $R$ is the gas constant.
 
@@ -169,7 +169,7 @@ where $\phi_s$ is the fugacity coefficient of the solute.
 This equation, together with the fact that $f^{g}_s$ = $P_s \phi_s$, are used to evaluate $\mu^{l}_s$ = $\mu^{g}_s$, which yields
 \begin{equation}
 \label{eq:fgas_d}
-f^{g}_s = \exp  \left( \beta \Delta G_{\text{sim}} \right) +  k_b T c_s^{\ast}, 
+f^{g}_s = \exp  \left( \beta \Delta G_\text{sim} \right) +  k_b T c_s^{\ast}, 
 \end{equation}
 where $f^{g}_s$ is the fugacity of the solute in the gas phase.
 Having calculated $f^{g}_s$, $P_s$ can be predicted using the following equation
@@ -184,7 +184,7 @@ B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
 where $B_0$ = 23.02991 cm$^3$/mol, $B_1$ = -2.455297 $\times$ 10$^3$ (Kcm$^3$/mol) and $B_2$ = -1.22675$\times$10$^7$ (K$^2$cm$^3$/mol).
 
-As supported by preliminary simulations, it seems reasonable to assume $\Delta G_{\text{sim}}$ as independent of pressure over the range of experimental data considered in this work.
+As supported by preliminary simulations, it seems reasonable to assume $\Delta G_\text{sim}$ as independent of pressure over the range of experimental data considered in this work.
 Then, the equilibrium pressure is determined by directly solving Eq.~\eqref{eq:fgas} for $P_s$.
 
 \subsection*{Infinite-dilution activity coefficient}
@@ -206,18 +206,18 @@ Also, recall that $\mu_s^{ig} (P,T)$ = $\mu_s^{ig,0} (P,T)$ + $RT \ln x_s$, so w
 Replacing $\mu_s^{l}$ and $\mu_s^{ig,0}$ by the corresponding expressions derived in Ref.~\cite{Shirts_2003} yields
 \begin{equation}
 \label{eq:mu_res}
-\mu_s^R = \Delta G_{\text{sim}} - k_b T \ln \left( \frac{V^{\ast} P}{N_s^l k_b T} \right) -  k_b T \ln x_s.
+\mu_s^R = \Delta G_\text{sim} - k_b T \ln \left( \frac{V^{\ast} P}{N_s^l k_b T} \right) -  k_b T \ln x_s.
 \end{equation}
 Of course, an analogous equation holds for $\mu_s^{R,0}$:
 \begin{equation}
 \label{eq:mu_res_0}
-\mu_s^{R,0} = \Delta G_{\text{sim}}^{0} - k_b T \ln \left( \frac{V^{\ast,0} P}{N_s^{l,0} k_b T} \right).
+\mu_s^{R,0} = \Delta G_\text{sim}^{0} - k_b T \ln \left( \frac{V^{\ast,0} P}{N_s^{l,0} k_b T} \right).
 \end{equation}
 
 If one makes $N_s^{l}$ = 1, and substitute Eqs.~\eqref{eq:mu_res} and~\eqref{eq:mu_res_0} into Eq.~\eqref{eq:gamma}, the infinite-dilution activity coefficient, $\gamma^{\infty}_s$, can be predicted according to the following equation:
 \begin{equation}
 \label{eq:gamma_inf}
-\ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_{\text{sim}} - \Delta G_{\text{sim}}^{0} \right) + \frac{c_\text{\tiny IL}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
+\ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_\text{sim} - \Delta G_\text{sim}^{0} \right) + \frac{c_\text{\tiny IL}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
 \end{equation}
 where $c_\text{\tiny IL}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ are the numerical densities of the solvent and the pure solute, respectively.
 
@@ -287,7 +287,7 @@ The electrostatic interactions, on the other hand, can be handled by a linear sc
 Furthermore, the contributions to $\Delta G$ originating at the different couplings are taken into account separately, as follows:
 \begin{equation}
 \begin{split}
-\Delta G_{\text{sim}} =& \; \Delta G_{\,\text{vdW}} (\lambda_{\,\text{vdW}} = 0\rightarrow  1, \lambda_{\, \text{Coul}} = 0) \\
+\Delta G_\text{sim} =& \; \Delta G_{\,\text{vdW}} (\lambda_{\,\text{vdW}} = 0\rightarrow  1, \lambda_{\, \text{Coul}} = 0) \\
 + \; &\Delta G_{\,\text{Coul}} (\lambda_{\, \text{vdW}} = 1,\lambda_{\,\text{Coul}} = 0 \rightarrow 1),
 \end{split}
 \end{equation}
@@ -401,7 +401,7 @@ Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible 
 \caption{Comparison of predicted and experimental densities for differents models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $\rho^{\text{exp}}$ = 1.036 g/cm$^{3}$~\cite{Doma_ska_2011}.}
 \begin{tabular}{ c  c  c  c  c}  
 \hline \hline
-\ce{[emim][B(CN)_4]}&  $\rho_{\text{sim}}$ & error (\%)\tnote{a}  & $\rho_{\text{sim}}$ & error (\%)\tnote{a} \\
+\ce{[emim][B(CN)_4]}&  $\rho_\text{sim}$ & error (\%)\tnote{a}  & $\rho_\text{sim}$ & error (\%)\tnote{a} \\
 model & (g/cm$^{3}$) &  &  (g/cm$^{3}$) &  \\
 			\hline
 & \multicolumn{2}{c}{Flexible ions/Ewald method} & \multicolumn{2}{c}{Rigid ions/DSF method} \\
@@ -413,7 +413,7 @@ Weber y Kirchner. \cite{Weber_2016} & 1.015 & 2.1 & 1.022 & 1.4  \\
 \label{table:props_dsf} 
 \end{tabular}
 \begin{tablenotes}
-\item[a] error = 100 $\times$($\rho^{\text{exp}}$$ - $$\rho^{\text{sim}}$)/$\rho^{\text{exp}}$.
+\item[a] error = 100 $\times$($\rho^{\text{exp}}$$ - $$\rho^\text{sim}$)/$\rho^{\text{exp}}$.
 \end{tablenotes}
 \end{threeparttable}
 \end{table*}
@@ -433,7 +433,7 @@ The uncertainties in $K_s$ were calculated using standard error propagation.
 The experimental Henry constants in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} correspond to 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010} and 39.0 $\pm$ 0.1 atm \cite{Finotello_2008}, respectively.}
 \begin{tabular}{ c c c  c  c  c  c }  
 \toprule
-Model & $\tilde{\rho}_{\text{sim}}$ & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G_{\,\text{sim}}$ & $K_{s}$ & error (\%)\tnote{a}\\
+Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G_{\,\text{sim}}$ & $K_{s}$ & error (\%)\tnote{a}\\
 & (mol/dm$^{3}$) & (kcal/mol) & (kcal/mol) &  (kcal/mol) & (atm)  &  \\
 			\hline
 			\multicolumn{4}{c}{\ce{[emim][B(CN)_4]}} & \multicolumn{2}{c}{\cellcolor{gray!25}$K_{s}^{\text{exp}}$ = 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010}}\\
@@ -450,14 +450,14 @@ Weber y Kirchner \cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 \label{table:henry} 
 \end{tabular}
 \begin{tablenotes}
-\item[a] error = 100 $\times$ $\abs{(K_s^{\text{exp}} - K_s^{\text{sim}})/K_s^{\text{exp}}}$.
+\item[a] error = 100 $\times$ $\abs{(K_s^{\text{exp}} - K_s^\text{sim})/K_s^{\text{exp}}}$.
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
 \end{table*}
 
-It should be pointed out that the result of $\Delta G_{\text{sim}}$ obtained for the model of Liu \textit{et al.} \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
-Moreover, the $\Delta G_{\text{sim}}$ in \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al.} \cite{Kerl__2017} ($-0.534$ kcal/mol, with no uncertainty reported) using the FEP method \cite{Zwanzig_1954}.
+It should be pointed out that the result of $\Delta G_\text{sim}$ obtained for the model of Liu \textit{et al.} \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
+Moreover, the $\Delta G_\text{sim}$ in \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al.} \cite{Kerl__2017} ($-0.534$ kcal/mol, with no uncertainty reported) using the FEP method \cite{Zwanzig_1954}.
 These consistencies have served for validating the methodological approaches of this work.
 
 From Table \ref{table:henry} one can see that the model of Koller \textit{et al.} \cite{Koller_2012} best reproduces the experimental value of $K_s$.
@@ -535,7 +535,7 @@ However, since we simulated a different number of \ce{CO_2}, we cannot draw any 
 Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental $K_s$ of \ce{CO_2}, we next calculate the infinite-dilution activity coefficients ($\gamma^{\, \infty}$) of benzene, hexane, cyclohexane, ethanol and water in \ce{[emim][B(CN)_4]}.
 
 The task of accurately predicting $\gamma^{\, \infty}$ is challenging since, according to Eq.~\eqref{eq:gamma_inf}, one should reproduce the solvation free energies in both the pure solute and the solvent.
-In Table~\ref{table:mu_solutes} we show the simulated densities and the solvation free energies $(\Delta G^{0}_{\text{sim}})$ of the pure solutes, which we compare against the experimental data extracted from the work of Chang~\cite{Chang_2009}.
+In Table~\ref{table:mu_solutes} we show the simulated densities and the solvation free energies $(\Delta G^{0}_\text{sim})$ of the pure solutes, which we compare against the experimental data extracted from the work of Chang~\cite{Chang_2009}.
 It should be pointed out that we were unable to find the experimental $\Delta G^{0}_\text{exp}$ for cyclohexane.
 Note that only in the case of ethanol we successfully predicted the $\Delta G^{0}_\text{exp}$.
 The relative errors for the other solutes are around 10\%.
@@ -552,7 +552,7 @@ It is therefore difficult to assess the reliability of our results in this case.
 \caption{Solvation free energy at $T = 298.15~\text{K}$ for the pure solutes benzene, hexane, cyclohexane, ethanol and water.}
 \begin{tabular}{ c c c c c c c c }
 \toprule
-Solute & $\rho_{\text{sim}}$ & error (\%)\tnote{a} & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G^{0}_{\,\text{sim}}$ & $\Delta G^{\text{0,exp}}$   & error (\%)\tnote{a}\\
+Solute & $\rho_\text{sim}$ & error (\%)\tnote{a} & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G^{0}_{\,\text{sim}}$ & $\Delta G^{\text{0,exp}}$   & error (\%)\tnote{a}\\
  & (g/cm$^{3}$) &  & (kcal/mol) &  (kcal/mol) &  (kcal/mol)   &  \\
 \hline
 benzene OPLS-AA   & 0.8611 $\pm$ 0.0002 & 1.4 & -3.75  $\pm$ 0.02 & -0.381 $\pm$ 0.007 & -4.14 $\pm$ 0.02 & -4.56 & 9.32  \\
@@ -564,7 +564,7 @@ water TIP4P/2005   &  0.9948 $\pm$ 0.0003 & 0.2 & 2.015 $\pm$ 0.004 & -9.01 $\pm
 \label{table:mu_solutes} 
 \end{tabular}
 \begin{tablenotes}
-\item[a] error = 100 $\times$ $\abs{(Z^{\text{exp}} - Z^{\text{sim}})/Z^{\text{exp}}}$.
+\item[a] error = 100 $\times$ $\abs{(Z^{\text{exp}} - Z^\text{sim})/Z^{\text{exp}}}$.
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
