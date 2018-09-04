@@ -122,51 +122,59 @@ Then, we reformulate the equations in order to study concentrated solutions, whi
 
 The solvation free energy, $\Delta G_{\text{solv}}$, is defined as the reversible work needed to transfer a solute molecule from a gas phase to the solution.
 For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to reversibly connect the endpoint states whose difference in free energy is to be estimated.
-In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely .
+In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the use of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely.
 
 In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
-For a system containing $N_\text{\tiny IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
+For a liquid phase containing $N_\text{\tiny IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_\text{sim} \equiv k_b T \ln \frac{\bigtriangleup (N_s^l,N_\text{\tiny IL},P,T,\lambda = 1)}{\bigtriangleup (N_s^l,N_\text{\tiny IL},P,T,\lambda = 0)}, 
+\Delta G_\text{sim} \equiv k_b T \ln \frac{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 0)}, 
 \end{equation}
-where superscript ``$l$'' refers to the liquid solution, $\bigtriangleup$ denotes the isobaric-isothermal partition function, and $k_b$ is the Boltzmann's constant.
-Shirts \textit{et al.} \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally known as the solvation free energy.
-They found out that
+where $\Xi$ denotes the isobaric-isothermal partition function and $k_b$ is the Boltzmann constant.
+Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
+\begin{equation}
+\Delta G_{\text{solv}} =  k_b T \ln \left( \frac{P_s}{c^l_s R T} \right),
+\end{equation}
+where $R=N_Ak_b$ is the gas constant ($N_A$ is the Avogadro number) and, for a system at phase equilibrium, $P_s$ is the partial pressure of the solute in the gas phase and $c^l_s$ is its molar concentration in the liquid phase. For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
+\begin{equation}
+\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right) - k_bT \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right),
+\end{equation}
+where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively, while $c_s^{\ast} = N_s/V_1$ is the number concentration of the solute in the latter.
+For small solutes, such as those considered in this work, the term containing the ratio $V^{\ast}/V_1$ is typically in the order of magnitude of the free-energy uncertainties \cite{Shirts_2003}.
+Hence, it can be neglected and will be omitted hereafter.
+
+Finally, by treating the gas phase as an ideal gas and considering a system at phase equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} then found out that
 \begin{equation}
 \begin{split}
 \label{eq:free_solv}
- \Delta G_{\text{solv}}& =  k_b T \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right)\\ &= \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1} \right),
+ \Delta G_{\text{solv}} \approx \Delta G_\text{sim}.
 \end{split}
 \end{equation}
-where $V^{\ast}$ and $V_1$ refer to the mean volumes of the systems specified by ($N_s^l-1$,$N_\text{\tiny IL}$,P,T) and ($N_s^l$,$N_\text{\tiny IL}$,P,T), respectively; $c_s^{\ast}$ = $N_s^l/V_1$ is the numerical concentration of the solute in the liquid-phase and $P_s$ is the partial pressure of the solute in the gas phase.
-It should be noted that in the derivation of Eq.~\eqref{eq:free_solv}, the gas phase is treated as an ideal gas. 
-
-For small solutes, such as those considered in this work, the magnitude of the term $V^{\ast}/V_1$ is typically on the order of the free energy uncertainties \cite{Shirts_2003}.
-Hence, that term can be neglected and will be omitted hereafter.
 
 \subsection*{Henry constant}
-If both $P_s$ and $c_s^{\ast}$ were not large, we can resort to Eq.~\eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
+
+If both $P_s$ and $c_s^{\ast}$ are small, we can resort to Eq.~\eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
 \begin{equation}
 \text{K}_s =\frac{P_s}{x_s}.
 \end{equation}
-Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that MW (molecular weight of the solution) = $\text{MW}_\text{\tiny IL}$, as well as $\rho$ (mass density of the solution) = $\rho_\text{\tiny IL}$, we obtain that
+
+Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that the molar density of the solution does not perceivably differ from than of the solvent ($\tilde{\rho}_\text{\tiny solution} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
 \begin{equation}
 \label{eq:henry_eq}
 K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp(\beta \, \Delta G_\text{sim}),
 \end{equation}
-where $\tilde{\rho}_\text{\tiny IL}$ is the molar density of the solvent and $R$ is the gas constant.
+where $R$ is the gas constant and $\beta = (k_b T)^{-1}$.
 
 \subsection*{Partial pressure estimation}
 \label{sec:partial_pressure}
 
 For the ILs of interest to the present investigation, high concentrations of \ce{CO_2} are found at pressure values for which, in principle, the ideal gas assumption may be not valid.
-In this case, we shall correct the ideal gas contribution to the chemical potential, as follows
+In this case, we can compute the chemical potential of the solute in the real gas phase as
 \begin{equation}
 \label{eq:mu_gas_real}
 \mu^{g}_s = \mu^{ig}_s + RT \ln \phi_s,
 \end{equation}
 where $\phi_s$ is the fugacity coefficient of the solute.
-This equation, together with the fact that $f^{g}_s$ = $P_s \phi_s$, are used to evaluate $\mu^{l}_s$ = $\mu^{g}_s$, which yields
+This equation, together with the fact that $f^{g}_s$ = $P_s \phi_s$, are used to evaluate the phase equilibrium equation $\mu^{l}_s$ = $\mu^{g}_s$, which yields
 \begin{equation}
 \label{eq:fgas_d}
 f^{g}_s = \exp  \left( \beta \Delta G_\text{sim} \right) +  k_b T c_s^{\ast}, 
