@@ -118,7 +118,7 @@ In this section, we present the formalism that allows us to compute solvation fr
 For dealing with systems at infinite dilution, we rely on the work of Shirts \textit{et al}. \cite{Shirts_2003}.
 Then, we reformulate the equations in order to study concentrated solutions, which is a more likely scenario in the case of \ce{CO_2} capture processes.
 
-\subsection*{Solvation free energy}
+\subsection*{Solvation Free Energy}
 
 The solvation free energy, $\Delta G_{\text{solv}}$, is defined as the reversible work needed to transfer a solute molecule from a gas phase to the solution.
 For dense systems, an efficient computation of solvation properties via molecular simulation is possible by means of the so-called alchemical methods, which employ non-physical pathways to reversibly connect the endpoint states whose difference in free energy is to be estimated.
@@ -132,17 +132,24 @@ For a liquid phase containing $N_\text{\tiny IL}$ solvent molecules and $N_{\tex
 where $\Xi$ denotes the isobaric-isothermal partition function and $k_b$ is the Boltzmann constant.
 Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
 \begin{equation}
-\Delta G_{\text{solv}} =  k_b T \ln \left( \frac{P_s}{c^l_s R T} \right),
+\label{eq:solvation free energy definition}
+\Delta G_{\text{solv}} \equiv k_b T \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
-where $R=N_Ak_b$ is the gas constant ($N_A$ is the Avogadro number) and, for a system at phase equilibrium, $P_s$ is the partial pressure of the solute in the gas phase and $c^l_s$ is its molar concentration in the liquid phase. For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
+where $R = N_A k_b$ is the gas constant,
+$N_A$ is the Avogadro number,
+$P_s$ is the partial pressure of the solute in the gas phase, and
+$c_s$ is the molar concentration of the solute in the liquid phase.
+Note that these quantities correspond to a phase equilibrium condition.
+For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
 \begin{equation}
-\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right) - k_bT \ln \left( \frac{P_s}{c_s^{\ast} k_b T} \right),
+\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right) - k_bT \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
-where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively, while $c_s^{\ast} = N_s/V_1$ is the number concentration of the solute in the latter.
+where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and partial pressure of solute $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively.
+Note that $c_s = \frac{N_s}{N_A V_1}$.
 For small solutes, such as those considered in this work, the term containing the ratio $V^{\ast}/V_1$ is typically in the order of magnitude of the free-energy uncertainties \cite{Shirts_2003}.
 Hence, it can be neglected and will be omitted hereafter.
 
-Finally, by treating the gas phase as an ideal gas and considering a system at phase equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} then found out that
+Finally, by treating the gas phase as an ideal gas and considering the system to be at equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} found out that
 \begin{equation}
 \begin{split}
 \label{eq:free_solv}
@@ -150,50 +157,49 @@ Finally, by treating the gas phase as an ideal gas and considering a system at p
 \end{split}
 \end{equation}
 
-\subsection*{Henry constant}
+\subsection*{Henry's Law Constant}
 
-If both $P_s$ and $c_s^{\ast}$ are small, we can resort to Eq.~\eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
+If both $P_s$ and $c_s^{\ast}$ are small, we can resort to Eqs.~\eqref{eq:solvation free energy definition} and \eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
 \begin{equation}
 \text{K}_s =\frac{P_s}{x_s}.
 \end{equation}
 
-Therefore, by simply expressing Eq.~\eqref{eq:free_solv} in terms of the molar fraction $x_s$ and assuming that the molar density of the solution does not perceivably differ from than of the solvent ($\tilde{\rho}_\text{\tiny solution} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
+Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$) and assuming that the molar density of the solution does not perceivably differ from that of the solvent ($\tilde{\rho} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp(\beta \, \Delta G_\text{sim}),
+K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp\left(\frac{\Delta G_\text{sim}}{k_b T}\right).
 \end{equation}
-where $R$ is the gas constant and $\beta = (k_b T)^{-1}$.
 
-\subsection*{Partial pressure estimation}
+\subsection*{Higher Pressure Conditions}
 \label{sec:partial_pressure}
 
-For the ILs of interest to the present investigation, high concentrations of \ce{CO_2} are found at pressure values for which, in principle, the ideal gas assumption may be not valid.
+For the ILs of interest to the present investigation, high concentrations of \ce{CO_2} in the liquid phase are obtained at pressure values for which, in principle, the ideal gas assumption may not be valid.
 In this case, we can compute the chemical potential of the solute in the real gas phase as
 \begin{equation}
 \label{eq:mu_gas_real}
-\mu^{g}_s = \mu^{ig}_s + RT \ln \phi_s,
-\end{equation}
-where $\phi_s$ is the fugacity coefficient of the solute.
-This equation, together with the fact that $f^{g}_s$ = $P_s \phi_s$, are used to evaluate the phase equilibrium equation $\mu^{l}_s$ = $\mu^{g}_s$, which yields
-\begin{equation}
-\label{eq:fgas_d}
-f^{g}_s = \exp  \left( \beta \Delta G_\text{sim} \right) +  k_b T c_s^{\ast}, 
+\mu^{g}_s = \mu^{ig}_s + k_b T \ln \left(\frac{f^{g}_s}{P_s}\right),
 \end{equation}
 where $f^{g}_s$ is the fugacity of the solute in the gas phase.
-Having calculated $f^{g}_s$, $P_s$ can be predicted using the following equation
+Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), it follows that
 \begin{equation}
-\label{eq:fgas}
-f^{g}_s = P_s \exp\left[ \frac{B_s(T) P_s}{R T} \right],
+\label{eq:fgas_d}
+f^{g}_s = \exp \left( \frac{\Delta G_\text{sim}}{k_b T} \right) +  c_s R T. 
 \end{equation}
-where $B_s$ corresponds to the second virial coefficient.
-Here, we employ the correlation of $B_s$ for \ce{CO_2} introduced by Holste \textit{et al.} \cite{Holste_1987}, which is
+
+Three additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems with which we compare our simulations) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
+\begin{equation}
+\label{eq:equation for pressure}
+y_s P \exp\left( \frac{B_s P}{R T} \right) = \exp \left( \frac{\Delta G_\text{sim}}{k_b T} \right) +  c_s R T,
+\end{equation}
+where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
+In the case of \ce{CO_2}, we employ the correlation for $B_s$ developed by Holste \textit{et al}. \cite{Holste_1987}, which is
 \begin{equation}
 B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
-where $B_0$ = 23.02991 cm$^3$/mol, $B_1$ = -2.455297 $\times$ 10$^3$ (Kcm$^3$/mol) and $B_2$ = -1.22675$\times$10$^7$ (K$^2$cm$^3$/mol).
+where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac{K \cdot cm^3}{mol}}$, and $B_2 = -1.22675 \times 10^7~\mathrm{\frac{K^2 \cdot cm^3}{mol}}$.
 
-As supported by preliminary simulations, it seems reasonable to assume $\Delta G_\text{sim}$ as independent of pressure over the range of experimental data considered in this work.
-Then, the equilibrium pressure is determined by directly solving Eq.~\eqref{eq:fgas} for $P_s$.
+Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here.
+In this way, no iterative simulations are required to compute the equilibrium pressure by solving Eq.~\eqref{eq:equation for pressure} for $P$.
 
 \subsection*{Infinite-dilution activity coefficient}
 
