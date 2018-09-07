@@ -237,7 +237,7 @@ Koller \textit{et al}. \cite{Koller_2012} were the first to introduce a specific
 They tested three variations of a united-atoms model, in which the hydrogen atoms of alkyl groups \ce{CH_3} and \ce{CH_2} of cation \ce{[emim]^+} are treated implicitly.
 Among these variations, the one named FF-3 best reproduces the experimental values of density, self-diffusion coefficients, and viscosity.
 In short, Koller \textit{et al}. \cite{Koller_2012} took both the intramolecular and LJ parameters for the cation from the work of Liu \textit{et al}. \cite{Liu_2006}, which in turn based their model on the AMBER \cite{Cornell_1995} framework.
-The intramolecular parameters involving the boron atom were extracted from the DREIDING \cite{Mayo_1990} force field and the anionic van der Waals parameters were refined based on the values reported by Price \textit{et al.} \cite{Price_2001}.
+The intramolecular parameters involving the boron atom were extracted from the DREIDING \cite{Mayo_1990} force field and the anionic van der Waals parameters were refined based on the values reported by Price \textit{et al}. \cite{Price_2001}.
 The atomic partial charges were derived using the EA-RESP method \cite{Basma_2001} from Post-Hartree-Fock \textit{ab-initio} calculations at MP2/6-31G\textsuperscript{*}+ level of theory, which automatically resulted in total charges on the ions of $\pm0.8426~\mathrm{e}$.
 
 Batista \textit{et al}. \cite{Batista_2015} then used the parameters of Ref.~\citenum{Koller_2012} for \ce{[B(CN)_4]^-} to study aqueous solutions of \ce{[emim][B(CN)_4]}.
@@ -271,18 +271,18 @@ For water, we employ the TIP4P/2005 model \cite{Abascal_2005,Vega_2011}.
 \label{sec:sim_details}
 
 With the aim of setting up a computationally efficient protocol for the ILs, in this work we assess the possibility of modeling the ions as rigid bodies and employing the damped shifted force (DSF) method \cite{Fennell2006} for computing the electrostatic interactions.
-As an alternative to the Ewald schemes \cite{Ewald_1921,Darden_1993,Hockney_1988}, McCann \textit{et al.} \cite{McCann_2013} tested the DSF method for various ILs modeled with the OPLS-AA force fields.
+As an alternative to the Ewald schemes \cite{Ewald_1921,Darden_1993,Hockney_1988}, McCann \textit{et al}. \cite{McCann_2013} tested the DSF method for various ILs modeled with the OPLS-AA force fields.
 They concluded that using $\alpha$ = 0.2 {\AA}$^{-1}$ and a cutoff distance ($r_c$) of 15 {\AA} provide the best energetic agreement with the Ewald method.
 In this work, comparisons are made in terms of the simulated densities and radial distribution functions for which, as will be shown in the next section, $\alpha$ = 0.2 {\AA}$^{-1}$ and $r_c$ = 12 {\AA} resulted in a good agreement.
 These values were also employed for the charged solutes, with the exception of hexane, for which we applied undamped Coulombic interactions improving the prediction of the chemical potential.
 
-The NPT algorithm of Kamberaj \textit{et al.} \cite{Kamberaj_2005} was used to perform the simulations with rigid bodies.
-For flexible molecules, we applied the scheme due to Shinoda \textit{et al.} \cite{Shinoda2004} and C-H bonds were constrained by the SHAKE method \cite{Ryckaert1977}.
+The NPT algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to perform the simulations with rigid bodies.
+For flexible molecules, we applied the scheme due to Shinoda \textit{et al}. \cite{Shinoda2004} and C-H bonds were constrained by the SHAKE method \cite{Ryckaert1977}.
 For both integrators, we used a time-step size ($\Delta t$) of 1 fs.
 
 The gradual insertion/deletion of charged solutes involves scaling both the van der Waals (vdW) and the electrostatic intermolecular interactions.
 In order to avoid numerical instabilities associated to the vdW scaling, a standard approach is to employ a soft-core potential with a nonlinear coupling.
-In this paper we use the modified LJ potential due to Beutler \textit{et al.} \cite{Beutler_1994}.
+In this paper we use the modified LJ potential due to Beutler \textit{et al}. \cite{Beutler_1994}.
 The electrostatic interactions, on the other hand, can be handled by a linear scaling \cite{Naden_2015}.
 Furthermore, the contributions to $\Delta G$ originating at the different couplings are taken into account separately, as follows:
 \begin{equation}
@@ -311,7 +311,7 @@ As demonstrated in Ref.~\citenum{Chodera_2011_2}, smaller values of $N^{EE}$ yie
 In this work, we employed $N^{EE}$ = 5 which, together with the specified $\lambda_{\, \text{vdW}}$ set, required up to 3 preliminary runs of the EE for determining the weights $\eta$ that yielded, in a final simulation, a ``sufficient'' sampling of each subensamble.
 By ``sufficient'', we mean that the sampling provides an acceptable uncertainty in $\Delta G$.
 The simulation times for the preliminary and final EE runs were 10 and 40 ns, respectively; and each $\lambda_{\text{Coul}}$ state was simulated for 10 ns.
-Finally, the MBAR method \cite{Shirts_2008}, as implemented by Klimovich \textit{et al.} \cite{Klimovich_2015}, was applied to estimate $\Delta G_{\text{vdW}}$ and $\Delta G_{\text{Coul}}$.
+Finally, the MBAR method \cite{Shirts_2008}, as implemented by Klimovich \textit{et al}. \cite{Klimovich_2015}, was applied to estimate $\Delta G_{\text{vdW}}$ and $\Delta G_{\text{Coul}}$.
 
 The initial configurations were obtained with PLAYMOL \cite{playmol}, a software integrated with PACKMOL \cite{Mart_nez_2009}, using the tool \textit{build} to specify geometric data (bond and angle lengths, and dihedral angles), from which PLAYMOL automatically determines the Cartesian coordinates.
 We first carried out NVT MD simulations of the isolated ion pairs in order to obtain a minimum energy conformation.
@@ -342,36 +342,36 @@ On the other hand, small and highly symmetric anions, such as \ce{PF_6} and \ce{
 
 Using the software TRAVIS \cite{Brehm_2011}, we obtained the combined distribution functions (CDFs) of the dihedral angles of C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT-MD simulations of 250 ion pairs at $T = 298.0~\text{K}$ and $P = 1.0~\text{bar}$.
 In Fig.~\ref{fig:dihedrals_emim} we show the CDFs for each force field of \ce{[emim][B(CN)_4]}.
-A first inspection of this figure reveals a similar behavior of the models due to Koller \textit{et al.} \cite{Koller_2012} and Liu \textit{et al.} \cite{Liu_2014}.
+A first inspection of this figure reveals a similar behavior of the models due to Koller \textit{et al}. \cite{Koller_2012} and Liu \textit{et al}. \cite{Liu_2014}.
 This was expected as both are based on the AMBER framework \cite{Cornell_1995}.
 In addition, Figs.~\ref{fig:dihedrals_emim}(a) and \ref{fig:dihedrals_emim}(b) are symmetric, which means that atoms C1, N2, and C2 are coplanar.
 In Fig.~\ref{fig:dihedrals_emim}(a), the most likely angles can be found in a narrow region around 90$^{\circ}$ and 270$^{\circ}$.
-Since these angles correspond to an equivalent configuration in the \textit{united-atom} \ce{[emim]^+}, in the case of Koller \textit{et al.} \cite{Koller_2012} we built all the rigid bodies by specifying 90$^{\circ}$ for the dihedral angle of C6-C5-N2-C1.
+Since these angles correspond to an equivalent configuration in the \textit{united-atom} \ce{[emim]^+}, in the case of Koller \textit{et al}. \cite{Koller_2012} we built all the rigid bodies by specifying 90$^{\circ}$ for the dihedral angle of C6-C5-N2-C1.
 The other models show a larger flexibility with high probability regions that extend in a broad range of angle values.
 Despite this, it was possible to build more than one type of rigid body by specifying the most probables angles of C6-C5-N2-C1.
-In the case of Liu \textit{et al.} \cite{Liu_2014}, these angles correspond to 90$^{\circ}$ and -90$^{\circ}$, while for the model of Batista \textit{et al.} \cite{Batista_2015}, we employed 102.6$^{\circ}$ and -102.6$^{\circ}$.
+In the case of Liu \textit{et al}. \cite{Liu_2014}, these angles correspond to 90$^{\circ}$ and -90$^{\circ}$, while for the model of Batista \textit{et al}. \cite{Batista_2015}, we employed 102.6$^{\circ}$ and -102.6$^{\circ}$.
 These two types of rigid bodies were built in equal proportion.
 Fig.~\ref{fig:dihedrals_emim}(d) corresponds to Weber and Kirchner \cite{Weber_2016}. 
 Given the wide range of sampled angles, we defined four types of rigid bodies: 150$^{\circ}$, 180$^{\circ}$ and 210$^{\circ}$ were employed to build 30~\%, 25~\% and 30~\% of them, respectively; and 0$^{\circ}$ for the remaining 15~\%.
 
 In Table~\ref{table:props_dsf} we present the results of density for the strategies mentioned at the beginning of this section.
 When comparing cases (1) and (2) for each model, we note that the simulated densities practically do not differ.
-In addition, the models of Koller \textit{et al.} \cite{Koller_2012} and Weber and Kirchner \cite{Weber_2016} best reproduce the experimental value.
+In addition, the models of Koller \textit{et al}. \cite{Koller_2012} and Weber and Kirchner \cite{Weber_2016} best reproduce the experimental value.
 We have also computed radial distribution functions (RDFs), which can be found in the Supplementary material.
-The better agreement is found for the models of Koller \textit{et al.} \cite{Koller_2012} and Batista \textit{et al.} \cite{Batista_2015}.
-Despite the small deviations observed for the model of Liu \textit{et al.} \cite{Liu_2014}, the simulation with rigid bodies qualitatively reproduces the RDFs obtained for the flexible ions.
+The better agreement is found for the models of Koller \textit{et al}. \cite{Koller_2012} and Batista \textit{et al}. \cite{Batista_2015}.
+Despite the small deviations observed for the model of Liu \textit{et al}. \cite{Liu_2014}, the simulation with rigid bodies qualitatively reproduces the RDFs obtained for the flexible ions.
 Although not shown here, these conclusions are valid for other calculated RDFs: N(anion)-N(cation), C6(cation)-N(anion), C2(cation)-B(anion).
 The model of Weber and Kirchner \cite{Weber_2016}, on the other hand, presents important discrepancies in the RDFs of the pairs C5(cation)-N(anion) and C2(cation)-B(anion) when using rigid bodies.
 That is why, in this case only the imidazolium ring was considered rigid and the ethyl chain was left unconstrained. 
 
 \begin{figure*}
 \centering
-\subfloat[Koller~\textit{et al.}~\cite{Koller_2012}]{%
+\subfloat[Koller~\textit{et al}.~\cite{Koller_2012}]{%
   \includegraphics[width=.4\linewidth]{koller}}%
-\subfloat[Batista~\textit{et al.}~\cite{Batista_2015}]{%  
+\subfloat[Batista~\textit{et al}.~\cite{Batista_2015}]{%  
   \includegraphics[width=.4\linewidth]{batista}}%
   
-\subfloat[Liu~\textit{et al.}~\cite{Liu_2014}]{%
+\subfloat[Liu~\textit{et al}.~\cite{Liu_2014}]{%
   \includegraphics[width=.4\linewidth]{Liu}}%
 \subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
   \includegraphics[width=.4\linewidth]{Weber}}%
@@ -382,8 +382,8 @@ That is why, in this case only the imidazolium ring was considered rigid and the
 A study of dihedrals was also carried out for \ce{[emim][NTf_2]}.
 The CDF of the dihedrals angles of C1-N2-C5-C6 and C2-N2-C5-C6, shown in Fig.~\ref{fig:die_ntf2}(a), resembles the results of Fig.~\ref{fig:dihedrals_emim}(d), but the most likely angle of C1-N2-C5-C6 is 0$^{\circ}$.
 This similarity was expected as both models of \ce{[emim]^+} are based on the force field developed by Canongia-Lopes and P\'{a}dua~ \cite{Canongia_Lopes_2006}.
-With regards to the anion \ce{[NTf_2]^-}, Deetlefs \textit{et al.} \cite{Deetlefs_2006} have experimentally determined the conformer population of the liquid-phase and observed that \ce{[NTf_2]^-} is mostly in its \textit{trans} conformation.
-Fig.~\ref{fig:die_ntf2}(b), which corresponds to the CDF for the contiguous C1-S1-N1-S2 and S1-N1-S2-C2 chains, qualitatively verifies the observation of Deetlefs \textit{et al.} \cite{Deetlefs_2006}.
+With regards to the anion \ce{[NTf_2]^-}, Deetlefs \textit{et al}. \cite{Deetlefs_2006} have experimentally determined the conformer population of the liquid-phase and observed that \ce{[NTf_2]^-} is mostly in its \textit{trans} conformation.
+Fig.~\ref{fig:die_ntf2}(b), which corresponds to the CDF for the contiguous C1-S1-N1-S2 and S1-N1-S2-C2 chains, qualitatively verifies the observation of Deetlefs \textit{et al}. \cite{Deetlefs_2006}.
 Given the considerable flexibility of \ce{[NTf_2]^-}, a more rigorous strategy for building the rigid bodies is required.
 Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible ions and the DSF method, which results in a computed density of 1.495 $\pm$ 0.009 g/cm$^3$ with an error of 1.12\% with respect to the experimental value~\cite{Tokuda_2005}.
 
@@ -422,7 +422,7 @@ Weber y Kirchner. \cite{Weber_2016} & 1.015 & 2.1 & 1.022 & 1.4  \\
 \label{sec:henry_results}
 
 In Table \ref{table:henry} we present the results of the solvation free energies of \ce{CO_2} along with the Henry constants ($K_s$) obtained by means of Eq.~\eqref{eq:henry_eq}.
-Table~\ref{table:henry} also contains the experimental $K_s$ reported by Mahurin \textit{et al.} \cite{Mahurin_2010} and Finotello \textit{et al.} \cite{Finotello_2008}.
+Table~\ref{table:henry} also contains the experimental $K_s$ reported by Mahurin \textit{et al}. \cite{Mahurin_2010} and Finotello \textit{et al}. \cite{Finotello_2008}.
 The uncertainties in $K_s$ were calculated using standard error propagation.
 
 \begin{table*}
@@ -438,14 +438,14 @@ Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\te
 			\hline
 			\multicolumn{4}{c}{\ce{[emim][B(CN)_4]}} & \multicolumn{2}{c}{\cellcolor{gray!25}$K_{s}^{\text{exp}}$ = 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010}}\\
 			\hline
-Koller \textit{et al.} \cite{Koller_2012} & 4.5925 & 0.45 $\pm$ 0.01 & -1.06 $\pm$ 0.02 & -0.61 $\pm$ 0.02 & 40 $\pm$ 1 & 2.8 \\
-Batista \textit{et al.} \cite{Batista_2015} & 4.3700 & 0.378 $\pm$ 0.008 & -1.24 $\pm$ 0.01  & -0.86 $\pm$ 0.01 & 24.9 $\pm$ 0.5 & 38.9 \\
-Liu \textit{et al.} \cite{Liu_2014} & 4.3815 & 0.226 $\pm$ 0.009 & -1.11 $\pm$ 0.01 & -0.88 $\pm$ 0.01 & 24.3 $\pm$ 0.5 & 37.6  \\
+Koller \textit{et al}. \cite{Koller_2012} & 4.5925 & 0.45 $\pm$ 0.01 & -1.06 $\pm$ 0.02 & -0.61 $\pm$ 0.02 & 40 $\pm$ 1 & 2.8 \\
+Batista \textit{et al}. \cite{Batista_2015} & 4.3700 & 0.378 $\pm$ 0.008 & -1.24 $\pm$ 0.01  & -0.86 $\pm$ 0.01 & 24.9 $\pm$ 0.5 & 38.9 \\
+Liu \textit{et al}. \cite{Liu_2014} & 4.3815 & 0.226 $\pm$ 0.009 & -1.11 $\pm$ 0.01 & -0.88 $\pm$ 0.01 & 24.3 $\pm$ 0.5 & 37.6  \\
 Weber y Kirchner \cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.02 & -0.75 $\pm$ 0.02 & 31 $\pm$ 1 & 20.3  \\
 \hline
 		\multicolumn{4}{c}{\ce{[emim][NTf_2]}} & \multicolumn{2}{c}{ \cellcolor{gray!25} $K_{s}^{\text{exp}}$ = 39.0 $\pm$ 0.1 atm~\cite{Finotello_2008}}\\
 		\hline
- K\"{o}ddermann \textit{et al.} \cite{K_ddermann_2007} &3.8205 & 0.389 $\pm$ 0.005 & -0.901 $\pm$ 0.006& -0.512 $\pm$ 0.008 & 39.4 $\pm$ 0.5  & 0.97  \\
+ K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} &3.8205 & 0.389 $\pm$ 0.005 & -0.901 $\pm$ 0.006& -0.512 $\pm$ 0.008 & 39.4 $\pm$ 0.5  & 0.97  \\
  \bottomrule
 \label{table:henry} 
 \end{tabular}
@@ -456,20 +456,20 @@ Weber y Kirchner \cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.
 \end{adjustbox}
 \end{table*}
 
-It should be pointed out that the result of $\Delta G_\text{sim}$ obtained for the model of Liu \textit{et al.} \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
-Moreover, the $\Delta G_\text{sim}$ in \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al.} \cite{Kerl__2017} ($-0.534$ kcal/mol, with no uncertainty reported) using the FEP method \cite{Zwanzig_1954}.
+It should be pointed out that the result of $\Delta G_\text{sim}$ obtained for the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
+Moreover, the $\Delta G_\text{sim}$ in \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534$ kcal/mol, with no uncertainty reported) using the FEP method \cite{Zwanzig_1954}.
 These consistencies have served for validating the methodological approaches of this work.
 
-From Table \ref{table:henry} one can see that the model of Koller \textit{et al.} \cite{Koller_2012} best reproduces the experimental value of $K_s$.
-If we look at the $\Delta G_{\lambda_{\,\text{vdW}}}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al.} \cite{Batista_2015} and Liu \textit{et al.}~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the interatomic interactions, which may also explain their failure to reproduce the experimental density.
+From Table \ref{table:henry} one can see that the model of Koller \textit{et al}. \cite{Koller_2012} best reproduces the experimental value of $K_s$.
+If we look at the $\Delta G_{\lambda_{\,\text{vdW}}}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the interatomic interactions, which may also explain their failure to reproduce the experimental density.
 
 \begin{figure}[ht]
 \includegraphics[width=\linewidth]{free_energy_paper}
-\caption{$\Delta G_{\lambda_{\,\text{vdW}}}$ profiles corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, which was modeled according to the force fields of (circles) Koller \textit{et al.} \cite{Koller_2012}, (squares) Batista \textit{et al.} \cite{Batista_2015}, (up triangles) Liu \textit{et al.} \cite{Liu_2014}, and (x) Weber y Kirchner \cite{Weber_2016}.}
+\caption{$\Delta G_{\lambda_{\,\text{vdW}}}$ profiles corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, which was modeled according to the force fields of (circles) Koller \textit{et al}. \cite{Koller_2012}, (squares) Batista \textit{et al}. \cite{Batista_2015}, (up triangles) Liu \textit{et al}. \cite{Liu_2014}, and (x) Weber y Kirchner \cite{Weber_2016}.}
 \label{fig:deltag}
 \end{figure}
 
-The $\Delta G_{\, \text{sim}}$ values for the models of Koller \textit{et al.} \cite{Koller_2012} and K\"{o}ddermann \textit{et al.} \cite{K_ddermann_2007} suggest a more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}. 
+The $\Delta G_{\, \text{sim}}$ values for the models of Koller \textit{et al}. \cite{Koller_2012} and K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} suggest a more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}. 
 The spatial distribution functions (SDFs) \cite{Svishchev_1993} shown in Figs.~\ref{fig:sdf_ions} confirm this result.
 The SDFs of the ions around a \ce{CO_2} molecule were obtained by using the software packages TRAVIS \cite{Brehm_2011} and VMD \cite{HUMP96}.
 For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} systems with a \ce{CO_2} molar fraction of 0.1.
@@ -498,7 +498,7 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \label{sec:results_conc}
 
 Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we have also carried out simulations at the thermodynamic conditions specified in Table~\ref{table:solv}, which correspond to similar values of \ce{CO_2} molality.
-Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies the observation made by Carvalho \textit{et al.} \cite{Carvalho_2016}, mentioned at the introduction of this paper.
+Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies the observation made by Carvalho \textit{et al}. \cite{Carvalho_2016}, mentioned at the introduction of this paper.
 
 \begin{table*}
 \centering
@@ -595,7 +595,7 @@ water TIP4P/2005& 1.38 $\pm$ 0.008 & -6.32 $\pm$ 0.03 & -4.94 $\pm$ 0.03 & 2 $\p
 \label{sec:conclusion}
 
 One of the goals of this paper was to compare various available models of \ce{[emim][B(CN)_4]} in terms of their capability to reproduce the experimental Henry constant of \ce{CO_2}.
-We have found that only the force field developed by Koller \textit{et al.} \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8 \%.
+We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8 \%.
 A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in that work, which also allows to accurately reproduce the experimental density of the pure substance.
 
 We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
@@ -608,7 +608,7 @@ This lack of consistency is one of the reasons why in industry molecular simulat
 The solvation free energy results at infinite-dilution condition suggest a slightly more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in  \ce{[emim][NTf_2]}.
 However, this picture changes at high concentrations: the simulations correctly predicted a considerable lower pressure to dissolve a certain mass of \ce{CO_2} in \ce{[emim][B(CN)_4]}.
 
-Finally, we employed the model of Koller \textit{et al.} \cite{Koller_2012} to predict infinite-dilution activity coefficients of various solutes.
+Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} to predict infinite-dilution activity coefficients of various solutes.
 In this case, the results were not satisfactory given the large errors in the free energy calculations of the pure solutes, making necessary a revision of their force fields in a future work.
 
 \section*{Acknowledgments}
