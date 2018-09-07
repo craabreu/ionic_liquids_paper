@@ -142,9 +142,10 @@ $c_s$ is the molar concentration of the solute in the liquid phase.
 Note that these quantities correspond to a phase equilibrium condition.
 For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
 \begin{equation}
+\label{eq:solute chemical potential}
 \mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right) - k_bT \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
-where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and partial pressure of solute $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively.
+where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively.
 Note that $c_s = \frac{N_s}{N_A V_1}$.
 For small solutes, such as those considered in this work, the term containing the ratio $V^{\ast}/V_1$ is typically in the order of magnitude of the free-energy uncertainties \cite{Shirts_2003}.
 Hence, it can be neglected and will be omitted hereafter.
@@ -159,12 +160,12 @@ Finally, by treating the gas phase as an ideal gas and considering the system to
 
 \subsection*{Henry's Law Constant}
 
-If both $P_s$ and $c_s^{\ast}$ are small, we can resort to Eqs.~\eqref{eq:solvation free energy definition} and \eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
+If both $P_s$ and $c_s$ are small, we can resort to Eqs.~\eqref{eq:solvation free energy definition} and \eqref{eq:free_solv} to predict Henry's law constant $\text{K}_s$, which is defined as \cite{Prausnitz}
 \begin{equation}
 \text{K}_s =\frac{P_s}{x_s}.
 \end{equation}
 
-Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$) and assuming that the molar density of the solution does not perceivably differ from that of the solvent ($\tilde{\rho} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
+Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$) and assuming a dilute solution, whose molar density does not perceivably differ from that of pure solvent (that is, $\tilde{\rho} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
 \begin{equation}
 \label{eq:henry_eq}
 K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp\left(\frac{\Delta G_\text{sim}}{k_b T}\right).
@@ -201,39 +202,21 @@ where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac
 Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here.
 In this way, no iterative simulations are required to compute the equilibrium pressure by solving Eq.~\eqref{eq:equation for pressure} for $P$.
 
-\subsection*{Infinite-dilution activity coefficient}
+\subsection*{Activity Coefficients}
 
-As will be shown below, the prediction of activity coefficients requires extra simulations involving the pure solute.
-In what follows, we use the superscript ``$0$'' to denote the pure solute properties.
-
-Using standard thermodynamic relations \cite{Tester}, we write the activity coefficient $\gamma_s$ in terms of residual chemical potentials, as follows:
+As will be shown below, the prediction of activity coefficients requires additional simulations of the solute as a pure liquid phase, whose properties we denote here by a superscript ``$0$''.
+We start by using standard thermodynamic relations \cite{Tester} to write the solute activity coefficient $\gamma_s$ in terms of chemical potentials as
 \begin{equation}
 \label{eq:gamma}
-\ln \gamma_s = \frac{1}{RT} (\mu_s^R - \mu_s^{R,0}),
-\end{equation}
-where $\mu_s^R$ and $\mu_s^{R,0}$ are the residual chemical potentials of the solute in the solution and in the pure solute, respectively.
-It is worth noting that we have used the definition $\mu_s^{R}$ (P,T) = $\mu_s$ (P,T) - $\mu_s^{ig}$ (P,T), where the superscript $ig$ refers to a solution of ideal gases.
-Also, recall that $\mu_s^{ig} (P,T)$ = $\mu_s^{ig,0} (P,T)$ + $RT \ln x_s$, so we have that
-\begin{equation}
-\mu_s^R = \mu_s^l(N_s^l,N_{LI},P,T) - \mu_s^{ig,0}(P,T) - k_b T \ln x_s.
-\end{equation}
-Replacing $\mu_s^{l}$ and $\mu_s^{ig,0}$ by the corresponding expressions derived in Ref.~\cite{Shirts_2003} yields
-\begin{equation}
-\label{eq:mu_res}
-\mu_s^R = \Delta G_\text{sim} - k_b T \ln \left( \frac{V^{\ast} P}{N_s^l k_b T} \right) -  k_b T \ln x_s.
-\end{equation}
-Of course, an analogous equation holds for $\mu_s^{R,0}$:
-\begin{equation}
-\label{eq:mu_res_0}
-\mu_s^{R,0} = \Delta G_\text{sim}^{0} - k_b T \ln \left( \frac{V^{\ast,0} P}{N_s^{l,0} k_b T} \right).
+\ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{k_B T} - \ln x_s,
 \end{equation}
 
-If one makes $N_s^{l}$ = 1, and substitute Eqs.~\eqref{eq:mu_res} and~\eqref{eq:mu_res_0} into Eq.~\eqref{eq:gamma}, the infinite-dilution activity coefficient, $\gamma^{\infty}_s$, can be predicted according to the following equation:
+Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of Eq.~\eqref{eq:solute chemical potential}. In this step, we note that $c_s = \tilde{\rho} x_s$ and $c_s^0 = \tilde{\rho}_s^0$, where $\tilde{\rho}$ and $\tilde{\rho}_s^0$ are the molar densities of the solution and of the pure liquid solute, respectively. Thus, the expression we obtain for computing an activity coefficient from two independent simulations is
 \begin{equation}
-\label{eq:gamma_inf}
-\ln \gamma^{\infty}_s = \frac{1}{k_b T} \left( \Delta G_\text{sim} - \Delta G_\text{sim}^{0} \right) + \frac{c_\text{\tiny IL}^{\, \ast}}{c_{\, s}^{\, \ast,0}},
+\ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{k_b T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
 \end{equation}
-where $c_\text{\tiny IL}^{\, \ast}$ y $c_{\, s}^{\, \ast,0}$ are the numerical densities of the solvent and the pure solute, respectively.
+
+In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient $\gamma^\infty_s$ can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{\tiny IL}$.
 
 \section{Force fields}
 \label{sec:force_field}
