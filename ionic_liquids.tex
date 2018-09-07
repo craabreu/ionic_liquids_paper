@@ -227,44 +227,45 @@ In the special case of a solute at infinite dilution in an ionic liquid solvent,
 
 The versatility of ILs for different applications is in part due to the fact that their physical properties strongly depend on the particular cation-anion combination.
 On the other hand, this feature also explains why the desirable transferability of force fields is particularly difficult to attain.
-Indeed, it is a common practice to extract the potential parameters of the intramolecular (bond stretching, angle bending, torsion rotation) and Lennard-Jones (LJ) interactions from a well established force field and, then, only derive the partial atomic charges with the aim of ``adjusting'' the model for a specific pair of ions.
-This procedure is, however, inaccurate as in conventional force fields the determination of the atomic charges precedes the dihedrals parametrization.
-Another ad-hoc strategy, which intends to crudely incorporate polarization effects, is to scale the partial charges uniformly with a factor which normally takes values in the range 0.8-0.9.
+Indeed, it is a common practice to extract the potential parameters of the intramolecular (bond stretching, angle bending, torsion rotation) and Lennard-Jones (LJ) interactions from a well established force field and, then, only derive the partial atomic charges with the aim of adjusting the model for a specific pair of ions.
+This procedure is, however, inconsistent with conventional force field parameterization in which the determination of atomic charges precedes the establishment of torsional terms.
+Another ad-hoc strategy, which intends to roughly incorporate polarization effects, is to scale the partial charges uniformly with a factor which normally takes values in the range from 0.8 to 0.9.
 This has proven to be effective for predicting dynamic properties \cite{Schr_der_2012}.
 
-In this paper, we consider four models of \ce{[emim][B(CN)_4]}.
-Koller \textit{et al.} \cite{Koller_2012} were the first to introduce a specific non-polarizable force field for that IL.
-They tested three variations of a \textit{united-atoms} model, in which the alkyl groups \ce{CH_3} and \ce{CH_2} of \ce{[emim]^+} are replaced by pseudo-atoms.
-Among them, the ``FF-3'' model best reproduces the experimental values of density, self-diffusion coefficients and viscosity.
-In short, both the intramolecular and LJ parameters of the cation were taken from the work of Liu \textit{et al.} \cite{Liu_2006}, which in turn is based on the AMBER \cite{Cornell_1995} framework.
-The intramolecular parameters involving the boron atom were extracted from the DREIDING \cite{Mayo_1990} force field and the anionic vdW parameters were refined based on the values reported by Price \textit{et al.} \cite{Price_2001}.
-The atomic partial charges were derived using the EA-RESP method \cite{Basma_2001} from \textit{Post-Hartree-Fock ab-initio} calculations at MP2/6-31G$^\ast$+ level of theory, which automatically resulted in total charges on the ions of $\pm$0.8426$e$. 
+In this paper, we analyze four different models for \ce{[emim][B(CN)_4]}.
+Koller \textit{et al}. \cite{Koller_2012} were the first to introduce a specific non-polarizable force field for this IL.
+They tested three variations of a united-atoms model, in which the hydrogen atoms of alkyl groups \ce{CH_3} and \ce{CH_2} of cation \ce{[emim]^+} are treated implicitly.
+Among these variations, the one named FF-3 best reproduces the experimental values of density, self-diffusion coefficients, and viscosity.
+In short, Koller \textit{et al}. \cite{Koller_2012} took both the intramolecular and LJ parameters for the cation from the work of Liu \textit{et al}. \cite{Liu_2006}, which in turn based their model on the AMBER \cite{Cornell_1995} framework.
+The intramolecular parameters involving the boron atom were extracted from the DREIDING \cite{Mayo_1990} force field and the anionic van der Waals parameters were refined based on the values reported by Price \textit{et al.} \cite{Price_2001}.
+The atomic partial charges were derived using the EA-RESP method \cite{Basma_2001} from Post-Hartree-Fock \textit{ab-initio} calculations at MP2/6-31G\textsuperscript{*}+ level of theory, which automatically resulted in total charges on the ions of $\pm0.8426~\mathrm{e}$.
 
-The potential parameters of \ce{[B(CN)_4]^-} derived by Koller \textit{et al.} \cite{Koller_2012} were then used by Batista \textit{et al.} \cite{Batista_2015} to study aqueous solutions of \ce{[emim][B(CN)_4]}.
-In this case, the authors considered the \textit{all-atom} model of \ce{[emim]^+} developed by Cadena and Maginn \cite{Cadena_2006}.
-The atomic partial charges were obtained using the CHELP procedure \cite{Breneman_1990}, resulting in net charges of $\pm$0.889$e$ on the ions.
-It should be noted that the factors for scaling the 1-4 non-bonded interactions are different for these force fields: Cadena and Maginn \cite{Cadena_2006} apply factors of 1.0 and 0.4 for the LJ and Coulombic interactions, respectively; while in Koller \textit{et al.} \cite{Koller_2012} the corresponding values are 0.5 and 5/6, in accordance with the AMBER force field.
-Batista \textit{et al.} \cite{Batista_2015} used the first ones (J.P. Coutinho, personal communication).
+Batista \textit{et al}. \cite{Batista_2015} then used the parameters of Ref.~\citenum{Koller_2012} for \ce{[B(CN)_4]^-} to study aqueous solutions of \ce{[emim][B(CN)_4]}.
+In this case, the authors considered the all-atom model of Cadena and Maginn \cite{Cadena_2006} for \ce{[emim]^+}.
+The atomic partial charges were obtained using the CHELP procedure \cite{Breneman_1990}, resulting in net charges of $\pm 0.889~\mathrm{e}$.
+It should be noted that the factors for scaling the 1-4 non-bonded interactions are different for these force fields.
+Cadena and Maginn \cite{Cadena_2006} apply factors of 1.0 and 0.4 for the LJ and Coulombic interactions, respectively, while for Koller \textit{et al}. \cite{Koller_2012} the corresponding values are 1/2 and 5/6, in accordance with the AMBER force field.
+Batista \textit{et al}. \cite{Batista_2015} used the former throughout (J. Coutinho, personal communication).
 
-Another set of parameters for \ce{[emim][B(CN)_4]} was derived by Liu \textit{et al.} \cite{Liu_2014} in a study that investigates the dynamics of \ce{CO_2} and \ce{N_2} in that IL.
-Parameters corresponding to the intramolecular and LJ interactions were extracted from GAFF \cite{Wang_2004}, while the atomic partial charges were computed using the RESP method \cite{Bayly_1993} from \textit{DFT}/B3LYP/6-311+G(d) calculations.
-The net charges of the ions were manually adjusted to a value of $\pm$0.8$e$.
+Another set of parameters for \ce{[emim][B(CN)_4]} was derived by Liu \textit{et al}. \cite{Liu_2014} in a study that investigates the dynamics of \ce{CO_2} and \ce{N_2} dissolved in this ionic liquid.
+Parameters corresponding to the intramolecular and LJ interactions were extracted from GAFF \cite{Wang_2004}, while the atomic partial charges were computed using the RESP method \cite{Bayly_1993} with B3LYP/6-311+G(d) DFT calculations.
+The net charges of the ions were manually adjusted to $\pm 0.8 \mathrm{e}$.
 
-We also consider the parametrization reported by Weber and Kirchner \cite{Weber_2016}, which is based on the force field developed by P{\'{a}}dua and Canongia Lopes~\cite{Canongia_Lopes_2006}.
-The potential parameters for the anion are not specified in Refs.~\citenum{Weber_2016} and~\citenum{Canongia_Lopes_2006}, and we obtained them by a direct communication with the authors of Ref.~\citenum{Weber_2016}.
-The atomic partial charges were derived using the RESP procedure from \textit{Hartree-Fock} calculations at 6-31++G$^{\ast \ast}$ level of theory, resulting in net charges of $\pm$0.8$e$.
+Finally, we also consider the parameterization which Weber and Kirchner \cite{Weber_2016} carried out for \ce{[emim][B(CN)_4]} based on the force field developed by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
+As the potential parameters for the anion were specified neither in Ref.~\citenum{Weber_2016} nor in Ref.~\citenum{Canongia_Lopes_2006}, we obtained them by direct communication with the authors of Ref.~\citenum{Weber_2016}.
+The atomic partial charges were derived using the RESP procedure with Hartree-Fock calculations at the \mbox{6-31++G\textsuperscript{**}} level of theory, resulting in net charges of $\pm 0.8 \mathrm{e}$.
 
-Finally, for \ce{[emim][NTf_2]} we use the model of K\"{o}ddermann~\textit{et al.} \cite{K_ddermann_2007}, which was derived by refining the force field due to P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
-This refining was characterized by their authors as ``unusual'', given that the LJ parameters were modified, while keeping the partial charges at their original values.
-This model was recently employed by Kerl \textit{et al.} \cite{Kerl__2017}, who were able to accurately predict Henry constants of \ce{CO_2} at several temperatures.
+In the case of ionic liquid \ce{[emim][NTf_2]}, we use the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}, which was also derived by refining parameters of the force field by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
+The authors characterized this refinement as unusual, given that they modified the LJ parameters while keeping the partial charges unchanged.
+Kerl \textit{et al}. \cite{Kerl__2017} recently employed this model to accurately predict Henry constants of \ce{CO_2} in \ce{[emim][NTf_2]} at several temperatures.
 
 \subsection{Solutes}
 \label{sec:force_field_sol}
 
-The solutes considered in this work are hexane, benzene, \ce{CO_2}, ethanol, cyclohexane and water.
+Besides \ce{CO_2}, the solutes considered in this work are hexane, benzene, ethanol, cyclohexane, and water.
 Hexane and benzene were modeled using the OPLS-AA force field \cite{Jorgensen_1996}, while the TRAPPE potential \cite{Chen_2001,Potoff_2001} was employed for ethanol and \ce{CO_2}.
-Cyclohexane was simulated using a rigid-body model \cite{munoz2015lennard} whose sites only interact via a LJ potential
-For water, we employ the TIP4P/2005 model \cite{Abascal_2005,Vega_2011}. 
+Cyclohexane was simulated using a rigid-body model \cite{munoz2015lennard} whose sites interact via a LJ potential only.
+For water, we employ the TIP4P/2005 model \cite{Abascal_2005,Vega_2011}.
 
 \section{Computational methods}
 \label{sec:sim_details}
