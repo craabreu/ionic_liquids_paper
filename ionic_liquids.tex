@@ -270,54 +270,52 @@ For water, we employ the TIP4P/2005 model \cite{Abascal_2005,Vega_2011}.
 \section{Computational methods}
 \label{sec:sim_details}
 
-With the aim of setting up a computationally efficient protocol for the ILs, in this work we assess the possibility of modeling the ions as rigid bodies and employing the damped shifted force (DSF) method \cite{Fennell2006} for computing the electrostatic interactions.
-As an alternative to the Ewald schemes \cite{Ewald_1921,Darden_1993,Hockney_1988}, McCann \textit{et al}. \cite{McCann_2013} tested the DSF method for various ILs modeled with the OPLS-AA force fields.
-They concluded that using $\alpha$ = 0.2 {\AA}$^{-1}$ and a cutoff distance ($r_c$) of 15 {\AA} provide the best energetic agreement with the Ewald method.
-In this work, comparisons are made in terms of the simulated densities and radial distribution functions for which, as will be shown in the next section, $\alpha$ = 0.2 {\AA}$^{-1}$ and $r_c$ = 12 {\AA} resulted in a good agreement.
-These values were also employed for the charged solutes, with the exception of hexane, for which we applied undamped Coulombic interactions improving the prediction of the chemical potential.
-
-The NPT algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to perform the simulations with rigid bodies.
-For flexible molecules, we applied the scheme due to Shinoda \textit{et al}. \cite{Shinoda2004} and C-H bonds were constrained by the SHAKE method \cite{Ryckaert1977}.
-For both integrators, we used a time-step size ($\Delta t$) of 1 fs.
-
-The gradual insertion/deletion of charged solutes involves scaling both the van der Waals (vdW) and the electrostatic intermolecular interactions.
-In order to avoid numerical instabilities associated to the vdW scaling, a standard approach is to employ a soft-core potential with a nonlinear coupling.
-In this paper we use the modified LJ potential due to Beutler \textit{et al}. \cite{Beutler_1994}.
-The electrostatic interactions, on the other hand, can be handled by a linear scaling \cite{Naden_2015}.
-Furthermore, the contributions to $\Delta G$ originating at the different couplings are taken into account separately, as follows:
+With the aim of setting up a computationally efficient protocol for the IL simulations, in this work we assess the possibilities of modeling the ions as rigid bodies and employing the damped shifted force (DSF) method \cite{Fennell2006} for computing electrostatic interactions.
+In this method, the electrostatic potential between two atoms with charges $q_i$ and $q_j$ interacting at a distance $r$ is given by
 \begin{equation}
-\begin{split}
-\Delta G_\text{sim} =& \; \Delta G_{\,\text{vdW}} (\lambda_{\,\text{vdW}} = 0\rightarrow  1, \lambda_{\, \text{Coul}} = 0) \\
-+ \; &\Delta G_{\,\text{Coul}} (\lambda_{\, \text{vdW}} = 1,\lambda_{\,\text{Coul}} = 0 \rightarrow 1),
-\end{split}
+V_\text{\tiny DSF}(r) = V(r) - V(r_c) - V^\prime(r_c)(r-r_c),
 \end{equation}
-where $\lambda_{\,\text{vdW}}$ and $\lambda_{\,\text{Coul}}$ are the coupling parameters of the soft-core and electrostatic potentials, respectively.
-Note that in the process of coupling the vdW interactions, the Coulombic interactions are turned-off, while we set $\lambda_{\,\text{vdW}}$ = 1 when computing $\Delta G_{\,\text{Coul}}$.
-This results in the ``end-point'' states given by ($\lambda_{\,\text{vdW}}$=0,$\lambda_{\,\text{Coul}}$=0) and ($\lambda_{\,\text{vdW}}$=1,$\lambda_{\,\text{Coul}}$=1), as expected.
-The complete sets of the coupling parameters we use here are $\lambda_{\text{vdW}}$ = $\{0.0$, $0.05$, $0.1$, $0.2$, $0.25$, $0.3$, $0.35$, $0.4$, $0.45$, $0.5$, $0.6$, $0.7$, $0.8$, $0.9$, $1.0\}$ and $\lambda_{\text{Coul}}$ = $\{0.0$, $0.1$, $0.4$, $0.7$, $0.1\}$.
+where $V(r) = q_i q_j {\text{erfc}(\alpha r)}/{r}$ is a damped Coulomb potential.
+This potential is cut off at $r = r_c$, which makes it short-ranged and thus a cheaper alternative to Ewald-type schemes \cite{Ewald_1921,Darden_1993,Hockney_1988}.
+McCann \textit{et al}. \cite{McCann_2013} tested the DSF method for various ILs modeled with the OPLS-AA force field.
+They concluded that using $\alpha = 0.2~\text{\AA}^{-1}$ and $r_c = 15~\text{\AA}$ provides the best energetic agreement with the Ewald method.
+In this work, detailed comparisons are made in terms of the simulated densities and radial distribution functions.
+In Sec.~\ref{sec:results}, we show that by using the same $\alpha$ value but a considerably smaller cutoff distance ($r_c = 12 \text{\AA}$) one can obtain suitable results.
+These values were employed here for the ILs as well as for solutes containing partially charged atoms.
+The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions.
 
-In this work, we carried out independent simulation at each state of $\lambda_{\text{Coul}}$, while the expanded ensemble (EE) method~\cite{Lyubartsev_1992} was applied for sampling the $\lambda_{\,\text{vdW}}$ set.
-In short, an EE is constructed as a weighted sum of subensembles, each assuming a different value of the variable chosen to explore the free energy landscape, which in our case is $\lambda_{\,\text{vdW}}$.
-This way, the sampling of an EE comprises both sampling each subensamble with fixed variables (N,P,T,$\lambda_{\,\text{vdW}}$) and transitions in $\lambda_{\,\text{vdW}}$.
-Thus, a remarkable feature of the EE method is the possibility of exploring the whole alchemical route in a single simulation.
-In this work, we perform a sequential sampling of the EE \cite{Chodera_2011_2}, which consists in sampling each subensamble via NPT molecular dynamics (MD) for a determined number of steps $N^{\text{EE}}$ followed by an attempt to change $\lambda_{\,\text{vdW}}$ using MC, and so on.
-The $\lambda_{\,\text{vdW}}$ transitions are performed according to an independent sampling scheme \cite{Chodera_2011_2}.
-In addition, the set of (arbitrary) weights $\eta$ of the subensambles enters in the acceptance criteria of MC, so it is possible to tune $\eta$ in order to enhance the sampling.
-If differences $\eta_i$ - $\eta_j$ were closed to $\Delta G_{ji}$, we expect an uniform sampling in $\lambda_{\,\text{vdW}}$ \cite{Lyubartsev_1992}.
-Of course, this can be achieved only iteratively.
-The EE procedure, together with the \textit{soft-core} potential and the DSF method with linear coupling were implemented in the LAMMPS software package \cite{Plimpton1995}, which we used for carrying out all the simulations.
+The NPT algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to integrate the equations of motion for rigid bodies.
+For flexible molecules, we applied the integration scheme of Shinoda \textit{et al}. \cite{Shinoda2004}, with the lengths of all C-H bonds constrained by the SHAKE method \cite{Ryckaert1977}.
+For both integrators, we used a small time-step size ($\Delta t$) of 1 fs in order to avoid discretization-induced artifacts \cite{Eastwood_2010, Silveira_2017}.
 
-As demonstrated in Ref.~\citenum{Chodera_2011_2}, smaller values of $N^{EE}$ yield more decorrelated samples in each subensemble.
-In this work, we employed $N^{EE}$ = 5 which, together with the specified $\lambda_{\, \text{vdW}}$ set, required up to 3 preliminary runs of the EE for determining the weights $\eta$ that yielded, in a final simulation, a ``sufficient'' sampling of each subensamble.
-By ``sufficient'', we mean that the sampling provides an acceptable uncertainty in $\Delta G$.
-The simulation times for the preliminary and final EE runs were 10 and 40 ns, respectively; and each $\lambda_{\text{Coul}}$ state was simulated for 10 ns.
-Finally, the MBAR method \cite{Shirts_2008}, as implemented by Klimovich \textit{et al}. \cite{Klimovich_2015}, was applied to estimate $\Delta G_{\text{vdW}}$ and $\Delta G_{\text{Coul}}$.
+The gradual insertion/deletion of solutes involves scaling both the van der Waals (vdW) and the electrostatic intermolecular interactions.
+To avoid numerical instabilities associated to the vdW scaling, it is usual to employ a soft-core potential with nonlinear coupling.
+In this paper, we use the modified LJ potential proposed by Beutler \textit{et al}. \cite{Beutler_1994}, given by $V_\text{\tiny vdW}(r) = 4 \epsilon \lambda_\text{\tiny vdW} (s^{-2} - s^{-1})$, where $s = (r/\sigma)^6 + (1 - \lambda_\text{\tiny vdW})/2$.
+The electrostatic interactions, on the other hand, can be simply multiplied by a coupling parameter $\lambda_\text{\tiny Coul}$ \cite{Naden_2015}.
+Furthermore, the vdW and Coulomb contributions to the free energy difference are taken into account separately.
+That is,
+\begin{equation}
+\Delta G_\text{sim} = \Delta G_\text{\tiny vdW} + \Delta G_\text{\tiny Coul},
+\end{equation}
+where $\Delta G_\text{\tiny vdW}$ is computed by varying $\lambda_\text{\tiny vdW} \in [0,1]$ while keeping $\lambda_\text{\tiny Coul} = 0$, whereas $\Delta G_\text{\tiny Coul}$ is computed by varying $\lambda_\text{\tiny Coul} \in [0,1]$ while keeping $\lambda_\text{\tiny vdW} = 1$.
+The sets of coupling parameter values we use here in all alchemical simulations are $\lambda_{\text{\tiny vdW}}$ = $\{0.0$, $0.05$, $0.1$, $0.2$, $0.25$, $0.3$, $0.35$, $0.4$, $0.45$, $0.5$, $0.6$, $0.7$, $0.8$, $0.9$, $1.0\}$ and $\lambda_{\text{\tiny Coul}}$ = $\{0.0$, $0.1$, $0.4$, $0.7$, $0.1\}$.
 
-The initial configurations were obtained with PLAYMOL \cite{playmol}, a software integrated with PACKMOL \cite{Mart_nez_2009}, using the tool \textit{build} to specify geometric data (bond and angle lengths, and dihedral angles), from which PLAYMOL automatically determines the Cartesian coordinates.
-We first carried out NVT MD simulations of the isolated ion pairs in order to obtain a minimum energy conformation.
-For this, we used the Nos\'{e}-Hoover thermostat \cite{Martyna1992} and a cubic box of length L = 50 {\AA} with non-periodic boundary conditions.
-After a short run with $\Delta t$ = $0.5~\text{fs}$, we carried out a ``quenching'' simulation with $\Delta t$ = $1 ~\text{fs}$, in which the temperature is gradually reduced until reaching a value close to $0~\text{K}$.
-The resulting coordinates were then specified in PLAYMOL \cite{playmol} to build the configurations of the liquid phases.
+In this work, we compute $\Delta G_\text{\tiny Coul}$ by carrying out an independent simulation of 10 ns at each state of $\lambda_{\text{\tiny Coul}}$.
+In the end, we apply the Multistate Bennett Acceptance Ratio (MBAR) method \cite{Shirts_2008} by using the \textit{Alchemical Analysis} package \cite{Klimovich_2015}.
+
+In the case of $\Delta G_\text{\tiny vdW}$, the Expanded Ensemble method \cite{Lyubartsev_1992} is applied for sampling the whole $\lambda_\text{\tiny vdW}$ set in a single simulation.
+An expanded ensemble is constructed as a weighted sum of subensembles, each one assuming a different value of the parameter selected for exploring the free energy landscape, which in our case is $\lambda_\text{\tiny vdW}$.
+In the method adopted here \cite{Chodera_2011_2}, simulating an expanded ensemble comprises doing molecular dynamics (MD) at fixed N, P, T, and $\lambda_\text{\tiny vdW}$ amid Monte Carlo (MC) transitions in the value of $\lambda_\text{\tiny vdW}$.
+The number of MD steps between transitions is fixed and, at each transition, one of the $\lambda_\text{\tiny vdW}$ states is picked at random according to a corresponding set of probabilities \cite{Chodera_2011_2}.
+In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{\tiny vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
+Given that sample decorrelation is improved by having short MD runs between MC transitions \cite{Chodera_2011_2}, we used only 5 steps in each run.
+In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
+In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}.
+
+We first carried out MD simulations of isolated ion pairs in order to obtain minimum-energy conformations.
+For this, we used a Nos\'{e}-Hoover chain thermostat \cite{Martyna1992} with set-point temperature gradually changing down to nearly $0~\text{K}$.
+The resulting coordinates were then used with the PACKMOL algorithm \cite{Mart_nez_2009} via the Playmol package \cite{playmol} to obtain initial liquid-phase configurations.
+The expanded ensemble procedure, the softcore potential, and the DSF method  with linear coupling were implemented by customizing the LAMMPS package \cite{Plimpton1995}, which we used for carrying out all the simulations in this work.
 
 \section{Results and discussion}
 \label{sec:results}
