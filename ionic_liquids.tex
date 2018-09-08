@@ -209,7 +209,7 @@ As will be shown below, the prediction of activity coefficients requires additio
 We start by using a standard thermodynamic relation \cite{Tester} to write the solute activity coefficient $\gamma_s$ in terms of chemical potentials as
 \begin{equation}
 \label{eq:gamma}
-\ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{k_B T} - \ln x_s,
+\ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{k_b T} - \ln x_s,
 \end{equation}
 
 Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of Eq.~\eqref{eq:solute chemical potential}. In this step, we note that $c_s = \tilde{\rho} x_s$ and $c_s^0 = \tilde{\rho}_s^0$, where $\tilde{\rho}$ and $\tilde{\rho}_s^0$ are the molar densities of the solution and of pure liquid solute, respectively. Thus, the expression we obtain for computing an activity coefficient from two independent simulations is
@@ -395,25 +395,28 @@ Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible 
 \end{figure}
 
 \begin{table*}
-\begin{threeparttable}
-\caption{Comparison of predicted and experimental densities for differents models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $\rho^{\text{exp}}$ = 1.036 g/cm$^{3}$~\cite{Doma_ska_2011}.}
-\begin{tabular}{ c  c  c  c  c}  
-\hline \hline
-\ce{[emim][B(CN)_4]}&  $\rho_\text{sim}$ & error (\%)\tnote{a}  & $\rho_\text{sim}$ & error (\%)\tnote{a} \\
-model & (g/cm$^{3}$) &  &  (g/cm$^{3}$) &  \\
-			\hline
-& \multicolumn{2}{c}{Flexible ions/Ewald method} & \multicolumn{2}{c}{Rigid ions/DSF method} \\
-Koller y col. \cite{Koller_2012}    & 1.046 & 1.0 & 1.038 & 0.2 \\
-Batista y col. \cite{Batista_2015}  & 0.989 & 4.6 & 0.988 & 4.7 \\
-Liu y col. \cite{Liu_2014}          & 1.001 & 3.4 & 0.991 & 4.4 \\
-Weber y Kirchner. \cite{Weber_2016} & 1.015 & 2.1 & 1.022 & 1.4  \\
- \hline \hline
-\label{table:props_dsf} 
+\centering
+\caption{Comparison of predicted and experimental densities for different models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $1.036~\mathrm{g/cm^3}$ \cite{Doma_ska_2011}.}
+\begin{tabular}{ccccc}
+\hline
+\hline
+\ce{[emim][B(CN)_4]} model                        & 
+\multicolumn{2}{c}{Flexible ions \& Ewald method} &
+\multicolumn{2}{c}{Rigid ions \& DSF method}      \\
+                                            &
+$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+error (\%)                                  &
+$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+error (\%)                                  \\
+\hline
+Koller \textit{et al}. \cite{Koller_2012}    & 1.046 & 1.0 & 1.038 & 0.2 \\
+Batista \textit{et al}. \cite{Batista_2015}  & 0.989 & 4.6 & 0.988 & 4.7 \\
+Liu \textit{et al}. \cite{Liu_2014}          & 1.001 & 3.4 & 0.991 & 4.4 \\
+Weber and Kirchner \cite{Weber_2016}         & 1.015 & 2.1 & 1.022 & 1.4  \\
+\hline
+\hline
+\label{table:props_dsf}
 \end{tabular}
-\begin{tablenotes}
-\item[a] error = 100 $\times$($\rho^{\text{exp}}$$ - $$\rho^\text{sim}$)/$\rho^{\text{exp}}$.
-\end{tablenotes}
-\end{threeparttable}
 \end{table*}
 
 \subsection{Henry constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
