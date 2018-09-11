@@ -1,31 +1,19 @@
 %\documentclass[3p,preprint]{elsarticle}
 \documentclass[3p,twocolumn]{elsarticle}
 
-\usepackage{color,soul} % TEMPORARY
-
 \usepackage[colorlinks,citecolor=blue]{hyperref}
 %\usepackage{lineno}
 %\modulolinenumbers[5]
 \usepackage{amsmath}
-\usepackage{ifthen}
-\usepackage{commath}
 \usepackage{amssymb}
 \usepackage[]{natbib}
 \usepackage[version=4]{mhchem}
-
 \usepackage{adjustbox}   
-\usepackage{threeparttable}
-\usepackage{booktabs}
-\usepackage{colortbl} 
-\usepackage{xcolor}
-\usepackage{mhchem}
-
-\newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
-
+\usepackage[position=top,captionskip=-12pt]{subfig}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.eps,.png}
-%\usepackage{float}
-\usepackage[position=top,captionskip=-15pt]{subfig}
+
+\newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
 
 \journal{Fluid Phase Equilibria}
 
@@ -382,7 +370,7 @@ The $\psi_1$-angle values for these types are $0^\circ$, $150^\circ$, $180^\circ
   \includegraphics[width=.4\linewidth]{Liu}}%
 \subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
   \includegraphics[width=.4\linewidth]{Weber}}%
-\caption{Combined distribution function of the dihedral angles of C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT-MD simulations of 250 ion pairs for each model of \ce{[emim][B(CN)_4]}.}
+\caption{Combined distribution functions of the dihedral angles corresponding to atoms C1-N2-C5-C6 and C2-N2-C5-C6 in the cation \ce{[emim]^+} (see Fig.~\ref{fig:atoms_id}), as sampled in NPT-MD simulations of 250 ion pairs using each model for \ce{[emim][B(CN)_4]}.}
 \label{fig:dihedrals_emim}
 \end{figure*}
 
@@ -404,8 +392,8 @@ Note that both RDFs are supposed to be affected by the orientations of the ethyl
 		\hline
 		\hline
 		\ce{[emim][B(CN)_4]} model                        & 
-		\multicolumn{2}{c}{Flexible ions \& Ewald method} &
-		\multicolumn{2}{c}{Rigid ions \& DSF method}      \\
+		\multicolumn{2}{c}{Flexible ions \& PPPM-Ewald} &
+		\multicolumn{2}{c}{Rigid ions \& DSF}      \\
 		&
 		$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
 		error (\%)                                  &
@@ -437,15 +425,13 @@ Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible 
 
 \begin{figure}
 \centering
-  \includegraphics[width=\linewidth]{Ludwig}%
-
-  \includegraphics[width=\linewidth]{Ludwig_anion}%
-\caption{Combined distribution function of (a) the dihedral angles of C1-N2-C5-C6 and C2-N2-C5-C6, and (b) of the dihedral angles of the contiguous  C1-S1-N1-S2 and S1-N1-S2-C2 chains, obtained from NPT-MD simulations of 250 molecules of \ce{[emim][NTf_2]}.}
+\includegraphics[width=\linewidth]{Ludwig_anion}%
+\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}.}
 \label{fig:die_ntf2}
 \end{figure}
 
 
-\subsection{Henry constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
+\subsection{Henry's Law Constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
 
 In Table \ref{table:henry} we present the results of the solvation free energies of \ce{CO_2} along with the Henry constants ($K_s$) obtained by means of Eq.~\eqref{eq:henry_eq}.
@@ -453,34 +439,28 @@ Table~\ref{table:henry} also contains the experimental $K_s$ reported by Mahurin
 The uncertainties in $K_s$ were calculated using standard error propagation.
 
 \begin{table*}
-\centering
-\begin{adjustbox}{width=1\textwidth}
-\begin{threeparttable}
-\caption{Results of solvation free energies and Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T$ = $298.15~\text{K}$ and $P$ = $1~\text{atm}$.
-The experimental Henry constants in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} correspond to 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010} and 39.0 $\pm$ 0.1 atm \cite{Finotello_2008}, respectively.}
-\begin{tabular}{ c c c  c  c  c  c }  
-\toprule
-Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G_{\,\text{sim}}$ & $K_{s}$ & error (\%)\tnote{a}\\
-& (mol/dm$^{3}$) & (kcal/mol) & (kcal/mol) &  (kcal/mol) & (atm)  &  \\
+	\centering
+	\caption{Results of solvation free energies and Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T = 298.15~\mathrm{K}$ and $P = 1~\mathrm{atm}$. The experimental Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and in \ce{[emim][NTf_2]} are, respectively, $38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010} and $39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008}.}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{ccccccc}  
+			\hline\hline
+			Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G_\text{sim}$ & $K_s$ & error \\
+			& (mol/dm\textsuperscript{3}) & (kcal/mol) & (kcal/mol) &  (kcal/mol) & (atm)  & (\%) \\
 			\hline
-			\multicolumn{4}{c}{\ce{[emim][B(CN)_4]}} & \multicolumn{2}{c}{\cellcolor{gray!25}$K_{s}^{\text{exp}}$ = 38.9 $\pm$ 0.03 atm~\cite{Mahurin_2010}}\\
+%			\multicolumn{7}{c}{\ce{[emim][B(CN)_4]}: $K_{s}^{\text{exp}} = 38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010}} \\
+			\multicolumn{7}{c}{\ce{[emim][B(CN)_4]}} \\
+			Koller \textit{et al}. \cite{Koller_2012} & $4.5925$ & $0.45 \pm 0.01$ & $-1.06 \pm 0.02$ & $-0.61 \pm 0.02$ & $40 \pm 1$ & $2.8$ \\
+			Batista \textit{et al}. \cite{Batista_2015} & $4.3700$ & $0.378 \pm 0.008$ & $-1.24 \pm 0.01$  & $-0.86 \pm 0.01$ & $24.9 \pm 0.5$ & $38.9$ \\
+			Liu \textit{et al}. \cite{Liu_2014} & $4.3815$ & $0.226 \pm 0.009$ & $-1.11 \pm 0.01$ & $-0.88 \pm 0.01$ & $24.3 \pm 0.5$ & $37.6$  \\
+			Weber and Kirchner \cite{Weber_2016} & $4.5221$ & $0.478 \pm 0.009$ & $-1.23 \pm 0.02$ & $-0.75 \pm 0.02$ & $31 \pm 1$ & $20.3$  \\
 			\hline
-Koller \textit{et al}. \cite{Koller_2012} & 4.5925 & 0.45 $\pm$ 0.01 & -1.06 $\pm$ 0.02 & -0.61 $\pm$ 0.02 & 40 $\pm$ 1 & 2.8 \\
-Batista \textit{et al}. \cite{Batista_2015} & 4.3700 & 0.378 $\pm$ 0.008 & -1.24 $\pm$ 0.01  & -0.86 $\pm$ 0.01 & 24.9 $\pm$ 0.5 & 38.9 \\
-Liu \textit{et al}. \cite{Liu_2014} & 4.3815 & 0.226 $\pm$ 0.009 & -1.11 $\pm$ 0.01 & -0.88 $\pm$ 0.01 & 24.3 $\pm$ 0.5 & 37.6  \\
-Weber and Kirchner \cite{Weber_2016} & 4.5221 & 0.478 $\pm$ 0.009 & -1.23 $\pm$ 0.02 & -0.75 $\pm$ 0.02 & 31 $\pm$ 1 & 20.3  \\
-\hline
-		\multicolumn{4}{c}{\ce{[emim][NTf_2]}} & \multicolumn{2}{c}{ \cellcolor{gray!25} $K_{s}^{\text{exp}}$ = 39.0 $\pm$ 0.1 atm~\cite{Finotello_2008}}\\
-		\hline
- K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} &3.8205 & 0.389 $\pm$ 0.005 & -0.901 $\pm$ 0.006& -0.512 $\pm$ 0.008 & 39.4 $\pm$ 0.5  & 0.97  \\
- \bottomrule
-\label{table:henry} 
-\end{tabular}
-\begin{tablenotes}
-\item[a] error = 100 $\times$ $\abs{(K_s^{\text{exp}} - K_s^\text{sim})/K_s^{\text{exp}}}$.
-\end{tablenotes}
-\end{threeparttable}
-\end{adjustbox}
+%			\multicolumn{7}{c}{\ce{[emim][NTf_2]}: $K_{s}^{\text{exp}} = 39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008} }\\
+			\multicolumn{7}{c}{\ce{[emim][NTf_2]}} \\
+			K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} & $3.8205$ & $0.389 \pm 0.005$ & $-0.901 \pm 0.006$ & $-0.512 \pm 0.008$ & $39.4 \pm 0.5$  & $0.97$  \\
+			\hline\hline
+			\label{table:henry} 
+		\end{tabular}
+	\end{adjustbox}
 \end{table*}
 
 It should be pointed out that the result of $\Delta G_\text{sim}$ obtained for the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
@@ -503,6 +483,7 @@ For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} an
 The isovalues were visually determined so as to observe the first solvation shell.
 If we compare Figs.~\ref{fig:sdf_ions} (a) and (b), one notes that the region with a low probability of finding an ion is larger for \ce{[emim][NTf_2]}.
 Also, the first solvation shell due to [B(CN)\textsubscript{4}]$^{-}$ occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions} (c).
+
 \begin{figure}
 \centering
 \subfloat[]{%
@@ -527,21 +508,23 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we have also carried out simulations at the thermodynamic conditions specified in Table~\ref{table:solv}, which correspond to similar values of \ce{CO_2} molality.
 Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies the observation made by Carvalho \textit{et al}. \cite{Carvalho_2016}, mentioned at the introduction of this paper.
 
-\begin{table*}
-\centering
-\begin{threeparttable}
-\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}~\cite{Makino_2014,Schilderman_2007}.}
-\begin{tabular}{ c  c  c  c  c  }  
-\toprule
-Ionic liquid & T (K)  & P (atm)  & molar fraction $x_s$ & molality $m_s$ \\
-\midrule		
-\ce{[emim][B(CN)_4]}~\cite{Koller_2012} & 313.15 & 21 & 0.352 & 2.4  \\
-\ce{[emim][NTf_2]}~\cite{K_ddermann_2007}  & 312.13 & 37 & 0.479 & 2.35  \\
- \bottomrule
-\label{table:solv} 
-\end{tabular}
-\end{threeparttable}
-\end{table*}
+\begin{table}
+	\centering
+	\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}~\cite{Makino_2014,Schilderman_2007}.}
+	\begin{tabular}{ c  c  c  }  
+		\hline\hline
+		IL & \ce{[emim][B(CN)_4]}  & \ce{[emim][NTf_2]} \\
+		\hline
+		model &  Ref.~\citenum{Koller_2012} & Ref.~\citenum{K_ddermann_2007} \\
+		T  & 313.15 K & 312.13 K \\
+		P  & 21 atm & 37 atm \\
+		$x_s$ & 0.352 & 0.479 \\
+		$m_s$ & 2.4 mol/kg & 2.35 mol/kg \\
+		\hline\hline
+		\label{table:solv} 
+	\end{tabular}
+\end{table}
+
 
 For each system, in Fig.~\ref{fig:pressure} we show our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
 The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
@@ -573,51 +556,45 @@ From Table \ref{table:gamma}, one sees that the experimental $\gamma^{\, \infty}
 It is therefore difficult to assess the reliability of our results in this case.
 
 \begin{table*}
-\centering
-\begin{adjustbox}{width=1\textwidth}
-\begin{threeparttable}
-\caption{Solvation free energy at $T = 298.15~\text{K}$ for the pure solutes benzene, hexane, cyclohexane, ethanol and water.}
-\begin{tabular}{ c c c c c c c c }
-\toprule
-Solute & $\rho_\text{sim}$ & error (\%)\tnote{a} & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G^{0}_{\,\text{sim}}$ & $\Delta G^{\text{0,exp}}$   & error (\%)\tnote{a}\\
- & (g/cm$^{3}$) &  & (kcal/mol) &  (kcal/mol) &  (kcal/mol)   &  \\
-\hline
-benzene OPLS-AA   & 0.8611 $\pm$ 0.0002 & 1.4 & -3.75  $\pm$ 0.02 & -0.381 $\pm$ 0.007 & -4.14 $\pm$ 0.02 & -4.56 & 9.32  \\
-hexane OPLS-AA    & 0.6513 $\pm$ 0.0003 & 0.5 & -3.67  $\pm$  0.03 & 0.011 $\pm$ 0 & -3.66 $\pm$ 0.03 & -4.06 & 9.90 \\
-cyclohexane & 0.7692 $\pm$ 0.0007 & 0.6 & -4.39 $\pm$ 0.01 & 0 & -4.39 $\pm$ 0.01 & - & -  \\
-ethanol TRAPPE-UA   & 0.781 $\pm$ 0.008 & 1.01  &-0.93 $\pm$ 0.01 & -4.15 $\pm$ 0.02  & -5.08  $\pm$ 0.02  & -5.08 & 0 \\
-water TIP4P/2005   &  0.9948 $\pm$ 0.0003 & 0.2 & 2.015 $\pm$ 0.004 & -9.01 $\pm$ 0.02 & -6.99 $\pm$ 0.02 & -6.33  &10.43 \\
- \bottomrule
-\label{table:mu_solutes} 
-\end{tabular}
-\begin{tablenotes}
-\item[a] error = 100 $\times$ $\abs{(Z^{\text{exp}} - Z^\text{sim})/Z^{\text{exp}}}$.
-\end{tablenotes}
-\end{threeparttable}
-\end{adjustbox}
+	\centering
+	\caption{Solvation free energy at $T = 298.15~\text{K}$ for the pure solutes benzene, hexane, cyclohexane, ethanol and water.}
+	\begin{adjustbox}{max width=\textwidth}
+		\begin{tabular}{ccccccccc}
+			\hline\hline
+			Solute & $\rho_\text{sim}$ & error & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G^0_\text{sim}$ & $\Delta G^0_\text{exp}$   & error \\
+			& (g/cm\textsuperscript{3}) & (\%) & (kcal/mol) &  (kcal/mol) &  (kcal/mol)   & (kcal/mol)   & (\%) \\
+			\hline
+			hexane & $0.6513 \pm 0.0003$ & $0.5$ & $-3.67  \pm  0.03$ & $0.011 \pm 0.007$ & $-3.66 \pm 0.03$ & $-4.06$ & $9.90$ \\
+			cyclohexane & $0.7692 \pm 0.0007$ & $0.6$ & $-4.39 \pm 0.01$ & $0$ & $-4.39 \pm 0.01$ & n/a & n/a  \\
+			benzene & $0.8611 \pm 0.0002$ & $1.4$ & $-3.75  \pm 0.02$ & $-0.381 \pm 0.007$ & $-4.14 \pm 0.02$ & $-4.56$ & $9.32$  \\
+			ethanol & $0.781 \pm 0.008$ & $1.01$  & $-0.93 \pm 0.01$ & $-4.15 \pm 0.02$  & $-5.08  \pm 0.02$  & $-5.08$ & $0$ \\
+			water & $0.9948 \pm 0.0003$ & $0.2$ & $2.015 \pm 0.004$ & $-9.01 \pm 0.02$ & $-6.99 \pm 0.02$ & $-6.33$  & $10.43$ \\
+			\hline\hline
+			\label{table:mu_solutes} 
+		\end{tabular}
+	\end{adjustbox}
 \end{table*}
 
 \begin{table*}
-\centering
-\begin{adjustbox}{width=1\textwidth}
-\begin{threeparttable}
-\caption{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]} at $T = 298.15~\text{K}$ of the pure solutes benzene, hexane, cyclohexane, ethanol, and water.}
-\begin{tabular}{c c c c c c  >{\columncolor[gray]{0.8}} c}  
-\toprule
-Solute & $\Delta G_{\,\text{LJ}}$  & $\Delta G_{\,\text{Coul}}$  & $\Delta G_{\,\text{sim}}$  & $\gamma^{\,\infty,\text{sim}}$ & $\gamma^{\, \infty,\text{exp}}$ & $\gamma^{\, \infty,\text{exp}}$  \\
- & (kcal/mol) & (kcal/mol) &  (kcal/mol)  &  & (298.15 K) \cite{Doma_ska_2011} & (303 K) \cite{Yan_2010} \\
-\midrule % inserts single-line
-hexane OPLS-AA & -2.13 $\pm$ 0.04 & -0.152 $\pm$ 0.007 & -2.282 $\pm$ 0.04 & 6.2 $\pm$ 0.5 & 33.8 & 20.97  \\
-cyclohexane& -2.75 $\pm$ 0.06 & - & -2.75 $\pm$ 0.06 & 9 $\pm$ 1 & 16.7 & 13.82 \\
-benzene OPLS-AA  & -2.23 $\pm$ 0.05 & -1.29 $\pm$ 0.04 & -3.52 $\pm$ 0.06 & 1.2 $\pm$ 0.1 & 1.13 & 1.31 \\ 
-ethanol TRAPPE-UA& -0.73 $\pm$ 0.02 & -4.10 $\pm$ 0.04 & -4.83 $\pm$ 0.04 & 0.41 $\pm$ 0.03 & 1.58 & 1.64  \\
-water TIP4P/2005& 1.38 $\pm$ 0.008 & -6.32 $\pm$ 0.03 & -4.94 $\pm$ 0.03 & 2 $\pm$ 1 & 2.65 & 2.24 \\
- \bottomrule
-\label{table:gamma} 
-\end{tabular}
-\end{threeparttable}
-\end{adjustbox}
+	\centering
+	\caption{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]} at $T = 298.15~\text{K}$ of the pure solutes benzene, hexane, cyclohexane, ethanol, and water.}
+	\begin{adjustbox}{width=1\textwidth}
+		\begin{tabular}{cccccccc}  
+			\hline\hline
+			Solute & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G_\text{sim}$  & $\gamma^\infty_\text{sim}$ & $\gamma^\infty_\text{exp}$ \cite{Doma_ska_2011} & $\gamma^\infty_\text{exp}$ \cite{Yan_2010} \\
+			& (kcal/mol) & (kcal/mol) &  (kcal/mol)  & (298 K) & (298 K)  & (303 K) \\
+			\hline
+			hexane & $-2.13 \pm 0.04$ & $-0.152 \pm 0.007$ & $-2.282 \pm 0.04$ & $6.2 \pm 0.5$ & $33.8$ & $20.97$  \\
+			cyclohexane & $-2.75 \pm 0.06$ & 0 & $-2.75 \pm 0.06$ & $9 \pm 1$ & $16.7$ & $13.82$ \\
+			benzene & $-2.23 \pm 0.05$ & $-1.29 \pm 0.04$ & $-3.52 \pm 0.06$ & $1.2 \pm 0.1$ & $1.13$ & $1.31$ \\ 
+			ethanol & $-0.73 \pm 0.02$ & $-4.10 \pm 0.04$ & $-4.83 \pm 0.04$ & $0.41 \pm 0.03$ & $1.58$ & $1.64$  \\
+			water & $1.38 \pm 0.008$ & $-6.32 \pm 0.03$ & $-4.94 \pm 0.03$ & $2 \pm 1$ & $2.65$ & $2.24$ \\
+			\hline\hline
+			\label{table:gamma} 
+		\end{tabular}
+	\end{adjustbox}
 \end{table*}
+
 \section{Concluding remarks}
 \label{sec:conclusion}
 
