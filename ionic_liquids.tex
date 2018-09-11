@@ -36,7 +36,7 @@
 
 \begin{frontmatter}
 
-\title{A molecular dynamics study of the solvation of carbon dioxide in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
+\title{A molecular dynamics study of the solvation of carbon dioxide and other compounds in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 %\title{A molecular dynamics study of the solvation of \ce{CO_2}, \ce{H_2O}, and some organic compounds in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 
 %% Group authors per affiliation:
@@ -324,7 +324,7 @@ The expanded ensemble procedure, the softcore potential, and the DSF method  wit
 \label{sec:prel_results}
 
 In this section, we analyze the possibility of introducing simplifications in the molecular modeling and simulation of ionic liquids without substantially affecting the resulting thermodynamics properties.
-For this, we compare results obtained with a standard methodology to those obtained with a simplified one.
+For this, we compare results obtained with a \textit{standard} methodology to those obtained with a \textit{simplified} one.
 The standard setup comprises simulating ions with moving bonds, angles, and dihedrals and using the Particle-Particle/Particle-Mesh (PPPM) Ewald method \cite{Hockney_1988} for calculating the Coulomb interactions.
 In this case, a real-space cutoff of $12~\text{\AA}$ and a tolerance of $10^{-4}$ are used in LAMMPS for automatic determination of PPPM parameters such as damping factor and FFT grid spacing.
 In the simplified setup, the ions are modeled as rigid bodies and the DSF method \cite{Fennell2006} with $r_c = 12 ~\text{\AA}$ and $\alpha = 0.2 ~\text{\AA}^{-1}$) is used as and alternative to the PPPM scheme.
@@ -342,45 +342,34 @@ Please note that, in the united-atom version of \ce{[emim]^+}, all hydrogen atom
 \end{figure}
 
 Using the software TRAVIS \cite{Brehm_2011}, we obtained combined distribution functions (CDFs) of the dihedral angles formed in \ce{[emim]^+} by atoms C1-N2-C5-C6 and atoms C2-N2-C5-C6.
-These angles will be referred to as $\psi$ and $\chi$, respectively.
+These angles will be referred to as $\psi_1$ and $\psi_2$, respectively.
 In Fig.~\ref{fig:dihedrals_emim}, we show the CDFs obtained for all force fields employed here for \ce{[emim][B(CN)_4]}.
-The CDFs were generated from NPT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using our standard setup.
-Initial inspection reveals that, in all cases, $\psi$ and $\chi$ populate regions of the diagrams around the two straight lines given by
+The CDFs were generated from NPT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using our standard setup (i.e. flexible ions with PPPM Ewald electrostatics).
+Initial inspection reveals that, in all cases, $\psi_1$ and $\psi_2$ populate regions of the diagrams around the two straight lines given by
 \begin{equation}
 \label{eq:dihedral angles}
-\psi = \begin{cases}
-\chi + 180^\circ & \text{if} \quad \chi \leq 180^\circ \\
-\chi - 180^\circ & \text{if} \quad \chi > 180^\circ
+\psi_2 = \begin{cases}
+\psi_1 + 180^\circ & \text{if} \quad \psi_1 \leq 180^\circ \\
+\psi_1 - 180^\circ & \text{if} \quad \psi_1 > 180^\circ
 \end{cases},
 \end{equation}
 both corresponding to a coplanar structure formed by atoms C1, C2, N2, and C5.
 There are two such lines in each diagram because atom C6 can be located on either side of the plan.
-One can note in Fig.~\ref{fig:dihedrals_emim} that the CDF peaks (i.e. the most likely dihedral angle combinations) lie either precisely above these lines or very close to them.
+One can note in Fig.~\ref{fig:dihedrals_emim} that the CDF peaks, which indicate the most likely dihedral angle combinations, lie either precisely above these lines or very close to them.
 The largest distortions from coplanarity occur for the Batista \textit{et al}. \cite{Batista_2015} model, as observed by the peak locations in Fig.~\ref{fig:dihedrals_emim}(b).
 Despite this, all rigid bodies considered here for \ce{[emim]^+} are built in such a way that atoms C[1-5], H[1-3], and N[1-2] all lie in a single plan.
-Therefore, for specifying the torsion of bond N2-C5 it is enough to set a value for $\chi$ and then compute $\psi$ by means of Eq.~\eqref{eq:dihedral angles}.
+Therefore, for specifying the torsion of bond N2-C5 it is enough to set a value for $\psi_1$ and then compute $\psi_2$ by means of Eq.~\eqref{eq:dihedral angles}.
 All other structural features (bond lengths, bending angles, and hydrogen-involving dihedrals) are taken from the minimum-energy structure obtained for each force field.
 
 One can note in Figs.~\ref{fig:dihedrals_emim}(a) and \ref{fig:dihedrals_emim}(c) that the Koller \textit{et al}. \cite{Koller_2012} and Liu \textit{et al}. \cite{Liu_2014} models display a very similar, orderly behavior with regard to the torsion angles.
 The similarity is not surprising since both models are based on the AMBER framework \cite{Cornell_1995}.
-In both diagrams, the most likely angle combinations can be found in narrow regions around $\chi = 90^\circ$ and $\chi = 270^\circ$.
+In both diagrams, the most likely angle combinations can be found in narrow regions around $\psi_1 = 90^\circ$ and $\psi_1 = 270^\circ$.
 These angles correspond to similar configurations (imagine, for instance, the effect of rotating the whole cation around the axis defined by bond N2-C5).
-Hence, we decided to build a single rigid-body structure with $\chi = 90^\circ$ for the united-atom version of \ce{[emim]^+}, which is the model of Koller \textit{et al}. \cite{Koller_2012}.
-In the case of the all-atom model of Liu \textit{et al}. \cite{Liu_2014}, we considered a system composed by equal amounts of two rigid-body structures with $\chi = 90^\circ$ and $\chi = 270^\circ$.
-For the Batista \textit{et al}. \cite{Batista_2015} model, the regions of likely angle combinations comprise convoluted peaks.
-By means of weighted averages, we decided to set $\chi = 77.4^\circ$ and $\chi = 282.6^\circ$ so as to build two types of rigid bodies, also considered in equal amounts.
-Finally, given the wide ranges of likely angle combinations in the case of the Weber and Kirchner model \cite{Weber_2016}, as observed in Fig.~\ref{fig:dihedrals_emim}(d), we defined four types of rigid bodies in this case to fulfill the system in different proportions.
-The $\chi$-angle values for these types are $0^\circ$, $30^\circ$, $180^\circ$, and $330^\circ$, while their fractions in the system are 25\%, 30\%, 15\%, and 30\%, respectively.
-
-In Table~\ref{table:props_dsf} we present the results of density for the strategies mentioned at the beginning of this section.
-When comparing cases (1) and (2) for each model, we note that the simulated densities practically do not differ.
-In addition, the models of Koller \textit{et al}. \cite{Koller_2012} and Weber and Kirchner \cite{Weber_2016} best reproduce the experimental value.
-We have also computed radial distribution functions (RDFs), which can be found in the Supplementary material.
-The better agreement is found for the models of Koller \textit{et al}. \cite{Koller_2012} and Batista \textit{et al}. \cite{Batista_2015}.
-Despite the small deviations observed for the model of Liu \textit{et al}. \cite{Liu_2014}, the simulation with rigid bodies qualitatively reproduces the RDFs obtained for the flexible ions.
-Although not shown here, these conclusions are valid for other calculated RDFs: N(anion)-N(cation), C6(cation)-N(anion), C2(cation)-B(anion).
-The model of Weber and Kirchner \cite{Weber_2016}, on the other hand, presents important discrepancies in the RDFs of the pairs C5(cation)-N(anion) and C2(cation)-B(anion) when using rigid bodies.
-That is why, in this case only the imidazolium ring was considered rigid and the ethyl chain was left unconstrained. 
+Hence, we decided to build a single rigid-body structure with $\psi_1 = 90^\circ$ for the united-atom version of \ce{[emim]^+}, which is the model of Koller \textit{et al}. \cite{Koller_2012}.
+In the case of the all-atom model of Liu \textit{et al}. \cite{Liu_2014}, we considered a system composed by equal amounts of two rigid-body structures with $\psi_1 = 90^\circ$ and $\psi_1 = 270^\circ$.
+For the Batista \textit{et al}. \cite{Batista_2015} model, once again we took the most likely values of $\psi_1$ ($102.6^\circ$ and $257.4^\circ$) so as to build two types of rigid bodies and consider them in equal amounts.
+Finally, given the wide ranges of likely angle combinations in the case of the Weber and Kirchner model \cite{Weber_2016}, as observed in Fig.~\ref{fig:dihedrals_emim}(d), we defined four types of rigid bodies in this case.
+The $\psi_1$-angle values for these types are $0^\circ$, $150^\circ$, $180^\circ$, and $210^\circ$, while their fractions in the system are 15\%, 30\%, 25\%, and 30\%, respectively.
 
 \begin{figure*}
 \centering
@@ -393,11 +382,50 @@ That is why, in this case only the imidazolium ring was considered rigid and the
   \includegraphics[width=.4\linewidth]{Liu}}%
 \subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
   \includegraphics[width=.4\linewidth]{Weber}}%
-
 \caption{Combined distribution function of the dihedral angles of C1-N2-C5-C6 and C2-N2-C5-C6, as sampled in NPT-MD simulations of 250 ion pairs for each model of \ce{[emim][B(CN)_4]}.}
-
 \label{fig:dihedrals_emim}
 \end{figure*}
+
+Once the rigid body structures have been determined, we carried out NPT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using the simplified setup (i.e. rigid ions with DSF electrostatics) and all force fields in question.
+In Table~\ref{table:props_dsf}, we compare results for density obtained by using the two methodologies.
+In all cases, the simplified method displays excellent agreement with the standard one.
+In addition, we note that the models of Koller \textit{et al}. \cite{Koller_2012} and Weber and Kirchner \cite{Weber_2016} are the ones that most closely reproduce the experimental density.
+In order to perform a more detailed analysis, we have also computed several radial distribution functions (RDFs), some of which are made available as Supplementary Material.
+Excellent agreement is also observed in the RDFs obtained with both methods in the case of the models by Koller \textit{et al}. \cite{Koller_2012} and by Batista \textit{et al}. \cite{Batista_2015}.
+Small deviations are observed in the case of the Liu \textit{et al}. \cite{Liu_2014} model, but the reproducibility of RDFs by the simplified method is still very good.
+%Although not shown here, these conclusions are valid for other calculated RDFs: N(anion)-N(cation), C6(cation)-N(anion), C2(cation)-B(anion).
+The model of Weber and Kirchner \cite{Weber_2016}, on the other hand, presents RDFs for the pairs C5\textsubscript{cation}-N\textsubscript{anion} (that is, C5\textsubscript{cation} with any nitrogen atom in the anion) and C2\textsubscript{cation}-B\textsubscript{anion} with important discrepancies when rigid bodies are used.
+Note that both RDFs are supposed to be affected by the orientations of the ethyl group in the cation.
+
+\begin{table*}
+	\centering
+	\caption{Comparison of predicted and experimental densities for different models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $1.036~\mathrm{g/cm^3}$ \cite{Doma_ska_2011}.}
+	\begin{tabular}{ccccc}
+		\hline
+		\hline
+		\ce{[emim][B(CN)_4]} model                        & 
+		\multicolumn{2}{c}{Flexible ions \& Ewald method} &
+		\multicolumn{2}{c}{Rigid ions \& DSF method}      \\
+		&
+		$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+		error (\%)                                  &
+		$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+		error (\%)                                  \\
+		\hline
+		Koller \textit{et al}. \cite{Koller_2012}    & 1.046 & 1.0 & 1.038 & 0.2 \\
+		Batista \textit{et al}. \cite{Batista_2015}  & 0.989 & 4.6 & 0.988 & 4.7 \\
+		Liu \textit{et al}. \cite{Liu_2014}          & 1.001 & 3.4 & 0.991 & 4.4 \\
+		Weber and Kirchner \cite{Weber_2016}         & 1.015 & 2.1 & 1.022 & 1.4  \\
+		\hline
+		\hline
+		\label{table:props_dsf}
+	\end{tabular}
+\end{table*}
+
+In view of the results presented thus far, our guideline for forthcoming \ce{[emim][B(CN)_4]} simulations goes as follows.
+First, the DSF model replaces Ewald-like electrostatics throughout.
+Second, both \ce{[emim]^+} and \ce{[B(CN)_4]^-} are set as rigid bodies in all cases except when the Weber and Kirchner \cite{Weber_2016} model is employed.
+In this case, rigid-body constraints are applied to the imidazolium ring and methyl group of \ce{[emim]^+} altogether, but the ethyl group is left unconstrained.
 
 A study of dihedrals was also carried out for \ce{[emim][NTf_2]}.
 The CDF of the dihedrals angles of C1-N2-C5-C6 and C2-N2-C5-C6, shown in Fig.~\ref{fig:die_ntf2}(a), resembles the results of Fig.~\ref{fig:dihedrals_emim}(d), but the most likely angle of C1-N2-C5-C6 is 0$^{\circ}$.
@@ -416,30 +444,6 @@ Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible 
 \label{fig:die_ntf2}
 \end{figure}
 
-\begin{table*}
-\centering
-\caption{Comparison of predicted and experimental densities for different models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $1.036~\mathrm{g/cm^3}$ \cite{Doma_ska_2011}.}
-\begin{tabular}{ccccc}
-\hline
-\hline
-\ce{[emim][B(CN)_4]} model                        & 
-\multicolumn{2}{c}{Flexible ions \& Ewald method} &
-\multicolumn{2}{c}{Rigid ions \& DSF method}      \\
-                                            &
-$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
-error (\%)                                  &
-$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
-error (\%)                                  \\
-\hline
-Koller \textit{et al}. \cite{Koller_2012}    & 1.046 & 1.0 & 1.038 & 0.2 \\
-Batista \textit{et al}. \cite{Batista_2015}  & 0.989 & 4.6 & 0.988 & 4.7 \\
-Liu \textit{et al}. \cite{Liu_2014}          & 1.001 & 3.4 & 0.991 & 4.4 \\
-Weber and Kirchner \cite{Weber_2016}         & 1.015 & 2.1 & 1.022 & 1.4  \\
-\hline
-\hline
-\label{table:props_dsf}
-\end{tabular}
-\end{table*}
 
 \subsection{Henry constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
