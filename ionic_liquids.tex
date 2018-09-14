@@ -237,11 +237,11 @@ Batista \textit{et al}. \cite{Batista_2015} used the former throughout (J. Couti
 
 Another set of parameters for \ce{[emim][B(CN)_4]} was derived by Liu \textit{et al}. \cite{Liu_2014} in a study that investigates the dynamics of \ce{CO_2} and \ce{N_2} dissolved in this ionic liquid.
 Parameters corresponding to the intramolecular and LJ interactions were extracted from GAFF \cite{Wang_2004}, while the atomic partial charges were computed using the RESP method \cite{Bayly_1993} with B3LYP/6-311+G(d) DFT calculations.
-The net charges of the ions were manually adjusted to $\pm 0.8 \mathrm{e}$.
+The net charges of the ions were manually adjusted to $\pm 0.8 ~\mathrm{e}$.
 
 Finally, we also consider the parameterization which Weber and Kirchner \cite{Weber_2016} carried out for \ce{[emim][B(CN)_4]} based on the force field developed by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
 As the potential parameters for the anion were specified neither in Ref.~\citenum{Weber_2016} nor in Ref.~\citenum{Canongia_Lopes_2006}, we obtained them by direct communication with the authors of Ref.~\citenum{Weber_2016}.
-The atomic partial charges were derived using the RESP procedure with Hartree-Fock calculations at the \mbox{6-31++G\textsuperscript{**}} level of theory, resulting in net charges of $\pm 0.8 \mathrm{e}$.
+The atomic partial charges were derived using the RESP procedure with Hartree-Fock calculations at the \mbox{6-31++G\textsuperscript{**}} level of theory, resulting in net charges of $\pm 0.8 ~\mathrm{e}$.
 
 In the case of ionic liquid \ce{[emim][NTf_2]}, we use the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}, which was also derived by refining parameters of the force field by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
 The authors characterized this refinement as unusual, given that they modified the LJ parameters while keeping the partial charges unchanged.
@@ -319,7 +319,7 @@ In the simplified setup, the ions are modeled as rigid bodies and the DSF method
 For building the rigid bodies, we carry out a frequency analysis of some key dihedrals present in ions \ce{[emim]^+} and \ce{[NTf_2]^-}, whose flexibility could lead to significant conformational changes.
 On the other hand, small and highly symmetric anions such as \ce{PF_6} and \ce{BF_4} are already usually modeled as rigid bodies \cite{HANKE_2001,Hanke_2003,Lynden_Bell_2006}, which justifies the strategy in the case of \ce{[B(CN)_4]^-}.
 
-As a guide to the discussions we put forward in this section, in Fig~\ref{fig:atoms_id} we introduce a nomenclature for all atoms present in the ions \ce{[emim]^+}, \ce{[B(CN)_4]^-}, and \ce{[NTf_2]^-}.
+As a guide to the discussions in this section, in Fig~\ref{fig:atoms_id} we introduce a nomenclature for all atoms present in the ions \ce{[emim]^+}, \ce{[B(CN)_4]^-}, and \ce{[NTf_2]^-}.
 Please note that, in the united-atom version of \ce{[emim]^+}, all hydrogen atoms ranging from H4 to H11 are incorporated to their corresponding carbon atoms.
 
 \begin{figure}
@@ -332,7 +332,7 @@ Please note that, in the united-atom version of \ce{[emim]^+}, all hydrogen atom
 Using the software TRAVIS \cite{Brehm_2011}, we obtained combined distribution functions (CDFs) of the dihedral angles formed in \ce{[emim]^+} by atoms C1-N2-C5-C6 and atoms C2-N2-C5-C6.
 These angles will be referred to as $\psi_1$ and $\psi_2$, respectively.
 In Fig.~\ref{fig:dihedrals_emim}, we show the CDFs obtained for all force fields employed here for \ce{[emim][B(CN)_4]}.
-The CDFs were generated from NPT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using our standard setup (i.e. flexible ions with PPPM Ewald electrostatics).
+All CDFs shown in this section were generated from NPT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using our standard setup (i.e. flexible ions with PPPM Ewald electrostatics).
 Initial inspection reveals that, in all cases, $\psi_1$ and $\psi_2$ populate regions of the diagrams around the two straight lines given by
 \begin{equation}
 \label{eq:dihedral angles}
@@ -415,21 +415,24 @@ First, the DSF model replaces Ewald-like electrostatics throughout.
 Second, both \ce{[emim]^+} and \ce{[B(CN)_4]^-} are set as rigid bodies in all cases except when the Weber and Kirchner \cite{Weber_2016} model is employed.
 In this case, rigid-body constraints are applied to the imidazolium ring and methyl group of \ce{[emim]^+} altogether, but the ethyl group is left unconstrained.
 
-A study of dihedrals was also carried out for \ce{[emim][NTf_2]}.
-The CDF of the dihedrals angles of C1-N2-C5-C6 and C2-N2-C5-C6, shown in Fig.~\ref{fig:die_ntf2}(a), resembles the results of Fig.~\ref{fig:dihedrals_emim}(d), but the most likely angle of C1-N2-C5-C6 is 0$^{\circ}$.
-This similarity was expected as both models of \ce{[emim]^+} are based on the force field developed by Canongia-Lopes and P\'{a}dua~ \cite{Canongia_Lopes_2006}.
-With regards to the anion \ce{[NTf_2]^-}, Deetlefs \textit{et al}. \cite{Deetlefs_2006} have experimentally determined the conformer population of the liquid-phase and observed that \ce{[NTf_2]^-} is mostly in its \textit{trans} conformation.
-Fig.~\ref{fig:die_ntf2}(b), which corresponds to the CDF for the contiguous C1-S1-N1-S2 and S1-N1-S2-C2 chains, qualitatively verifies the observation of Deetlefs \textit{et al}. \cite{Deetlefs_2006}.
-Given the considerable flexibility of \ce{[NTf_2]^-}, a more rigorous strategy for building the rigid bodies is required.
-Thus, the simulations of \ce{[emim][NTf_2]} were performed considering flexible ions and the DSF method, which results in a computed density of 1.495 $\pm$ 0.009 g/cm$^3$ with an error of 1.12\% with respect to the experimental value~\cite{Tokuda_2005}.
+A study of conformations was also carried out for \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}.
+A CDF obtained for the dihedral angles of sequences C1-N2-C5-C6 and C2-N2-C5-C6 in \ce{[emim]^+}, which is made available in the Supplementary Material, resembles the one in Fig.~\ref{fig:dihedrals_emim}(d).
+The resemblance was expected because the intramolecular parameters employed for \ce{[emim]^+} are identical in these two cases, since the corresponding models are both based on the force field developed by Canongia-Lopes and P\'{a}dua \cite{Canongia_Lopes_2006}.
+However, the most likely value of $\psi_1$ is shifted to $0^{\circ}$ in the case of \ce{[emim][NTf_2]}.
+This highlights the fact that altering atomic charges can induce conformational changes and should, therefore, be accompanied by a revision of torsion parameters in some cases.
+With regard to the anion \ce{[NTf_2]^-}, Deetlefs \textit{et al}. \cite{Deetlefs_2006} experimentally determined the conformer population of the liquid-phase and observed that \ce{[NTf_2]^-} is mostly found in its \textit{trans} conformation.
+In Fig.~\ref{fig:die_ntf2}, we present the CDF obtained for the contiguous sequences C1-S1-N1-S2 and S1-N1-S2-C2 in \ce{[NTf_2]^-}, which qualitatively confirms the observation of Deetlefs \textit{et al}. \cite{Deetlefs_2006}.
+This CDF also makes clear that \ce{[NTf_2]^-} exhibits a considerable degree of flexibility.
+Due to this observed behaviors of both ions, all simulations of \ce{[emim][NTf_2]} in the present work are performed considering flexible cations and anions, as well as DSF electrostatics.
+This approach results in a mean density of $1.495 \pm 0.009 ~\mathrm{g/cm^3}$ at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$.
+The relative error of this result with respect to the experimental value obtained by Tokuda \textit{et al}. \cite{Tokuda_2005} is only 1.12\%.
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth]{Ludwig_anion}%
+\includegraphics[width=\linewidth]{Ludwig_anion}
 \caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}.}
 \label{fig:die_ntf2}
 \end{figure}
-
 
 \subsection{Henry's Law Constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
