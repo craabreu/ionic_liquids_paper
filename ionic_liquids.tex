@@ -118,23 +118,21 @@ In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual
 In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
 For a liquid phase containing $N_\text{\tiny IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_\text{sim} \equiv k_b T \ln \frac{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 0)}, 
+\Delta G_\text{sim} \equiv R T \ln \frac{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 0)}, 
 \end{equation}
-where $\Xi$ denotes the isobaric-isothermal partition function and $k_b$ is the Boltzmann constant.
+where $\Xi$ denotes the isobaric-isothermal partition function and $R$ is the gas constant.
 Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
 \begin{equation}
 \label{eq:solvation free energy definition}
-\Delta G_{\text{solv}} \equiv k_b T \ln \left( \frac{P_s}{c_s R T} \right),
+\Delta G_{\text{solv}} \equiv R \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
-where $R = N_A k_b$ is the gas constant,
-$N_A$ is the Avogadro number,
-$P_s$ is the partial pressure of the solute in the gas phase, and
+where $P_s$ is the partial pressure of the solute in the gas phase and
 $c_s$ is the molar concentration of the solute in the liquid phase.
 Note that these quantities correspond to a phase equilibrium condition.
 For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
 \begin{equation}
 \label{eq:solute chemical potential}
-\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right) - k_bT \ln \left( \frac{P_s}{c_s R T} \right),
+\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right) - RT \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
 where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively.
 Note that $c_s = \frac{N_s}{N_A V_1}$.
@@ -143,7 +141,7 @@ Finally, by treating the gas phase as an ideal gas and considering the system to
 \begin{equation}
 \begin{split}
 \label{eq:free_solv}
- \Delta G_{\text{solv}} = \Delta G_\text{sim} - k_bT \ln \left( \frac{V^{\ast}}{V_1}\right).
+ \Delta G_{\text{solv}} = \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right).
 \end{split}
 \end{equation}
 
@@ -160,7 +158,7 @@ If both $P_s$ and $c_s$ are small, we can resort to Eqs.~\eqref{eq:solvation fre
 Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$), we can conclude that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_\text{sim} R \, T \exp\left(\frac{\Delta G_\text{sim}}{k_b T}\right),
+K_s = \tilde{\rho}_\text{sim} R \, T \exp\left(\frac{\Delta G_\text{sim}}{R T}\right),
 \end{equation}
 where $\tilde{\rho}_\text{sim}$ is the simulated molar density of the solution. Assuming that this solution is very dilute, one can use the molar density of pure solvent ($\tilde{\rho}_\text{\tiny IL}$) instead.
 
@@ -171,19 +169,19 @@ For the ILs of interest to the present investigation, high concentrations of \ce
 In this case, we can compute the chemical potential of the solute in the real gas phase as
 \begin{equation}
 \label{eq:mu_gas_real}
-\mu^{g}_s = \mu^{ig}_s + k_b T \ln \left(\frac{f^{g}_s}{P_s}\right),
+\mu^{g}_s = \mu^{ig}_s + R T \ln \left(\frac{f^{g}_s}{P_s}\right),
 \end{equation}
 where $f^{g}_s$ is the fugacity of the solute in the gas phase.
 Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), it follows that
 \begin{equation}
 \label{eq:fgas_d}
-f^{g}_s = \exp \left( \frac{\Delta G_\text{sim}}{k_b T} \right) +  c_s R T. 
+f^{g}_s = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T. 
 \end{equation}
 
 Three additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems with which we compare our simulations) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equation for pressure}
-y_s \exp\left( \frac{B_s P}{R T} \right) P = \exp \left( \frac{\Delta G_\text{sim}}{k_b T} \right) +  c_s R T,
+y_s \exp\left( \frac{B_s P}{R T} \right) P = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T,
 \end{equation}
 where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
 In the case of \ce{CO_2}, we employ the correlation for $B_s$ developed by Holste \textit{et al}. \cite{Holste_1987}, which is
@@ -201,12 +199,12 @@ As will be shown below, the prediction of activity coefficients requires additio
 We start by using a standard thermodynamic relation \cite{Tester} to write the solute activity coefficient $\gamma_s$ in terms of chemical potentials as
 \begin{equation}
 \label{eq:gamma}
-\ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{k_b T} - \ln x_s,
+\ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{R T} - \ln x_s,
 \end{equation}
 
 Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of Eq.~\eqref{eq:solute chemical potential}. In this step, we note that $c_s = \tilde{\rho} x_s$ and $c_s^0 = \tilde{\rho}_s^0$, where $\tilde{\rho}$ and $\tilde{\rho}_s^0$ are the molar densities of the solution and of pure liquid solute, respectively. Thus, the expression we obtain for computing an activity coefficient from two independent simulations is
 \begin{equation}
-\ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{k_b T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
+\ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{R T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
 \end{equation}
 
 In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient $\gamma^\infty_s$ can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{\tiny IL}$.
@@ -441,7 +439,7 @@ The relative error of this result with respect to the experimental value obtaine
 \subsection{Dilute Solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
 
-In Table \ref{table:henry}, we present results obtained from expanded ensemble simulations of a single \ce{CO_2} molecule dissolved in 250 ion pairs of either \ce{[emim][B(CN)_4]} or \ce{[emim][NTf_2]} under periodic boundary conditions.
+In Table \ref{table:henry}, we present results from expanded ensemble simulations of a single \ce{CO_2} molecule dissolved in 250 ion pairs of either \ce{[emim][B(CN)_4]} or \ce{[emim][NTf_2]} under periodic boundary conditions.
 The simulations were carried out at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$.
 Table~\ref{table:henry} contains simulated molar densities, partial and total solvation free energies, as well as Henry's law constants ($K_s$) computed via Eq.~\eqref{eq:henry_eq}.
 It also contains the experimental $K_s$ values reported by Mahurin \textit{et al}. \cite{Mahurin_2010} and by Finotello \textit{et al}. \cite{Finotello_2008}.
