@@ -116,9 +116,9 @@ For dense systems, an efficient computation of solvation properties via molecula
 In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the definition of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely.
 
 In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
-For a liquid phase containing $N_\text{\tiny IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
+For a liquid phase containing $N_\text{IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (P) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_\text{sim} \equiv R T \ln \frac{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{\tiny IL},P,T,\lambda = 0)}, 
+\Delta G_\text{sim} \equiv R T \ln \frac{\Xi (N_s,N_\text{IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{IL},P,T,\lambda = 0)}, 
 \end{equation}
 where $\Xi$ denotes the isobaric-isothermal partition function and $R$ is the gas constant.
 Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
@@ -134,7 +134,7 @@ For obtaining the mentioned relation, the authors derived an expression for the 
 \label{eq:solute chemical potential}
 \mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right) - RT \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
-where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{\tiny IL}$,P,T) and ($N_s$,$N_\text{\tiny IL}$,P,T), respectively.
+where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{IL}$,P,T) and ($N_s$,$N_\text{IL}$,P,T), respectively.
 Note that $c_s = \frac{N_s}{N_A V_1}$.
 
 Finally, by treating the gas phase as an ideal gas and considering the system to be at equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} found out that
@@ -160,7 +160,7 @@ Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} 
 \label{eq:henry_eq}
 K_s = \tilde{\rho}_\text{sim} R \, T \exp\left(\frac{\Delta G_\text{sim}}{R T}\right),
 \end{equation}
-where $\tilde{\rho}_\text{sim}$ is the simulated molar density of the solution. Assuming that this solution is very dilute, one can use the molar density of pure solvent ($\tilde{\rho}_\text{\tiny IL}$) instead.
+where $\tilde{\rho}_\text{sim}$ is the simulated molar density of the solution. Assuming that this solution is very dilute, one can use the molar density of pure solvent ($\tilde{\rho}_\text{IL}$) instead.
 
 \subsection*{Higher Pressure Conditions}
 \label{sec:partial_pressure}
@@ -207,7 +207,7 @@ Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of
 \ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{R T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
 \end{equation}
 
-In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient $\gamma^\infty_s$ can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{\tiny IL}$.
+In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient $\gamma^\infty_s$ can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{IL}$.
 
 \section{Force fields}
 \label{sec:force_field}
@@ -263,7 +263,7 @@ For water, we employ the TIP4P/2005 model \cite{Abascal_2005,Vega_2011}.
 With the aim of setting up a computationally efficient protocol for the IL simulations, in this work we assess the possibilities of modeling the ions as rigid bodies and employing the damped shifted force (DSF) method \cite{Fennell2006} for computing electrostatic interactions.
 In this method, the electrostatic potential between two atoms with charges $q_i$ and $q_j$ interacting at a distance $r$ is given by
 \begin{equation}
-V_\text{\tiny DSF}(r) = V(r) - V(r_c) - V^\prime(r_c)(r-r_c),
+V_\text{DSF}(r) = V(r) - V(r_c) - V^\prime(r_c)(r-r_c),
 \end{equation}
 where $V(r) = q_i q_j {\text{erfc}(\alpha r)}/{r}$ is a damped Coulomb potential.
 This potential is cut off at $r = r_c$, which makes it short-ranged and thus a cheaper alternative to Ewald-type schemes \cite{Ewald_1921,Darden_1993,Hockney_1988}.
@@ -280,24 +280,24 @@ For both integrators, we used a small time-step size ($\Delta t$) of 1 fs in ord
 
 The gradual insertion/deletion of solutes involves scaling both the van der Waals (vdW) and the electrostatic intermolecular interactions.
 To avoid numerical instabilities associated to the vdW scaling, it is usual to employ a soft-core potential with nonlinear coupling.
-In this paper, we use the modified LJ potential proposed by Beutler \textit{et al}. \cite{Beutler_1994}, given by $V_\text{\tiny vdW}(r) = 4 \epsilon \lambda_\text{\tiny vdW} (s^{-2} - s^{-1})$, where $s = (r/\sigma)^6 + (1 - \lambda_\text{\tiny vdW})/2$.
-The electrostatic interactions, on the other hand, can be simply multiplied by a coupling parameter $\lambda_\text{\tiny Coul}$ \cite{Naden_2015}.
+In this paper, we use the modified LJ potential proposed by Beutler \textit{et al}. \cite{Beutler_1994}, given by $V_\text{vdW}(r) = 4 \epsilon \lambda_\text{vdW} (s^{-2} - s^{-1})$, where $s = (r/\sigma)^6 + (1 - \lambda_\text{vdW})/2$.
+The electrostatic interactions, on the other hand, can be linearly scaled by a coupling parameter $\lambda_\text{Coul}$ \cite{Naden_2015}, meaning that $V_\text{Coul}(r) = V_\text{Coul} V_\text{DSF}(r)$.
 Furthermore, the vdW and Coulomb contributions to the free energy difference are taken into account separately.
 That is,
 \begin{equation}
-\Delta G_\text{sim} = \Delta G_\text{\tiny vdW} + \Delta G_\text{\tiny Coul},
+\Delta G_\text{sim} = \Delta G_\text{vdW} + \Delta G_\text{Coul},
 \end{equation}
-where $\Delta G_\text{\tiny vdW}$ is computed by varying $\lambda_\text{\tiny vdW} \in [0,1]$ while keeping $\lambda_\text{\tiny Coul} = 0$, whereas $\Delta G_\text{\tiny Coul}$ is computed by varying $\lambda_\text{\tiny Coul} \in [0,1]$ while keeping $\lambda_\text{\tiny vdW} = 1$.
-The sets of coupling parameter values we use here in all alchemical simulations are $\lambda_{\text{\tiny vdW}}$ = $\{0.0$, $0.05$, $0.1$, $0.2$, $0.25$, $0.3$, $0.35$, $0.4$, $0.45$, $0.5$, $0.6$, $0.7$, $0.8$, $0.9$, $1.0\}$ and $\lambda_{\text{\tiny Coul}}$ = $\{0.0$, $0.1$, $0.4$, $0.7$, $0.1\}$.
+where $\Delta G_\text{vdW}$ is computed by varying $\lambda_\text{vdW} \in [0,1]$ while keeping $\lambda_\text{Coul} = 0$, whereas $\Delta G_\text{Coul}$ is computed by varying $\lambda_\text{Coul} \in [0,1]$ while keeping $\lambda_\text{vdW} = 1$.
+The sets of coupling parameter values we use here in all alchemical simulations are $\lambda_{\text{vdW}}$ = $\{0.0$, $0.05$, $0.1$, $0.2$, $0.25$, $0.3$, $0.35$, $0.4$, $0.45$, $0.5$, $0.6$, $0.7$, $0.8$, $0.9$, $1.0\}$ and $\lambda_{\text{Coul}}$ = $\{0.0$, $0.1$, $0.4$, $0.7$, $0.1\}$.
 
-In this work, we compute $\Delta G_\text{\tiny Coul}$ by carrying out an independent simulation of 10 ns at each state of $\lambda_{\text{\tiny Coul}}$.
+In this work, we compute $\Delta G_\text{Coul}$ by carrying out an independent simulation of 10 ns at each state of $\lambda_{\text{Coul}}$.
 In the end, we apply the Multistate Bennett Acceptance Ratio (MBAR) method \cite{Shirts_2008} by using the \textit{Alchemical Analysis} package \cite{Klimovich_2015}.
 
-In the case of $\Delta G_\text{\tiny vdW}$, the Expanded Ensemble method \cite{Lyubartsev_1992} is applied for sampling the whole $\lambda_\text{\tiny vdW}$ set in a single simulation.
-An expanded ensemble is constructed as a weighted sum of subensembles, each one assuming a different value of the parameter selected for exploring the free energy landscape, which in our case is $\lambda_\text{\tiny vdW}$.
-In the method adopted here \cite{Chodera_2011_2}, simulating an expanded ensemble comprises doing molecular dynamics (MD) at fixed N, P, T, and $\lambda_\text{\tiny vdW}$ amid Monte Carlo (MC) transitions in the value of $\lambda_\text{\tiny vdW}$.
-The number of MD steps between transitions is fixed and, at each transition, one of the $\lambda_\text{\tiny vdW}$ states is picked at random according to a corresponding set of probabilities \cite{Chodera_2011_2}.
-In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{\tiny vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
+In the case of $\Delta G_\text{vdW}$, the Expanded Ensemble method \cite{Lyubartsev_1992} is applied for sampling the whole $\lambda_\text{vdW}$ set in a single simulation.
+An expanded ensemble is constructed as a weighted sum of subensembles, each one assuming a different value of the parameter selected for exploring the free energy landscape, which in our case is $\lambda_\text{vdW}$.
+In the method adopted here \cite{Chodera_2011_2}, simulating an expanded ensemble comprises doing molecular dynamics (MD) at fixed N, P, T, and $\lambda_\text{vdW}$ amid Monte Carlo (MC) transitions in the value of $\lambda_\text{vdW}$.
+The number of MD steps between transitions is fixed and, at each transition, one of the $\lambda_\text{vdW}$ states is picked at random according to a corresponding set of probabilities \cite{Chodera_2011_2}.
+In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
 Given that sample decorrelation is improved by having short MD runs between MC transitions \cite{Chodera_2011_2}, we used only 5 steps in each run.
 In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
 In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}.
@@ -451,7 +451,7 @@ The computed values should be compared to the experimental data reported by Mahu
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{ccccccc}  
 			\hline\hline
-			Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G_\text{sim}$ & $K_s$ & error \\
+			Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G_\text{sim}$ & $K_s$ & error \\
 			& (mol/dm\textsuperscript{3}) & (kcal/mol) & (kcal/mol) &  (kcal/mol) & (atm)  & (\%) \\
 			\hline
 %			\multicolumn{7}{c}{\ce{[emim][B(CN)_4]}: $K_{s}^{\text{exp}} = 38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010}} \\
@@ -470,24 +470,24 @@ The computed values should be compared to the experimental data reported by Mahu
 	\end{adjustbox}
 \end{table*}
 
-Is it worth remarking that the result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to a value reported by the same authors in Ref.~\citenum{Liu_2014_1}, where they applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{\tiny vdW}$ and $\lambda_\text{\tiny Coul}$.
+Is it worth remarking that the result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to a value reported by the same authors in Ref.~\citenum{Liu_2014_1}, where they applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{vdW}$ and $\lambda_\text{Coul}$.
 Moreover, the $\Delta G_\text{sim}$ value we computed for \ce{[emim][NTf_2]} is very close to the one obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no reported uncertainty) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
 %These consistencies have served for validating the methodological approaches of this work.
 
 One can see in Table \ref{table:henry} that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
 The worst results are obtained with the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}. \cite{Liu_2014}.
-These models fail in part because of the small values they predict for $\Delta G_\text{\tiny vdW}$.
-In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot free energy profiles with respect to the coupling parameter $\lambda_\text{\tiny vdW}$, as obtained from the simulations with all \ce{[emim][B(CN)_4]} models.
+These models fail in part because of the small values they predict for $\Delta G_\text{vdW}$.
+In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot free energy profiles with respect to the coupling parameter $\lambda_\text{vdW}$, as obtained from the simulations with all \ce{[emim][B(CN)_4]} models.
 We observe that the model of Batista \textit{et al}. \cite{Batista_2015} is the one that predicts the smallest free-energy barrier, immediately followed by the model of Liu \textit{et al}. \cite{Liu_2014}.
 This observation suggests that these models underestimate the magnitude of the solvent-solvent interactions, thus making it easier to open a cavity in the system for inserting the solute.
 Besides, it also explains why these models underestimate the density of \ce{[emim][B(CN)_4]}, such as seen in Table~\ref{table:props_dsf}.
-The Liu \textit{et al}. \cite{Liu_2014} model predicts the smallest value of $\Delta G_\text{\tiny vdW}$ in spite of exhibiting only the second smallest free-energy barrier.
-This occurs because the attractive van der Waals interactions compensate the cavity formation more favorably than in the case of Batista \textit{et al}. \cite{Batista_2015}, as one can observe in Fig.~\ref{fig:deltag} as $\lambda_\text{\tiny vdW}$ approaches unity.
-Nevertheless, these distinctions end up being canceled out when the charges of the \ce{CO_2} molecule are introduced, since $\Delta G_\text{\tiny vdW}$ and $\Delta G_\text{\tiny Coul}$ sum up to very similar $\Delta G_\text{sim}$ results for both models.
+The Liu \textit{et al}. \cite{Liu_2014} model predicts the smallest value of $\Delta G_\text{vdW}$ in spite of exhibiting only the second smallest free-energy barrier.
+This occurs because the attractive van der Waals interactions compensate the cavity formation more favorably than in the case of Batista \textit{et al}. \cite{Batista_2015}, as one can observe in Fig.~\ref{fig:deltag} as $\lambda_\text{vdW}$ approaches unity.
+Nevertheless, these distinctions end up being canceled out when the charges of the \ce{CO_2} molecule are introduced, since $\Delta G_\text{vdW}$ and $\Delta G_\text{Coul}$ sum up to very similar $\Delta G_\text{sim}$ results for both models.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{free_energy_paper}
-\caption{Profile of $\Delta G_\text{\tiny vdW}$ corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, modeled according to the force fields of Koller \textit{et al}. \cite{Koller_2012} ($\bullet$), Batista \textit{et al}. \cite{Batista_2015} ($\blacksquare$), Liu \textit{et al}. \cite{Liu_2014} ($\times$), and Weber and Kirchner \cite{Weber_2016} ($\blacktriangle$).}
+\caption{Profile of $\Delta G_\text{vdW}$ corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, modeled according to the force fields of Koller \textit{et al}. \cite{Koller_2012} ($\bullet$), Batista \textit{et al}. \cite{Batista_2015} ($\blacksquare$), Liu \textit{et al}. \cite{Liu_2014} ($\times$), and Weber and Kirchner \cite{Weber_2016} ($\blacktriangle$).}
 \label{fig:deltag}
 \end{figure}
 
@@ -573,7 +573,7 @@ It is therefore difficult to assess the reliability of our results in this case.
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{ccccccccc}
 			\hline\hline
-			Solute & $\rho_\text{sim}$ & error & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G^0_\text{sim}$ & $\Delta G^0_\text{exp}$   & error \\
+			Solute & $\rho_\text{sim}$ & error & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G^0_\text{sim}$ & $\Delta G^0_\text{exp}$   & error \\
 			& (g/cm\textsuperscript{3}) & (\%) & (kcal/mol) &  (kcal/mol) &  (kcal/mol)   & (kcal/mol)   & (\%) \\
 			\hline
 			hexane & $0.6513 \pm 0.0003$ & $0.5$ & $-3.67  \pm  0.03$ & $0.011 \pm 0.007$ & $-3.66 \pm 0.03$ & $-4.06$ & $9.90$ \\
@@ -593,7 +593,7 @@ It is therefore difficult to assess the reliability of our results in this case.
 	\begin{adjustbox}{width=1\textwidth}
 		\begin{tabular}{cccccccc}  
 			\hline\hline
-			Solute & $\Delta G_\text{\tiny vdW}$  & $\Delta G_\text{\tiny Coul}$  & $\Delta G_\text{sim}$  & $\gamma^\infty_\text{sim}$ & $\gamma^\infty_\text{exp}$ \cite{Doma_ska_2011} & $\gamma^\infty_\text{exp}$ \cite{Yan_2010} \\
+			Solute & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G_\text{sim}$  & $\gamma^\infty_\text{sim}$ & $\gamma^\infty_\text{exp}$ \cite{Doma_ska_2011} & $\gamma^\infty_\text{exp}$ \cite{Yan_2010} \\
 			& (kcal/mol) & (kcal/mol) &  (kcal/mol)  & (298 K) & (298 K)  & (303 K) \\
 			\hline
 			hexane & $-2.13 \pm 0.04$ & $-0.152 \pm 0.007$ & $-2.282 \pm 0.04$ & $6.2 \pm 0.5$ & $33.8$ & $20.97$  \\
