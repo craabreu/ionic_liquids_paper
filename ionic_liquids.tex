@@ -31,17 +31,17 @@
 %\title{A molecular dynamics study of the solvation of \ce{CO_2}, \ce{H_2O}, and some organic compounds in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 
 %% Group authors per affiliation:
-\author[plapiqui,msk]{A.J.~Silveira}
+\author[plapiqui]{A.J.~Silveira\corref{curradd}}
 \author[plapiqui]{S.~Pereda}
 \author[eq-ufrj,coppe-ufrj]{F.W.~Tavares}
 \author[eq-ufrj]{C.R.A.~Abreu\corref{cor1}}
 \ead{abreu@eq.ufrj.br}
 
 \address[plapiqui]{Planta Piloto de Ingenier\'ia Qu\'imica (PLAPIQUI), Universidad Nacional del Sur, Bah\'ia Blanca, Argentina}
-\address[msk]{Computational \& Systems Biology Program, Memorial Sloan Kettering Cancer Center, New York, NY, USA}
 \address[eq-ufrj]{Chemical Engineering Department, Escola de Qu\'imica, Universidade Federal do Rio de Janeiro, Rio de Janeiro, Brazil}
 \address[coppe-ufrj]{Chemical Engineering Program, Alberto Luiz Coimbra Institute for Graduate Studies and Research in Engineering (COPPE), Universidade Federal do Rio de Janeiro, Rio de Janeiro, Brazil}
 
+\cortext[curradd]{Current address: Computational \& Systems Biology Program, Memorial Sloan Kettering Cancer Center, New York, NY, USA}
 \cortext[cor1]{Corresponding author}
 
 \begin{abstract}
@@ -55,7 +55,7 @@ Our results confirm recent experimental observations that, for a given volume of
 \end{abstract}
 
 \begin{keyword}
-ionic liquids \sep solvation free energy \sep  \ce{CO_2} Henry constant \sep infinite-dilution activity coefficient 
+ionic liquids \sep solvation free energy \sep \ce{CO_2} Henry's law constant \sep infinite-dilution activity coefficient
 \end{keyword}
 
 \end{frontmatter}
@@ -477,9 +477,13 @@ Moreover, the $\Delta G_\text{sim}$ value we computed for \ce{[emim][NTf_2]} is 
 One can see in Table \ref{table:henry} that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
 The worst results are obtained with the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}. \cite{Liu_2014}.
 These models fail in part because of the small values they predict for $\Delta G_\text{\tiny vdW}$.
-In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot the profiles of $\Delta G_\text{\tiny vdW}$ as a function of the coupling parameter $\lambda_\text{\tiny vdW}$.
-
-If we look at the $\Delta G_\text{\tiny vdW}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the atomic interactions, which may also explain their failure to reproduce the experimental density.
+In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot free energy profiles with respect to the coupling parameter $\lambda_\text{\tiny vdW}$, as obtained from the simulations with all \ce{[emim][B(CN)_4]} models.
+We observe that the model of Batista \textit{et al}. \cite{Batista_2015} is the one that predicts the smallest free-energy barrier, immediately followed by the model of Liu \textit{et al}. \cite{Liu_2014}.
+This observation suggests that these models underestimate the magnitude of the solvent-solvent interactions, thus making it easier to open a cavity in the system for inserting the solute.
+Besides, it also explains why these models underestimate the density of \ce{[emim][B(CN)_4]}, such as seen in Table~\ref{table:props_dsf}.
+The Liu \textit{et al}. \cite{Liu_2014} model predicts the smallest value of $\Delta G_\text{\tiny vdW}$ in spite of exhibiting only the second smallest free-energy barrier.
+This occurs because the attractive van der Waals interactions compensate the cavity formation more favorably than in the case of Batista \textit{et al}. \cite{Batista_2015}, as one can observe in Fig.~\ref{fig:deltag} as $\lambda_\text{\tiny vdW}$ approaches unity.
+Nevertheless, these distinctions end up being canceled out when the charges of the \ce{CO_2} molecule are introduced, since $\Delta G_\text{\tiny vdW}$ and $\Delta G_\text{\tiny Coul}$ sum up to very similar $\Delta G_\text{sim}$ results for both models.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{free_energy_paper}
@@ -487,7 +491,7 @@ If we look at the $\Delta G_\text{\tiny vdW}$ profiles in Fig.~\ref{fig:deltag},
 \label{fig:deltag}
 \end{figure}
 
-The $\Delta G_{\, \text{sim}}$ values for the models of Koller \textit{et al}. \cite{Koller_2012} and K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} suggest a more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}. 
+The $\Delta G_\text{sim}$ values for the models of Koller \textit{et al}. \cite{Koller_2012} and K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} suggest a more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}. 
 The spatial distribution functions (SDFs) \cite{Svishchev_1993} shown in Figs.~\ref{fig:sdf_ions} confirm this result.
 The SDFs of the ions around a \ce{CO_2} molecule were obtained by using the software packages TRAVIS \cite{Brehm_2011} and VMD \cite{HUMP96}.
 For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} systems with a \ce{CO_2} molar fraction of 0.1.
