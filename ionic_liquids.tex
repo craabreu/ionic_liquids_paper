@@ -13,6 +13,9 @@
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.eps,.png}
 
+\usepackage{xcolor}
+\usepackage{pdfcomment}
+
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
 
 \journal{Fluid Phase Equilibria}
@@ -154,11 +157,12 @@ If both $P_s$ and $c_s$ are small, we can resort to Eqs.~\eqref{eq:solvation fre
 %\text{K}_s =\frac{P_s}{x_s}.
 %\end{equation}
 %
-Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$) and assuming a dilute solution, whose molar density does not perceivably differ from that of pure solvent (that is, $\tilde{\rho} \approx \tilde{\rho}_\text{\tiny IL}$), we obtain that
+Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$), we can conclude that
 \begin{equation}
 \label{eq:henry_eq}
-K_s = \tilde{\rho}_\text{\tiny IL} R \, T \exp\left(\frac{\Delta G_\text{sim}}{k_b T}\right).
+K_s = \tilde{\rho}_\text{sim} R \, T \exp\left(\frac{\Delta G_\text{sim}}{k_b T}\right),
 \end{equation}
+where $\tilde{\rho}_\text{sim}$ is the simulated molar density of the solution. Assuming that this solution is very dilute, one can use the molar density of pure solvent ($\tilde{\rho}_\text{\tiny IL}$) instead.
 
 \subsection*{Higher Pressure Conditions}
 \label{sec:partial_pressure}
@@ -434,16 +438,18 @@ The relative error of this result with respect to the experimental value obtaine
 \label{fig:die_ntf2}
 \end{figure}
 
-\subsection{Henry's Law Constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
+\subsection{Dilute Solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:henry_results}
 
-In Table \ref{table:henry} we present the results of the solvation free energies of \ce{CO_2} along with the Henry constants ($K_s$) obtained by means of Eq.~\eqref{eq:henry_eq}.
-Table~\ref{table:henry} also contains the experimental $K_s$ reported by Mahurin \textit{et al}. \cite{Mahurin_2010} and Finotello \textit{et al}. \cite{Finotello_2008}.
-The uncertainties in $K_s$ were calculated using standard error propagation.
+In Table \ref{table:henry}, we present results obtained from expanded ensemble simulations of a single \ce{CO_2} molecule dissolved in 250 ion pairs of either \ce{[emim][B(CN)_4]} or \ce{[emim][NTf_2]} under periodic boundary conditions.
+The simulations were carried out at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$.
+Table~\ref{table:henry} contains simulated molar densities, partial and total solvation free energies, as well as Henry's law constants ($K_s$) computed via Eq.~\eqref{eq:henry_eq}.
+It also contains the experimental $K_s$ values reported by Mahurin \textit{et al}. \cite{Mahurin_2010} and by Finotello \textit{et al}. \cite{Finotello_2008}.
+The uncertainties in $K_s$ were calculated by using a standard error propagation formula.
 
 \begin{table*}
 	\centering
-	\caption{Results of solvation free energies and Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T = 298.15~\mathrm{K}$ and $P = 1~\mathrm{atm}$. The experimental Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and in \ce{[emim][NTf_2]} are, respectively, $38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010} and $39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008}.}
+	\caption{Results of solvation free energies and Henry's law constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T = 298.15~\mathrm{K}$ and $P = 1~\mathrm{atm}$. The experimental Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and in \ce{[emim][NTf_2]} are, respectively, $38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010} and $39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008}.}
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{ccccccc}  
 			\hline\hline
@@ -466,16 +472,16 @@ The uncertainties in $K_s$ were calculated using standard error propagation.
 	\end{adjustbox}
 \end{table*}
 
-It should be pointed out that the result of $\Delta G_\text{sim}$ obtained for the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to the value reported by those authors \cite{Liu_2014_1}, who applied the BAR method \cite{Bennett_1976} to independent sampling of $\lambda_{\,\text{vdW}}$ and $\lambda_{\, \text{Coul}}$.
-Moreover, the $\Delta G_\text{sim}$ in \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534$ kcal/mol, with no uncertainty reported) using the FEP method \cite{Zwanzig_1954}.
-These consistencies have served for validating the methodological approaches of this work.
+The result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to the value reported by the same authors \cite{Liu_2014_1}, who applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{\tiny vdW}$ and $\lambda_\text{\tiny Coul}$.
+Moreover, the $\Delta G_\text{sim}$ result for \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no uncertainty reported) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
+%These consistencies have served for validating the methodological approaches of this work.
 
-From Table \ref{table:henry} one can see that the model of Koller \textit{et al}. \cite{Koller_2012} best reproduces the experimental value of $K_s$.
-If we look at the $\Delta G_{\lambda_{\,\text{vdW}}}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the interatomic interactions, which may also explain their failure to reproduce the experimental density.
+From Table \ref{table:henry}, one can see that no model other than that of Koller \textit{et al}. \cite{Koller_2012} was able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation.
+If we look at the $\Delta G_\text{\tiny vdW}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the interatomic interactions, which may also explain their failure to reproduce the experimental density.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{free_energy_paper}
-\caption{$\Delta G_{\lambda_{\,\text{vdW}}}$ profiles corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, which was modeled according to the force fields of (circles) Koller \textit{et al}. \cite{Koller_2012}, (squares) Batista \textit{et al}. \cite{Batista_2015}, (up triangles) Liu \textit{et al}. \cite{Liu_2014}, and (x) Weber and Kirchner \cite{Weber_2016}.}
+\caption{Profile of $\Delta G_\text{\tiny vdW}$ corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, modeled according to the force fields of Koller \textit{et al}. \cite{Koller_2012} ($\bullet$), Batista \textit{et al}. \cite{Batista_2015} ($\blacksquare$), Liu \textit{et al}. \cite{Liu_2014} ($\times$), and Weber and Kirchner \cite{Weber_2016} ($\blacktriangle$).}
 \label{fig:deltag}
 \end{figure}
 
@@ -485,7 +491,7 @@ The SDFs of the ions around a \ce{CO_2} molecule were obtained by using the soft
 For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} systems with a \ce{CO_2} molar fraction of 0.1.
 The isovalues were visually determined so as to observe the first solvation shell.
 If we compare Figs.~\ref{fig:sdf_ions} (a) and (b), one notes that the region with a low probability of finding an ion is larger for \ce{[emim][NTf_2]}.
-Also, the first solvation shell due to [B(CN)\textsubscript{4}]$^{-}$ occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions} (c).
+Also, the first solvation shell due to \ce{[B(CN)_4^-} occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions}(c).
 
 \begin{figure}
 \centering
@@ -505,7 +511,7 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \label{fig:sdf_ions}
 \end{figure}
 
-\subsection{Study of concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
+\subsection{Concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:results_conc}
 
 Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we have also carried out simulations at the thermodynamic conditions specified in Table~\ref{table:solv}, which correspond to similar values of \ce{CO_2} molality.
