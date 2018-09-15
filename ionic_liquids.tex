@@ -442,8 +442,8 @@ The relative error of this result with respect to the experimental value obtaine
 In Table \ref{table:henry}, we present results from expanded ensemble simulations of a single \ce{CO_2} molecule dissolved in 250 ion pairs of either \ce{[emim][B(CN)_4]} or \ce{[emim][NTf_2]} under periodic boundary conditions.
 The simulations were carried out at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$.
 Table~\ref{table:henry} contains simulated molar densities, partial and total solvation free energies, as well as Henry's law constants ($K_s$) computed via Eq.~\eqref{eq:henry_eq}.
-It also contains the experimental $K_s$ values reported by Mahurin \textit{et al}. \cite{Mahurin_2010} and by Finotello \textit{et al}. \cite{Finotello_2008}.
 The uncertainties in $K_s$ were calculated by using a standard error propagation formula.
+The computed values should be compared to the experimental data reported by Mahurin \textit{et al}. \cite{Mahurin_2010} ($K_s = 38.9 \pm 0.03 ~\mathrm{atm}$ for \ce{CO_2} in \ce{[emim][B(CN)_4]}) and by Finotello \textit{et al}. \cite{Finotello_2008} ($K_s = 39.0 \pm 0.1 ~\mathrm{atm}$ for \ce{CO_2} in \ce{[emim][NTf_2]}).
 
 \begin{table*}
 	\centering
@@ -470,12 +470,16 @@ The uncertainties in $K_s$ were calculated by using a standard error propagation
 	\end{adjustbox}
 \end{table*}
 
-The result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to the value reported by the same authors \cite{Liu_2014_1}, who applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{\tiny vdW}$ and $\lambda_\text{\tiny Coul}$.
-Moreover, the $\Delta G_\text{sim}$ result for \ce{[emim][NTf_2]} is very close to the value obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no uncertainty reported) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
+Is it worth remarking that the result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to a value reported by the same authors in Ref.~\citenum{Liu_2014_1}, where they applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{\tiny vdW}$ and $\lambda_\text{\tiny Coul}$.
+Moreover, the $\Delta G_\text{sim}$ value we computed for \ce{[emim][NTf_2]} is very close to the one obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no reported uncertainty) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
 %These consistencies have served for validating the methodological approaches of this work.
 
-From Table \ref{table:henry}, one can see that no model other than that of Koller \textit{et al}. \cite{Koller_2012} was able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation.
-If we look at the $\Delta G_\text{\tiny vdW}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the interatomic interactions, which may also explain their failure to reproduce the experimental density.
+One can see in Table \ref{table:henry} that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
+The worst results are obtained with the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}. \cite{Liu_2014}.
+These models fail in part because of the small values they predict for $\Delta G_\text{\tiny vdW}$.
+In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot the profiles of $\Delta G_\text{\tiny vdW}$ as a function of the coupling parameter $\lambda_\text{\tiny vdW}$.
+
+If we look at the $\Delta G_\text{\tiny vdW}$ profiles in Fig.~\ref{fig:deltag}, we observe that for the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}.~\cite{Liu_2014} the maximum occurs at lower values of energy, suggesting that these models underestimate the atomic interactions, which may also explain their failure to reproduce the experimental density.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{free_energy_paper}
@@ -491,23 +495,21 @@ The isovalues were visually determined so as to observe the first solvation shel
 If we compare Figs.~\ref{fig:sdf_ions} (a) and (b), one notes that the region with a low probability of finding an ion is larger for \ce{[emim][NTf_2]}.
 Also, the first solvation shell due to \ce{[B(CN)_4^-} occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions}(c).
 
-\begin{figure}
+\begin{figure*}
 \centering
 \subfloat[]{%
-  \includegraphics[width=\linewidth]{kollerall.pdf}%
+  \includegraphics[width=\linewidth/3,trim={2cm 0 1.5cm 0},clip]{kollerall.pdf}
 }
-
 \subfloat[]{%
-  \includegraphics[width=\linewidth]{ludwigall.pdf}%
+  \includegraphics[width=\linewidth/3,trim={1.75cm 0 1.75cm 0},clip]{ludwigall.pdf}
 }
-
 \subfloat[]{%
-  \includegraphics[width=\linewidth]{anionanion.pdf}%
+  \includegraphics[width=\linewidth/3,trim={2.5cm 0 1cm 0},clip]{anionanion.pdf}
 }
 \caption{Spatial distribution functions (SDFs) of (a) \ce{[B(CN)_4]^-} (green) and \ce{[emim]^+} (yellow) at the isosurface values of 0.138 and 0.12, respectively; and of (b) \ce{[NTf_2]^-} (blue) and \ce{[emim]^+} (white) at the isosurface values of 0.086 and 0.063, respectively.
 Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \label{fig:sdf_ions}
-\end{figure}
+\end{figure*}
 
 \subsection{Concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:results_conc}
@@ -532,12 +534,11 @@ Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies t
 	\end{tabular}
 \end{table}
 
-
 For each system, in Fig.~\ref{fig:pressure} we show our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
 The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
 Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably lower for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
 In addition, we see that in this case the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
-The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} were -0.755 $\pm$ 0.01 kcal/mol and -0.542 $\pm$ 0.005, respectively.
+The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} were $-0.755 \pm 0.01 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005$, respectively.
 However, since we simulated a different number of \ce{CO_2}, we cannot draw any definite conclusion regarding the presence of stronger interactions with \ce{[emim][B(CN)_4]}, which could explain the higher solubility.
 
 \begin{figure}
@@ -546,7 +547,7 @@ However, since we simulated a different number of \ce{CO_2}, we cannot draw any 
 \label{fig:pressure}
 \end{figure}
 
-\subsection{Inifinite-dilution activity coefficient in \ce{[emim][B(CN)_4]}}
+\subsection{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]}}
 \label{sec:act_results}
 
 Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental $K_s$ of \ce{CO_2}, we next calculate the infinite-dilution activity coefficients ($\gamma^{\, \infty}$) of benzene, hexane, cyclohexane, ethanol and water in \ce{[emim][B(CN)_4]}.
