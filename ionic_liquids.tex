@@ -28,7 +28,6 @@
 \begin{frontmatter}
 
 \title{A molecular dynamics study of the solvation of carbon dioxide and other compounds in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
-%\title{A molecular dynamics study of the solvation of \ce{CO_2}, \ce{H_2O}, and some organic compounds in the ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 
 %% Group authors per affiliation:
 \author[plapiqui]{A.J.~Silveira\corref{curradd}}
@@ -433,7 +432,7 @@ The relative error of this result with respect to the experimental value obtaine
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{Ludwig_anion}
-\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.}
+\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} at $T = 298.0~\mathrm{K}$ and $P = 1.0~\mathrm{bar}$ using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.}
 \label{fig:die_ntf2}
 \end{figure}
 
@@ -631,24 +630,25 @@ It is, therefore, difficult to assess the reliability of our results in this cas
 \section{Concluding remarks}
 \label{sec:conclusion}
 
-One of the goals of this paper was to compare various available models of \ce{[emim][B(CN)_4]} in terms of their capability to reproduce the experimental Henry constant of \ce{CO_2}.
-We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8 \%.
-A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in that work, which also allows to accurately reproduce the experimental density of the pure substance.
+One of the goals of this paper was to compare various available molecular models of \ce{[emim][B(CN)_4]} in terms of their capabilities to reproduce the experimental Henry's law constant of \ce{CO_2}.
+We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8\%.
+A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows one to accurately reproduce the experimental density of the pure substance.
 
 We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
-Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, we concluded that the DSF method with $\alpha$ = 0.2 {\AA}$^{-1}$ is a suitable strategy.
+Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, we concluded that the Damped-Shifted-Force method for electrostatic interactions, with a damping factor $\alpha = 0.2 ~\text{\AA}^{-1}$, is a suitable strategy.
 Other improvement was the use of rigid bodies to simulate \ce{[emim][B(CN)_4]}.
 This required preliminary simulations in order to examine the flexibility of the ethyl chain in \ce{[emim]^+} and the analysis was greatly facilitated by employing useful visualization tools.
-Besides the properties already mentioned, the different models showed quite different behaviors, as well.
-This lack of consistency is one of the reasons why in industry molecular simulation has not become a routinely tool yet.
+Besides the properties already mentioned, the different models showed quite distinct behaviors, as well, in terms of conformational statistics.
+%This lack of consistency is one of the reasons why in industry molecular simulation has not become a routinely tool yet.
 
-The solvation free energy results at infinite-dilution condition suggest a slightly more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in  \ce{[emim][NTf_2]}.
-However, this picture changes at high concentrations: the simulations correctly predicted a considerable lower pressure to dissolve a certain mass of \ce{CO_2} in \ce{[emim][B(CN)_4]}.
+The solvation free energy results at infinite-dilution condition suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}, despite the similarity in the Henry's law constants observed in both cases.
+This picture is further confirmed at high \ce{CO_2} concentrations, in which the simulations correctly predicted that a considerably lower pressure is required to dissolve a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]}, as compared to \ce{[emim][NTf_2]} in an equal-mass basis.
 
-Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} to predict infinite-dilution activity coefficients of various solutes.
-In this case, the results were not satisfactory given the large errors in the free energy calculations of the pure solutes, making necessary a revision of their force fields in a future work.
+Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} in an attempt to predict infinite-dilution activity coefficients of various solutes in \ce{[emim][B(CN)_4]}.
+In this case, the results were not satisfactory, given the large errors in the free energy calculations of the pure solutes, making necessary a future revision of the employed force fields.
 
 \section*{Acknowledgments}
+
 The authors acknowledge the financial support provided by Petrobras (project code CENPES 16113). 
 
 \section*{References}
