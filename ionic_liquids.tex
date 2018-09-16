@@ -199,12 +199,12 @@ In this way, no iterative simulations are required to compute the equilibrium pr
 As will be shown below, the prediction of activity coefficients requires additional simulations of the solute as a pure liquid phase, whose properties we denote here by a superscript ``$0$''.
 We start by using a standard thermodynamic relation \cite{Tester} to write the solute activity coefficient $\gamma_s$ in terms of chemical potentials as
 \begin{equation}
-\label{eq:gamma}
 \ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{R T} - \ln x_s,
 \end{equation}
 
 Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of Eq.~\eqref{eq:solute chemical potential}. In this step, we note that $c_s = \tilde{\rho} x_s$ and $c_s^0 = \tilde{\rho}_s^0$, where $\tilde{\rho}$ and $\tilde{\rho}_s^0$ are the molar densities of the solution and of pure liquid solute, respectively. Thus, the expression we obtain for computing an activity coefficient from two independent simulations is
 \begin{equation}
+\label{eq:gamma}
 \ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{R T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
 \end{equation}
 
@@ -574,18 +574,14 @@ This confirmation was possible by simulating a purely physical absorption, witho
 \subsection{Infinite-dilution activity coefficients in \ce{[emim][B(CN)_4]}}
 \label{sec:act_results}
 
-Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental $K_s$ of \ce{CO_2}, we next calculate the infinite-dilution activity coefficients ($\gamma^{\, \infty}$) of benzene, hexane, cyclohexane, ethanol and water in \ce{[emim][B(CN)_4]}.
+Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental Henry's law constant of \ce{CO_2}, we extend its use to the calculation of infinite-dilution activity coefficients ($\gamma^\infty$) of other solutes in \ce{[emim][B(CN)_4]}.
+Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water.
 
-The task of accurately predicting $\gamma^{\, \infty}$ is challenging since, according to Eq.~\eqref{eq:gamma_inf}, one should reproduce the solvation free energies in both the pure solute and the solvent.
-In Table~\ref{table:mu_solutes} we show the simulated densities and the solvation free energies $(\Delta G^{0}_\text{sim})$ of the pure solutes, which we compare against the experimental data extracted from the work of Chang~\cite{Chang_2009}.
-It should be pointed out that we were unable to find the experimental $\Delta G^{0}_\text{exp}$ for cyclohexane.
+The task of accurately predicting $\gamma^\infty$ is challenging because, according to Eq.~\eqref{eq:gamma}, one needs to reproduce the solvation free energies of a solute molecule in both the solvent and the solute itself as a pure liquid.
+In Table~\ref{table:mu_solutes}, we show the simulated densities ($\rho^0_s$) and solvation free energies $(\Delta G^{0}_\text{sim})$ of the pure solutes, which we compare against experimental data extracted from the work of Chang \cite{Chang_2009}.
+It is worth remarking that we were unable to find the experimental $\Delta G^{0}_\text{exp}$ for cyclohexane.
 Note that only in the case of ethanol we successfully predicted the $\Delta G^{0}_\text{exp}$.
 The relative errors for the other solutes are around 10\%.
-
-The results of $\gamma^{\, \infty}$ are presented in Table~\ref{table:gamma}.
-For benzene and water, the predictions are very accurate, but this may be due to fortuitous error compensations given the divergences shown in Table~\ref{table:mu_solutes}.
-From Table \ref{table:gamma}, one sees that the experimental $\gamma^{\, \infty}$ for hexane at $298.15~\text{K}$ and $303~\text{K}$ considerably differ.
-It is therefore difficult to assess the reliability of our results in this case.
 
 \begin{table*}
 	\centering
@@ -593,7 +589,7 @@ It is therefore difficult to assess the reliability of our results in this case.
 	\begin{adjustbox}{max width=\textwidth}
 		\begin{tabular}{ccccccccc}
 			\hline\hline
-			Solute & $\rho_\text{sim}$ & error & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G^0_\text{sim}$ & $\Delta G^0_\text{exp}$   & error \\
+			Solute & $\rho^0_s$ & error & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G^0_\text{sim}$ & $\Delta G^0_\text{exp}$   & error \\
 			& (g/cm\textsuperscript{3}) & (\%) & (kcal/mol) &  (kcal/mol) &  (kcal/mol)   & (kcal/mol)   & (\%) \\
 			\hline
 			hexane & $0.6513 \pm 0.0003$ & $0.5$ & $-3.67  \pm  0.03$ & $0.011 \pm 0.007$ & $-3.66 \pm 0.03$ & $-4.06$ & $9.90$ \\
@@ -606,6 +602,11 @@ It is therefore difficult to assess the reliability of our results in this case.
 		\end{tabular}
 	\end{adjustbox}
 \end{table*}
+
+The results concerning the solvation free energies of all solutes in the ionic liquid are presented in Table~\ref{table:gamma}, as well as the computed infinite-dilution activity coefficients.
+For benzene and water, the predictions are very accurate, but this is certainly due to fortuitous error compensations, given the discrepancies observed in Table~\ref{table:mu_solutes}.
+In the case of hexane, one can see in Table \ref{table:gamma} that the available experimental values of $\gamma^\infty$ in \ce{[emim][B(CN)_4]} at very close temperatures ($298.15~\text{K}$ and $303~\text{K}$) differ considerably.
+It is, therefore, difficult to assess the reliability of our results in this case.
 
 \begin{table*}
 	\centering
