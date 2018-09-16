@@ -46,9 +46,9 @@
 
 \begin{abstract}
 In this paper, we calculate solvation free energies of several compounds in ionic liquids.
-These free energies are used to compute properties such as Henry's law constants and activity coefficients, generally required to the design of environmentally sustainable processes.
+These free energies are used to compute properties such as Henry's law constants and activity coefficients, generally required in the design of environmentally sustainable processes.
 It is known, for instance, that carbon dioxide from combustion is one of the main sources of anthropogenic greenhouse gases.
-Recently, the propensity of ionic liquid \ce{[emim][B(CN)_4]} for the physisorption of \ce{CO_2} has been reported, which makes it a potential solvent for carbon capture.
+Recently, the propensity of the ionic liquid \ce{[emim][B(CN)_4]} for the physisorption of \ce{CO_2} has been reported, which makes it a potential solvent for carbon capture.
 In the present work, molecular dynamics simulations of the solvation of \ce{CO_2} in ionic liquids \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} are carried out both at infinite dilution and at high concentrations.
 A systematic study is performed by comparing several force fields and assessing the efficacy of simplification measures such as rigid-body dynamics and pairwise electrostatics.
 Our results confirm recent experimental observations that, for a given volume of solvent, lower pressure is required to absorb a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in other ionic liquids.
@@ -94,7 +94,7 @@ Such scarcity motivated us to carry out the present investigation, in which we h
 As we show here, it was possible to find a model that successfully reproduces the experimental value of the Henry constant of \ce{CO_2} in this IL.
 For comparison, we analyzed the solvation of \ce{CO_2} not only in \ce{[emim][B(CN)_4]}, but also in \ce{[emim][NTf_2]}, both at infinite dilution and at high concentrations.
 The simulations confirmed what is observed in experiments.
-For \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}, considering a given volume of solvent.
+For \ce{[emim][B(CN)_4]}, a considerably lower pressure is required to dissolve the same amount of \ce{CO_2}, considering a given mass of solvent.
 In addition, we also calculated infinite-dilution activity coefficients of other solutes in \ce{[emim][B(CN)_4]} and compared the results with experimental values recently reported in literature.
 The solutes we considered were hexane, benzene, cyclohexane, ethanol, and water.
 
@@ -125,7 +125,7 @@ where $\Xi$ denotes the isobaric-isothermal partition function and $R$ is the ga
 Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
 \begin{equation}
 \label{eq:solvation free energy definition}
-\Delta G_{\text{solv}} \equiv R \ln \left( \frac{P_s}{c_s R T} \right),
+\Delta G_{\text{solv}} \equiv R T \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
 where $P_s$ is the partial pressure of the solute in the gas phase and
 $c_s$ is the molar concentration of the solute in the liquid phase.
@@ -136,7 +136,7 @@ For obtaining the mentioned relation, the authors derived an expression for the 
 \mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right) - RT \ln \left( \frac{P_s}{c_s R T} \right),
 \end{equation}
 where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $P_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{IL}$,P,T) and ($N_s$,$N_\text{IL}$,P,T), respectively.
-Note that $c_s = \frac{N_s}{N_A V_1}$.
+Note that $c_s = \frac{N_s}{N_A V_1}$, where $N_A$ is the Avogadro number.
 
 Finally, by treating the gas phase as an ideal gas and considering the system to be at equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} found out that
 \begin{equation}
@@ -176,13 +176,13 @@ where $f^{g}_s$ is the fugacity of the solute in the gas phase.
 Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), it follows that
 \begin{equation}
 \label{eq:fgas_d}
-f^{g}_s = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T. 
+f^{g}_s = c_s R T \exp \left( \frac{\Delta G_\text{sim}}{R T} \right). 
 \end{equation}
 
 Three additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems with which we compare our simulations) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equilibrium pressure}
-y_s \exp\left( \frac{B_s P}{R T} \right) P = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T,
+y_s \exp\left( \frac{B_s P}{R T} \right) P = c_s R T \exp \left( \frac{\Delta G_\text{sim}}{R T} \right),
 \end{equation}
 where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
 In the case of \ce{CO_2}, we employ the correlation for $B_s$ developed by Holste \textit{et al}. \cite{Holste_1987}, which is
@@ -282,7 +282,7 @@ For both integrators, we used a small time-step size ($\Delta t$) of 1 fs in ord
 The gradual insertion/deletion of solutes involves scaling both the van der Waals (vdW) and the electrostatic intermolecular interactions.
 To avoid numerical instabilities associated to the vdW scaling, it is usual to employ a soft-core potential with nonlinear coupling.
 In this paper, we use the modified LJ potential proposed by Beutler \textit{et al}. \cite{Beutler_1994}, given by $V_\text{vdW}(r) = 4 \epsilon \lambda_\text{vdW} (s^{-2} - s^{-1})$, where $s = (r/\sigma)^6 + (1 - \lambda_\text{vdW})/2$.
-The electrostatic interactions, on the other hand, can be linearly scaled by a coupling parameter $\lambda_\text{Coul}$ \cite{Naden_2015}, meaning that $V_\text{Coul}(r) = V_\text{Coul} V_\text{DSF}(r)$.
+The electrostatic interactions, on the other hand, can be linearly scaled by a coupling parameter $\lambda_\text{Coul}$ \cite{Naden_2015}, meaning that $V_\text{Coul}(r) = \lambda_\text{Coul} V_\text{DSF}(r)$.
 Furthermore, the vdW and Coulomb contributions to the free energy difference are taken into account separately.
 That is,
 \begin{equation}
@@ -345,10 +345,10 @@ Initial inspection reveals that, in all cases, $\psi_1$ and $\psi_2$ populate re
 \end{cases},
 \end{equation}
 both corresponding to a coplanar structure formed by atoms C1, C2, N2, and C5.
-There are two such lines in each diagram because atom C6 can be located on either side of the plan.
+%There are two such lines in each diagram because atom C6 can be located on either side of the plane.
 One can note in Fig.~\ref{fig:dihedrals_emim} that the CDF peaks, which indicate the most likely dihedral angle combinations, lie either precisely above these lines or very close to them.
 The largest distortions from coplanarity occur for the Batista \textit{et al}. \cite{Batista_2015} model, as observed by the peak locations in Fig.~\ref{fig:dihedrals_emim}(b).
-Despite this, all rigid bodies considered here for \ce{[emim]^+} are built in such a way that atoms C[1-5], H[1-3], and N[1-2] all lie in a single plan.
+Despite this, all rigid bodies considered here for \ce{[emim]^+} are built in such a way that atoms C[1-5], H[1-3], and N[1-2] all lie in a single plane.
 Therefore, for specifying the torsion of bond N2-C5 it is enough to set a value for $\psi_1$ and then compute $\psi_2$ by means of Eq.~\eqref{eq:dihedral angles}.
 All other structural features (bond lengths, bending angles, and hydrogen-involving dihedrals) are taken from the minimum-energy structure obtained for each force field.
 
@@ -534,30 +534,36 @@ It is worth noting that the marked difference in the molar fractions of \ce{CO_2
 
 \begin{table}
 	\centering
-	\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, based on the experimental observations of Refs.~ \citenum{Makino_2014} and \citenum{Schilderman_2007}.}
+	\caption{Thermodynamic conditions, based on the experimental observations of Refs.~\citenum{Makino_2014} and \citenum{Schilderman_2007}, employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, as well as the results obtained via expanded ensemble simulations.}
 	\begin{tabular}{ccc}
 		\hline\hline
 		IL & \ce{[emim][B(CN)_4]}  & \ce{[emim][NTf_2]} \\
 		\hline
 %		model & Ref.~\citenum{Koller_2012} & Ref.~\citenum{Koddermann_2007} \\
-		T  & 313.15 K & 312.13 K \\
-		P  & 21 atm & 37 atm \\
-		$x_s$ & 0.352 & 0.479 \\
-		$m_s$ & 2.4 mol/kg & 2.35 mol/kg \\
+		\multicolumn{3}{c}{Specification} \\
+		$T$  & $313.15~\mathrm{K}$ & $312.13~\mathrm{K}$ \\
+		$P$  & $21~\mathrm{atm}$ & $37~\mathrm{atm}$ \\
+		$x_s$ & $0.352$ & $0.479$ \\
+		$m_s$ & $2.4~\mathrm{mol/kg}$ & $2.35~\mathrm{mol/kg}$ \\
+		\hline
+		\multicolumn{3}{c}{Simulation Result} \\
+		$c_s$ & $3.04~\mathrm{mol/dm^3}$ & $2.22~\mathrm{mol/dm^3}$ \\ 
+		$\Delta G_\text{sim}$ & $-0.755~\mathrm{kcal/mol}$ & $-0.542~\mathrm{kcal/mol}$ \\
+		$P$ & $18.3~\mathrm{atm}$ & $38.4~\mathrm{atm}$ \\
 		\hline\hline
 		\label{table:solv} 
 	\end{tabular}
 \end{table}
 
 We carried out expanded ensemble simulations of liquid solutions at the conditions of Table~\ref{table:solv}.
-The model of Koller \textit{et al}. \cite{Koller_2012} was the one employed for \ce{[emim][B(CN)_4]}.
-The computed solvation free energies for the systems \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]} were $-0.755 \pm 0.01 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005~\mathrm{kcal/mol}$, respectively.
+The model of Koller \textit{et al}. \cite{Koller_2012} was the one employed for simulating \ce{[emim][B(CN)_4]}.
+The computed solvation free energies for the systems \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]} were $-0.755 \pm 0.009 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005~\mathrm{kcal/mol}$, respectively.
 In Fig.~\ref{fig:pressure}, we present our predictions of the equilibrium pressure ($P$) obtained by solving Eq.~\eqref{eq:equilibrium pressure}, as well as the corresponding gas-phase fugacities of \ce{CO_2} ($f_s^g$) computed by Eq.~\eqref{eq:fgas_d}.
-The dotted lines correspond to the experimental values (i.e. the ones used to simulate the liquid solutions).
-First, the results make clear that assuming ideal gas would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
-Second, the computed pressures did not depart considerably from the specified values, meaning that our results sustain the experimental observation that $P$ is considerably lower for the system \ce{CO_2}+\ce{[emim][B(CN)_4]} than for the system \ce{CO_2}+\ce{[emim][NTf_2]}.
-In addition, we see that in this case the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
-%However, since we simulated a different number of \ce{CO_2}, we cannot draw any definite conclusion regarding the presence of stronger interactions with \ce{[emim][B(CN)_4]}, which could explain the higher solubility.
+The dotted lines correspond to the experimental values (i.e. those used to simulate the liquid solutions).
+First, the results make clear that assuming ideal gas ($P = f_s^g$) would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
+Second, and most importantly, the computed pressures did not depart considerably from the specified values, meaning that our results sustain the experimental observations.
+Therefore, as the pressure required to reach the same equilibrium molal concentration of \ce{CO_2} in the liquid phase is smaller for \ce{[emim][B(CN)_4]} than for \ce{[emim][NTf_2]}, our results confirm that the former is a better solvent than the latter.
+This confirmation was possible by simulating a purely physical absorption, without considering any quantum effect.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{pressure_est.pdf}
