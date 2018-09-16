@@ -63,6 +63,7 @@ ionic liquids \sep solvation free energy \sep \ce{CO_2} Henry's law constant \se
 %\linenumbers
 
 \section{Introduction}
+\label{sec:intro}
 
 \ce{CO_2} emissions from fossil-fuel power generation plants account for a large portion of the anthropogenic greenhouse gases \cite{totalenergy}.
 International efforts aimed at regulating and reducing \ce{CO_2} emissions are increasing \cite{Tong_2018} and, in this context, the development of technologies for the capture and storage of \ce{CO_2} plays an essential role \cite{Markewitz_2014}.
@@ -180,7 +181,7 @@ f^{g}_s = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T.
 
 Three additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems with which we compare our simulations) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
-\label{eq:equation for pressure}
+\label{eq:equilibrium pressure}
 y_s \exp\left( \frac{B_s P}{R T} \right) P = \exp \left( \frac{\Delta G_\text{sim}}{R T} \right) +  c_s R T,
 \end{equation}
 where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
@@ -191,7 +192,7 @@ B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac{K \cdot cm^3}{mol}}$, and $B_2 = -1.22675 \times 10^7~\mathrm{\frac{K^2 \cdot cm^3}{mol}}$.
 
 Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here.
-In this way, no iterative simulations are required to compute the equilibrium pressure when solving Eq.~\eqref{eq:equation for pressure} for $P$.
+In this way, no iterative simulations are required to compute the equilibrium pressure when solving Eq.~\eqref{eq:equilibrium pressure} for $P$.
 
 \subsection*{Activity Coefficients}
 
@@ -526,17 +527,19 @@ Fig. (c) corresponds to the SDFs of the anions plotted together.}
 \subsection{Concentrated solutions of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}
 \label{sec:results_conc}
 
-Since concentrated solutions are the more likely scenario in \ce{CO_2} capture processes, we have also carried out simulations at the thermodynamic conditions specified in Table~\ref{table:solv}, which correspond to similar values of \ce{CO_2} molality.
-Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies the observation made by Carvalho \textit{et al}. \cite{Carvalho_2016}, mentioned at the introduction of this paper.
+Since concentrated solutions are the more likely scenario in carbon capture processes, we have also carried out simulations of systems with higher \ce{CO_2} concentrations.
+The thermodynamic conditions specified for these simulations, which are based on experimental investigations \cite{Makino_2014,Schilderman_2007}, are shown in Table~\ref{table:solv}.
+We have selected these specific conditions because of the proximity observed in the molality of \ce{CO_2} ($m_s$).
+It is worth noting that the marked difference in the molar fractions of \ce{CO_2} in Table~\ref{table:solv} does not imply that \ce{[emim][NTf_2]} is a better solvent than \ce{[emim][B(CN)_4]}, thus exemplifying the observation made by Carvalho \textit{et al}. \cite{Carvalho_2016} and discussed here in Sec.~\ref{sec:intro}.
 
 \begin{table}
 	\centering
-	\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}~\cite{Makino_2014,Schilderman_2007}.}
-	\begin{tabular}{ c  c  c  }  
+	\caption{Thermodynamic conditions employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, based on the experimental observations of Refs.~ \citenum{Makino_2014} and \citenum{Schilderman_2007}.}
+	\begin{tabular}{ccc}
 		\hline\hline
 		IL & \ce{[emim][B(CN)_4]}  & \ce{[emim][NTf_2]} \\
 		\hline
-		model &  Ref.~\citenum{Koller_2012} & Ref.~\citenum{Koddermann_2007} \\
+%		model & Ref.~\citenum{Koller_2012} & Ref.~\citenum{Koddermann_2007} \\
 		T  & 313.15 K & 312.13 K \\
 		P  & 21 atm & 37 atm \\
 		$x_s$ & 0.352 & 0.479 \\
@@ -546,12 +549,15 @@ Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies t
 	\end{tabular}
 \end{table}
 
-For each system, in Fig.~\ref{fig:pressure} we show our predictions of the gas-phase pressure ($P_s$), as described in Sec.~\ref{sec:partial_pressure}.
-The dotted lines are the experimental pressures, which correspond to the specified values ($P$) in the liquid-phase simulation.
-Note that our results reproduce what is experimentally observed, in the sense that the calculated $P_s$ is considerably lower for \ce{CO_2}-\ce{[emim][B(CN)_4]}.
+We carried out expanded ensemble simulations of liquid solutions at the conditions of Table~\ref{table:solv}.
+The model of Koller \textit{et al}. \cite{Koller_2012} was the one employed for \ce{[emim][B(CN)_4]}.
+The computed solvation free energies for the systems \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]} were $-0.755 \pm 0.01 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005~\mathrm{kcal/mol}$, respectively.
+In Fig.~\ref{fig:pressure}, we present our predictions of the equilibrium pressure ($P$) obtained by solving Eq.~\eqref{eq:equilibrium pressure}, as well as the corresponding gas-phase fugacities of \ce{CO_2} ($f_s^g$) computed by Eq.~\eqref{eq:fgas_d}.
+The dotted lines correspond to the experimental values (i.e. the ones used to simulate the liquid solutions).
+First, the results make clear that assuming ideal gas would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
+Second, the computed pressures did not depart considerably from the specified values, meaning that our results sustain the experimental observation that $P$ is considerably lower for the system \ce{CO_2}+\ce{[emim][B(CN)_4]} than for the system \ce{CO_2}+\ce{[emim][NTf_2]}.
 In addition, we see that in this case the correction to the ideal gas assumption is almost negligible, as $P_s$ is very close to the fugacity ($f^g_s$).
-The solvation free energies obtained for \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} were $-0.755 \pm 0.01 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005$, respectively.
-However, since we simulated a different number of \ce{CO_2}, we cannot draw any definite conclusion regarding the presence of stronger interactions with \ce{[emim][B(CN)_4]}, which could explain the higher solubility.
+%However, since we simulated a different number of \ce{CO_2}, we cannot draw any definite conclusion regarding the presence of stronger interactions with \ce{[emim][B(CN)_4]}, which could explain the higher solubility.
 
 \begin{figure}
 \includegraphics[width=\linewidth]{pressure_est.pdf}
