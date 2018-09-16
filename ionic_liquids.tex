@@ -9,7 +9,7 @@
 \usepackage[]{natbib}
 \usepackage[version=4]{mhchem}
 \usepackage{adjustbox}   
-\usepackage[position=top,captionskip=-12pt]{subfig}
+\usepackage[position=top,captionskip=0pt]{subfig}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.pdf,.eps,.png}
 
@@ -245,7 +245,7 @@ Finally, we also consider the parameterization which Weber and Kirchner \cite{We
 As the potential parameters for the anion were specified neither in Ref.~\citenum{Weber_2016} nor in Ref.~\citenum{Canongia_Lopes_2006}, we obtained them by direct communication with the authors of Ref.~\citenum{Weber_2016}.
 The atomic partial charges were derived using the RESP procedure with Hartree-Fock calculations at the \mbox{6-31++G\textsuperscript{**}} level of theory, resulting in net charges of $\pm 0.8 ~\mathrm{e}$.
 
-In the case of ionic liquid \ce{[emim][NTf_2]}, we use the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}, which was also derived by refining parameters of the force field by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
+In the case of ionic liquid \ce{[emim][NTf_2]}, we use the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}, which was also derived by refining parameters of the force field by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
 The authors characterized this refinement as unusual, given that they modified the LJ parameters while keeping the partial charges unchanged.
 Kerl \textit{et al}. \cite{Kerl__2017} recently employed this model to accurately predict Henry constants of \ce{CO_2} in \ce{[emim][NTf_2]} at several temperatures.
 
@@ -364,14 +364,14 @@ The $\psi_1$-angle values for these types are $0^\circ$, $150^\circ$, $180^\circ
 \begin{figure*}
 \centering
 \subfloat[][Koller~\textit{et al}.~\cite{Koller_2012}]{
-  \includegraphics[width=.4\linewidth]{koller}}
+  \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{koller}}
 \subfloat[Batista~\textit{et al}.~\cite{Batista_2015}]{  
-  \includegraphics[width=.4\linewidth]{batista}}
+  \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{batista}}
 
 \subfloat[Liu~\textit{et al}.~\cite{Liu_2014}]{%
-  \includegraphics[width=.4\linewidth]{Liu}}%
+  \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{Liu}}%
 \subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
-  \includegraphics[width=.4\linewidth]{Weber}}%
+  \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{Weber}}%
 \caption{Combined distribution functions of the dihedral angles corresponding to atoms C1-N2-C5-C6 and C2-N2-C5-C6 in the cation \ce{[emim]^+} (see Fig.~\ref{fig:atoms_id}), as sampled in NPT-MD simulations of 250 ion pairs using each model for \ce{[emim][B(CN)_4]}.}
 \label{fig:dihedrals_emim}
 \end{figure*}
@@ -417,7 +417,7 @@ First, the DSF model replaces Ewald-like electrostatics throughout.
 Second, both \ce{[emim]^+} and \ce{[B(CN)_4]^-} are set as rigid bodies in all cases except when the Weber and Kirchner \cite{Weber_2016} model is employed.
 In this case, rigid-body constraints are applied to the imidazolium ring and methyl group of \ce{[emim]^+} altogether, but the ethyl group is left unconstrained.
 
-A study of conformations was also carried out for \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}.
+A study of conformations was also carried out for \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.
 A CDF obtained for the dihedral angles of sequences C1-N2-C5-C6 and C2-N2-C5-C6 in \ce{[emim]^+}, which is made available in the Supplementary Material, resembles the one in Fig.~\ref{fig:dihedrals_emim}(d).
 The resemblance was expected because the intramolecular parameters employed for \ce{[emim]^+} are identical in these two cases, since the corresponding models are both based on the force field developed by Canongia-Lopes and P\'{a}dua \cite{Canongia_Lopes_2006}.
 However, the most likely value of $\psi_1$ is shifted to $0^{\circ}$ in the case of \ce{[emim][NTf_2]}.
@@ -432,7 +432,7 @@ The relative error of this result with respect to the experimental value obtaine
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{Ludwig_anion}
-\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007}.}
+\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NPT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.}
 \label{fig:die_ntf2}
 \end{figure}
 
@@ -463,7 +463,7 @@ The computed values should be compared to the experimental data reported by Mahu
 			\hline
 %			\multicolumn{7}{c}{\ce{[emim][NTf_2]}: $K_{s}^{\text{exp}} = 39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008} }\\
 			\multicolumn{7}{c}{\ce{[emim][NTf_2]}} \\
-			K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} & $3.8205$ & $0.389 \pm 0.005$ & $-0.901 \pm 0.006$ & $-0.512 \pm 0.008$ & $39.4 \pm 0.5$  & $0.97$  \\
+			K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007} & $3.8205$ & $0.389 \pm 0.005$ & $-0.901 \pm 0.006$ & $-0.512 \pm 0.008$ & $39.4 \pm 0.5$  & $0.97$  \\
 			\hline\hline
 			\label{table:henry} 
 		\end{tabular}
@@ -491,13 +491,21 @@ Nevertheless, these distinctions end up being canceled out when the charges of t
 \label{fig:deltag}
 \end{figure}
 
-The $\Delta G_\text{sim}$ values for the models of Koller \textit{et al}. \cite{Koller_2012} and K\"{o}ddermann \textit{et al}. \cite{K_ddermann_2007} suggest a more favorable solvation of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}. 
-The spatial distribution functions (SDFs) \cite{Svishchev_1993} shown in Figs.~\ref{fig:sdf_ions} confirm this result.
-The SDFs of the ions around a \ce{CO_2} molecule were obtained by using the software packages TRAVIS \cite{Brehm_2011} and VMD \cite{HUMP96}.
-For that, we carried out NPT-MD simulations of \ce{CO_2}-\ce{[emim][B(CN)_4]} and \ce{CO_2}-\ce{[emim][NTf_2]} systems with a \ce{CO_2} molar fraction of 0.1.
-The isovalues were visually determined so as to observe the first solvation shell.
-If we compare Figs.~\ref{fig:sdf_ions} (a) and (b), one notes that the region with a low probability of finding an ion is larger for \ce{[emim][NTf_2]}.
-Also, the first solvation shell due to \ce{[B(CN)_4^-} occurs at a slightly shorter distance than for \ce{[NTf_2]^-}, as one sees from Fig.~\ref{fig:sdf_ions}(c).
+Such as the model of Koller \textit{et al}. \cite{Koller_2012} does in the case of \ce{[emim][B(CN)_4]}, the one of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007} accurately predicts the Henry's law constant of \ce{CO_2} in \ce{[emim][NTf_2]}.
+A comparison between the values of $\Delta G_\text{sim}$ obtained from these models, shown in Table \ref{table:henry}, suggests that the solvation of \ce{CO_2} takes place more favorably in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}.
+The fact that $K_s$ has almost the same value in both cases is due to a compensation promoted by the distinct molar densities of these ionic liquids.
+Spatial distribution functions (SDFs) \cite{Svishchev_1993} can help us visualizing how differently the solvent ions interact with the solute molecule.
+By using TRAVIS \cite{Brehm_2011}, we have obtained SDFs of both cation and anion around a \ce{CO_2} molecule, sampled from MD trajectories of either \ce{CO_2}+\ce{[emim][B(CN)_4]} or \ce{CO_2}+\ce{[emim][NTf_2]} systems simulated at $T = 298.0~\text{K}$, $P = 1.0~\mathrm{bar}$, and $x_\mathrm{CO_2} = 0.1$.
+The slightly larger \ce{CO_2} concentration considered here is meant to improve statistics.
+The obtained SDFs were depicted as isosurfaces using VMD \cite{HUMP96}, with isovalues determined so as to highlight the first solvation shell.
+The resulting images are shown in Fig.~\ref{fig:sdf_ions}.
+By comparing Figs.~\ref{fig:sdf_ions}(a) and \ref{fig:sdf_ions}(b), we note that the gap between the regions occupied by the anion and the cation is smaller in the case of \ce{[emim][B(CN)_4]}.
+In addition, the first solvation shell corresponding to \ce{[B(CN)_4]^-} occurs at a slightly shorter distance than that corresponding to \ce{[NTf_2]^-}, as one can clearly see by a direct comparison done in Fig.~\ref{fig:sdf_ions}(c).
+This is in part due to the difference in size of these two anions.
+The result is a higher density of negative charges around the carbon atom of \ce{CO_2}, whose point-charge is positive as a consequence of the oxygen's high electronegativity.
+This seems to induce a greater stability of \ce{CO_2} when solvated in \ce{[emim][B(CN)_4]}, rather than in \ce{[emim][NTf_2]}, possibly resulting in enhanced solubility.
+However, the mentioned similarity in the Henry's law constants could cause such enhancement to go unnoticed.
+This makes clear the importance of carrying out a study at high \ce{CO_2} concentrations.
 
 \begin{figure*}
 \centering
@@ -528,7 +536,7 @@ Note that the differences in the \ce{CO_2} molar fractions clearly exemplifies t
 		\hline\hline
 		IL & \ce{[emim][B(CN)_4]}  & \ce{[emim][NTf_2]} \\
 		\hline
-		model &  Ref.~\citenum{Koller_2012} & Ref.~\citenum{K_ddermann_2007} \\
+		model &  Ref.~\citenum{Koller_2012} & Ref.~\citenum{Koddermann_2007} \\
 		T  & 313.15 K & 312.13 K \\
 		P  & 21 atm & 37 atm \\
 		$x_s$ & 0.352 & 0.479 \\
@@ -632,8 +640,6 @@ The authors acknowledge the financial support provided by Petrobras (project cod
 
 \section*{References}
 
-\bibliography{mybibfile}
+\bibliography{ionic_liquids}
 
 \end{document}
-
-
