@@ -478,7 +478,7 @@ Is it worth remarking that the result of $\Delta G_\text{sim}$ obtained with the
 Moreover, the $\Delta G_\text{sim}$ value we computed for \ce{[emim][Tf_2N]} is very close to the one obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no reported uncertainty) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
 %These consistencies have served for validating the methodological approaches of this work.
 
-One can see in Table \ref{table:henry} that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
+Table \ref{table:henry} shows that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
 The worst results are obtained with the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}. \cite{Liu_2014}.
 These models fail in part because of the small values they predict for $\Delta G_\text{vdW}$.
 In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot free energy profiles with respect to the coupling parameter $\lambda_\text{vdW}$, as obtained from the simulations with all \ce{[emim][B(CN)_4]} models.
@@ -663,16 +663,16 @@ It is, therefore, difficult to assess the reliability of our results in this cas
 
 One of the goals of this paper was to compare various available molecular models of \ce{[emim][B(CN)_4]} in terms of their capabilities to reproduce the experimental Henry's law constant of \ce{CO_2}.
 We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8\%.
-A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows one to accurately reproduce the experimental density of the pure substance.
+A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows to accurately reproduce the experimental density of the pure substance.
 
 We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
 Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][Tf_2N]}, we concluded that the Damped-Shifted-Force method for electrostatic interactions, with a damping factor $\alpha = 0.2 ~\text{\AA}^{-1}$, is a suitable strategy.
 Other improvement was the use of rigid bodies to simulate \ce{[emim][B(CN)_4]}.
 This required preliminary simulations in order to examine the flexibility of the ethyl chain in \ce{[emim]^+} and the analysis was greatly facilitated by employing useful visualization tools.
-Besides the properties already mentioned, the different models showed quite distinct behaviors, as well, in terms of conformational statistics.
+Besides the properties already mentioned, the different models showed quite distinct behaviors in terms of conformational statistics.
 %This lack of consistency is one of the reasons why in industry molecular simulation has not become a routinely tool yet.
 
-The solvation free energy results at infinite-dilution condition suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][Tf_2N]}, despite the similarity in the Henry's law constants observed in both cases.
+The solvation free energy results suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][Tf_2N]}, despite the similarity in the Henry's law constants observed in both cases.
 This picture is further confirmed at high \ce{CO_2} concentrations, in which the simulations correctly predicted that a considerably lower pressure is required to dissolve a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]}, as compared to \ce{[emim][Tf_2N]} in an equal-mass basis.
 
 Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} in an attempt to predict infinite-dilution activity coefficients of various solutes in \ce{[emim][B(CN)_4]}.
