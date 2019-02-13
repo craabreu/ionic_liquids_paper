@@ -1,0 +1,91 @@
+\documentclass[]{article}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage[version=4]{mhchem}
+%opening
+\title{\normalsize \textbf{Response to the Reviewer’s Comments on Manuscript FPE-D-18-00720}}
+\author{}
+\date{}
+
+\begin{document}
+\doublespacing
+\maketitle
+
+To: Prof. Jeffrey Potoff
+
+Associate Editor
+
+Fluid Phase Equlibria
+\vspace{0.3cm}
+
+Dear Prof. Jeffrey Potoff:
+
+\hspace{0.5cm}Thank you for your message forwarding the reviewers’ comments on our manuscript entitled \textit{A molecular dynamics study of the solvation of carbon dioxide and other compounds in the ionic liquid \ce{[emim][B(CN)_4]} and \ce{[emim][Tf_2N]}}. We have carefully addressed the comments and suggestions of the reviewers, which required us to make changes in the text. The most substantial revision took place in section 5.3, for which we carried out additional simulations. In addition, we included the names of the ionic liquids and changed the acronym of one of the anions. To facilitate
+your evaluation, we have crossed out all removed text and incorporated new content in color blue.
+
+\hspace{0.5cm}Please find attached our detailed answers to the comments of each reviewer. We
+hope that the revised version of the manuscript is suitable for publication.
+
+\hspace{0.5cm}Sincerely yours,
+\vspace{0.5cm}
+
+Prof. Charlles R. A. Abreu
+
+Federal University of Rio de Janeiro
+
+\section{\textbf{Reviewer \#1}}
+{\color{blue}{The manuscript submitted by Silveira \textit{et al.} presents their computational work on the study of solubility primarily of \ce{CO_2} but also for some additional compounds in ILs. They focus on the simulation of \ce{[emim][B(CN)_4]} IL in a comparative manner to \ce{[emim][NTF_2]} IL, using various existing force fields for the former and implementing simplifications in the simulation of the systems under study by introducing rigid body representations for the ions and by using the damped shifted force method to handle the electrostatics. The manuscript is suitable to be published in your journal, after addressing some problems: }}
+
+\textbf{Answer}: We thank the reviewer for careful reading our manuscript and for the valuable comments and suggestions. We have tried to address them in the best possible way, considering the proposed scope of our work. Please find attached an annotated version of the revised manuscript. This is the one whose pages are mentioned in the answers that follow bellow.
+
+{\color{blue}{1) The authors chose not to use an iterative scheme to correct the pressure of their simulations. They should justify their choice by including quantitative information from their simulations on how this correction would affect both the differences in the free energy but also the system's density at high concentrations.}}
+
+\textbf{Answer}: Instead of performing an iterative scheme, we were able to correct the equilibrium pressure by using the technique of reweighting, as explained in page 4 of the manuscript. Although the correction term resulted to be small, this suggestion has allowed us to present the results in a rigorous way with considerable less computational effort, in comparison to the iterative scheme.
+
+{\color{blue}{2) Among the various existing models used in this work, some explicitly report the use of LJ long range corrections in the energy and pressure. The authors should clearly state if they have taken that into account in their simulations.}}
+
+\textbf{Answer}: The reviewer is right. We applied analytic tail corrections to the LJ interactions for all systems investigated. This information has been included in page 5 of the manuscript.
+
+{\color{blue}{3) Results on densities of the various IL models at 298 K (Table 1) differ from the ones reported in the initial references. For example,  an 1\% error is presented in this manuscript for the FF-3 model of Koller \textit{et al.}, while an excellent agreement with the experimental density is reported in the original paper of Koller and his co-workers. The authors should explain this discrepancy.}}
+
+\textbf{Answer}: The differences in density between our results and those reported by Koller \textit{et al.} \cite{Koller_2012}, Batista \textit{et al.} \cite{Batista_2015}, Liu \textit{et al.} \cite{Liu_2014} and Weber and Kirchner \cite{Weber_2016} are, respectively: 1 \% , 6.2 \%, 1.8 \% and 0.5 \%.
+With the exception of the force field due to Batista \textit{et al.} \cite{Batista_2015}, the discrepancies are not considerable.
+In general, we carefully followed the simulation setup reported by those authors, except for the number of ion pairs and the software package. For instance, Koller and co-workers \cite{Koller_2012} simulated 58 ions pairs using GROMACS, while we considered 250 ion pairs and the LAMMPS software package.
+Small differences are then expected.
+The discrepancy with the results of Batista and co-workers \cite{Batista_2015} stands out  from the others. In this case, however, important computational details are missing in the original paper, such as the method for computing electrostatic interactions, as well as the factors for scaling the 1-4 non-bonded interactions. 
+Considering these various factors, we did not focus on reproducing the results of these references, but rather to use the force field parameters reported by the corresponding authors in order to find those that best reproduce the experimental Henry constant of \ce{CO_2}.
+
+{\color{blue}{4) Simulating hybrid systems that include both rigid and non rigid bodies is complex and tricky. The authors should describe in detail how they performed these simulations in terms of barostatting and thermostatting.}}
+
+\textbf{Answer}: In page 5 of the manuscript we specify the numerical integrators used to carry out the MD simulations. Considering hybrid systems of flexible and rigid molecules is straightforward in LAMMPS, since it allows to define groups of molecules and apply a different numerical integrator to each group.
+
+{\color{blue}{5)It would be interesting if at least for the case of CO2 an isotherm was calculated and included in the paper.}}
+
+\textbf{Answer}: We agree with the reviewer that computing an isotherm would be interesting. However, this computation requires to carry out extra simulations for different numbers of solute molecules, which is beyond the scope of this work.
+
+\section{\textbf{Reviewer \#2}}
+
+{\color{blue}{In the present manuscript, Silveira \textit{et al.} performed a systematic comparison of force fields used in Molecular Dynamic (MD) simulations of the solvation of carbon dioxide (\ce{CO_2}) and other compounds in two ionic liquids (ILs). For this purpose, solvation energies, Henry constants, and activity coefficients were calculated based on solid methodologies. A detailed review of the literature with respect to the theoretical background and the force fields is provided. Simplifications in the simulation strategies are analyzed by treating the IL ions as rigid instead of flexible bodies. A structural analysis of the molecular systems and their relationships with the studied properties are investigated thoroughly from a physico-chemical point of view. The authors could demonstrate that the IL \ce{[emim][B(CN)_4]} shows the largest solubility for \ce{CO_2} in comparison to other common ILs. Overall, the scientific findings are very clear, concise, and of high quality, and are presented in a good English. Formalities according to the guidelines of the journal are also fulfilled. In conclusion, the present manuscript is definitely worthy of publication taking into consideration a few minor comments from my side.}}
+
+We are grateful for the comments and suggestions of the second reviewer.
+
+{\color{blue}{1. In the context of the simulation protocol, information on the number simulation runs and the use of the mixing rules for the Lennard-Jones interactions should be given. The authors should also specify how the uncertainties of the various properties were calculated.}}
+
+\textbf{Answer}: Instead of the number of runs, in page 6 we included the total simulation time for each system, since it might be a more informative measure of computational effort. The information about mixing rules and uncertainties calculations have been included in pages 5, 9 and 12.
+
+{\color{blue}{2. The authors were focusing on several static properties for the pure ILs using different models. As reference property for force field validation, the density was selected where deviations between about (1 and 5) \% were found according to Table 1. Did the authors also study dynamic properties such as the self-diffusion coefficient and compare the results with the experiment? If so, a corresponding brief paragraph should be included in the revised manuscript. Relative deviations of 5\% in the liquid density can often come along with deviations of several dozens of percent for dynamic properties.
+}}
+
+\textbf{Answer}:We haven't done a study of dynamic properties. We have mainly focused on predicting solvation properties given the potential of the investigated ionic liquids in separation processes for \ce{CO_2}.
+
+{\color{blue}{3. The results for the simulated solvation free energies of benzene, hexane, and water showed relatively large deviations from experimental data in the order of 10 \%, while the results for ethanol match. However, for the infinite-dilution activity coefficient of these solutes in the IL [emim][B(CN)4], hexane deviates significantly stronger than benzene, ethanol, and water. It would be interesting to discuss in some more detail why these different trends can be found by considering, for example, the force fields of the pure solute and the mixing rules for the binary mixtures. For sure, it seems that the authors will continue such investigations in their future studies.}}
+
+\textbf{Answer}: The reviewer is right and in order to analyze the strong deviation observed for hexane, we computed an experimental solvation free energy of this solute in  \ce{[emim][B(CN)_4]}, as shown in page 14. The results from simulation show a favorable solvation, in contradiction with the experimental data. That is why we emphasize in the conclusions that a future revision of the models used for the solutes is necessary.
+
+{\color{blue}{4. For the specification of the pressure, the symbol “p” instead of “P” should be used. Furthermore, the unit of the pressure should be given in “MPa” instead of “atm."}}
+
+\textbf{Answer}: This has been acknowledged throughout the manuscript.
+
+\bibliographystyle{ieeetr}
+\bibliography{reviewer_response.bib}
+\end{document}
