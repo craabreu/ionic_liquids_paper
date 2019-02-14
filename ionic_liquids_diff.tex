@@ -1,4 +1,7 @@
 %\documentclass[3p,preprint]{elsarticle}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL ionic_liquids_submitted.tex   Tue Feb 12 15:11:10 2019
+%DIF ADD ionic_liquids.tex             Thu Feb 14 17:03:25 2019
 \documentclass[3p,twocolumn]{elsarticle}
 
 \usepackage[colorlinks,citecolor=blue]{hyperref}
@@ -14,7 +17,9 @@
 \DeclareGraphicsExtensions{.pdf,.eps,.png}
 
 \usepackage{xcolor}
-
+%DIF 17a17
+ %DIF > 
+%DIF -------
 \usepackage{pdfcomment}
 
 \newcommand{\diff}[2]{\dfrac{\partial #1}{\partial #2}}
@@ -23,6 +28,69 @@
 
 \bibliographystyle{elsarticle-num}
 %%%%%%%%%%%%%%%%%%%%%%%
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -48,9 +116,9 @@
 In this paper, we calculate solvation free energies of several compounds in ionic liquids.
 These free energies are used to compute properties such as Henry's law constants and activity coefficients, generally required in the design of environmentally sustainable processes.
 It is known, for instance, that carbon dioxide from combustion is one of the main sources of anthropogenic greenhouse gases.
-Recently, the propensity of the ionic liquid 1-ethyl-3-methylimidazolium tetracyanoborate (\ce{[emim][B(CN)_4]}) for the physisorption of \ce{CO_2} has been reported, which makes it a potential solvent for carbon capture.
-In the present work, molecular dynamics simulations of the solvation of \ce{CO_2} in ionic liquids \ce{[emim][B(CN)_4]} and 1-ethyl-3-methylimidazolium bis (trifluoromethylsulfonyl) imide (\ce{[emim][NTf_2]}) are carried out both at infinite dilution and at high concentrations.
-A systematic study is performed by comparing several force fields and assessing the efficacy of simplifications in the simulations by using rigid-body dynamics and pairwise electrostatics.
+Recently, the propensity of the ionic liquid \DIFdelbegin \DIFdel{\ce{[emim][B(CN)_4]} }\DIFdelend \DIFaddbegin \DIFadd{1-ethyl-3-methylimidazolium tetracyanoborate (\ce{[emim][B(CN)_4]}) }\DIFaddend for the physisorption of \ce{CO_2} has been reported, which makes it a potential solvent for carbon capture.
+In the present work, molecular dynamics simulations of the solvation of \ce{CO_2} in ionic liquids \ce{[emim][B(CN)_4]} and \DIFdelbegin \DIFdel{\ce{[emim][NTf_2]} }\DIFdelend \DIFaddbegin \DIFadd{1-ethyl-3-methylimidazolium bis (trifluoromethylsulfonyl) imide (\ce{[emim][NTf_2]}) }\DIFaddend are carried out both at infinite dilution and at high concentrations.
+A systematic study is performed by comparing several force fields and assessing the efficacy of \DIFdelbegin \DIFdel{simplification measures such as }\DIFdelend \DIFaddbegin \DIFadd{simplifications in the simulations by using }\DIFaddend rigid-body dynamics and pairwise electrostatics.
 Our results confirm recent experimental observations that, for a given volume of solvent, lower pressure is required to absorb a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]} than in other ionic liquids.
 \end{abstract}
 
@@ -69,7 +137,7 @@ ionic liquids \sep solvation free energy \sep \ce{CO_2} Henry's law constant \se
 International efforts aimed at regulating and reducing \ce{CO_2} emissions are increasing \cite{Tong_2018} and, in this context, the development of technologies for the capture and storage of \ce{CO_2} plays an essential role \cite{Markewitz_2014}.
 
 The conventional process for \ce{CO_2} removal comprises a chemical absorption followed by stripping at high temperatures.
-The most commonly used solvents are aqueous solutions of primary and secondary alkanolamines, such as monoethanolamine (MEA).
+The most commonly used solvents are \DIFdelbegin \DIFdel{volatile organic compounds, specially }\DIFdelend aqueous solutions of \DIFaddbegin \DIFadd{primary and secondary alkanolamines, such as }\DIFaddend monoethanolamine (MEA).
 Despite its high absorption capability, the use of MEA has a serious drawback, which is the high cost of solvent recovery \cite{Merkel_2010}.
 Other disadvantages include corrosion and degradation by oxidation, as well as solvent loss by evaporation.
 The latter also contributes to the increase of environmental pollution and generates extra costs for replacing the solvent.
@@ -117,25 +185,25 @@ For dense systems, an efficient computation of solvation properties via molecula
 In the case of $\Delta G_{\text{solv}}$, the alchemical route involves a gradual insertion/deletion of the solute through the definition of a coupling parameter $\lambda$, which scales the solute-solvent interactions by taking values in the interval [0,1]. By convention, $\lambda = 1$ corresponds to a fully interacting system, while for $\lambda$ = 0 the solute-solvent interactions are turned off completely.
 
 In what follows, the subscripts ``s'' and ``IL'' refer to the solute and the solvent (ionic liquid), respectively.
-For a liquid phase containing $N_\text{IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (p) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
+For a liquid phase containing $N_\text{IL}$ solvent molecules and $N_{\text{s}}$ solute molecules at fixed pressure (\DIFdelbegin \DIFdel{P}\DIFdelend \DIFaddbegin \DIFadd{p}\DIFaddend ) and temperature (T), the difference in free energy between the states associated to $\lambda$ = 1 and $\lambda$ = 0 is formally defined as
 \begin{equation}
-\Delta G_\text{sim} \equiv R T \ln \frac{\Xi (N_s,N_\text{IL},p,T,\lambda = 1)}{\Xi (N_s,N_\text{IL},p,T,\lambda = 0)}, 
+\Delta G_\text{sim} \equiv R T \ln \DIFdelbegin \DIFdel{\frac{\Xi (N_s,N_\text{IL},P,T,\lambda = 1)}{\Xi (N_s,N_\text{IL},P,T,\lambda = 0)}}\DIFdelend \DIFaddbegin \DIFadd{\frac{\Xi (N_s,N_\text{IL},p,T,\lambda = 1)}{\Xi (N_s,N_\text{IL},p,T,\lambda = 0)}}\DIFaddend , 
 \end{equation}
 where $\Xi$ denotes the isobaric-isothermal partition function and $R$ is the gas constant.
 Shirts \textit{et al}. \cite{Shirts_2003} rigorously derived the working expression that relates $\Delta G_\text{sim}$ to what is experimentally measured as the solvation free energy, namely
 \begin{equation}
 \label{eq:solvation free energy definition}
-\Delta G_{\text{solv}} \equiv R T \ln \left( \frac{p_s}{c_s R T} \right),
+\Delta G_{\text{solv}} \equiv R T \ln \left( \DIFdelbegin \DIFdel{\frac{P_s}{c_s R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{p_s}{c_s R T} }\DIFaddend \right),
 \end{equation}
-where $p_s$ is the partial pressure of the solute in the gas phase and
+where \DIFdelbegin \DIFdel{$P_s$ }\DIFdelend \DIFaddbegin \DIFadd{$p_s$ }\DIFaddend is the partial pressure of the solute in the gas phase and
 $c_s$ is the molar concentration of the solute in the liquid phase.
 Note that these quantities correspond to a phase equilibrium condition.
 For obtaining the mentioned relation, the authors derived an expression for the chemical potential of the solute in the liquid phase ($\mu^l_s$) as a function of $\Delta G_\text{sim}$, which can be written as
 \begin{equation}
 \label{eq:solute chemical potential}
-\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right) - RT \ln \left( \frac{p_s}{c_s R T} \right),
+\mu^l_s = \mu^{ig}_s + \Delta G_\text{sim} - RT \ln \left( \frac{V^{\ast}}{V_1}\right) - RT \ln \left( \DIFdelbegin \DIFdel{\frac{P_s}{c_s R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{p_s}{c_s R T} }\DIFaddend \right),
 \end{equation}
-where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure $p_s$, while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{IL}$,p,T) and ($N_s$,$N_\text{IL}$,p,T), respectively.
+where $\mu^{ig}_s$ is the chemical potential of the solute in an ideal gas at temperature $T$ and solute partial pressure \DIFdelbegin \DIFdel{$P_s$}\DIFdelend \DIFaddbegin \DIFadd{$p_s$}\DIFaddend , while $V^{\ast}$ and $V_1$ are the mean volumes of liquid solutions specified by ($N_s-1$,$N_\text{IL}$,\DIFdelbegin \DIFdel{P}\DIFdelend \DIFaddbegin \DIFadd{p}\DIFaddend ,T) and ($N_s$,$N_\text{IL}$,\DIFdelbegin \DIFdel{P}\DIFdelend \DIFaddbegin \DIFadd{p}\DIFaddend ,T), respectively.
 Note that $c_s = \frac{N_s}{N_A V_1}$, where $N_A$ is the Avogadro number.
 
 Finally, by treating the gas phase as an ideal gas and considering the system to be at equilibrium ($\mu^l_s = \mu^{ig}_s$), Shirts \textit{et al}. \cite{Shirts_2003} found out that
@@ -151,9 +219,10 @@ Hence, it can be neglected and will be omitted hereafter.
 
 \subsection*{Henry's Law Constant}
 
-If both $p_s$ and $c_s$ are small, we can resort to Eqs.~\eqref{eq:solvation free energy definition} and \eqref{eq:free_solv} to predict Henry's law constant, which is defined as $\text{K}_s =\frac{p_s}{x_s}$ \cite{Prausnitz}.
+If both \DIFdelbegin \DIFdel{$P_s$ }\DIFdelend \DIFaddbegin \DIFadd{$p_s$ }\DIFaddend and $c_s$ are small, we can resort to Eqs.~\eqref{eq:solvation free energy definition} and \eqref{eq:free_solv} to predict Henry's law constant, which is defined as \DIFdelbegin \DIFdel{$\text{K}_s =\frac{P_s}{x_s}$ }\DIFdelend \DIFaddbegin \DIFadd{$\text{K}_s =\frac{p_s}{x_s}$ }\DIFaddend \cite{Prausnitz}.
 %\begin{equation}
-%\text{K}_s =\frac{p_s}{x_s}.
+%DIF < \text{K}_s =\frac{P_s}{x_s}.
+%DIF > \text{K}_s =\frac{p_s}{x_s}.
 %\end{equation}
 %
 Therefore, by simply expressing Eq.~\eqref{eq:solvation free energy definition} in terms of the molar fraction of the solute in the liquid phase ($x_s$), we can conclude that
@@ -170,19 +239,19 @@ For the ILs of interest to the present investigation, high concentrations of \ce
 In this case, we can compute the chemical potential of the solute in the real gas phase as
 \begin{equation}
 \label{eq:mu_gas_real}
-\mu^{g}_s = \mu^{ig}_s + R T \ln \left(\frac{f^{g}_s}{p_s}\right),
+\mu^{g}_s = \mu^{ig}_s + R T \ln \left(\DIFdelbegin \DIFdel{\frac{f^{g}_s}{P_s}}\DIFdelend \DIFaddbegin \DIFadd{\frac{f^{g}_s}{p_s}}\DIFaddend \right),
 \end{equation}
 where $f^{g}_s$ is the fugacity of the solute in the gas phase.
 Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), it follows that
 \begin{equation}
 \label{eq:fgas_d}
-f^{g}_s = c_s R T \exp \left( \frac{\Delta G_\text{solv}}{R T} \right). 
+f^{g}_s = c_s R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right). 
 \end{equation}
 
-Two additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems investigated) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
+\DIFdelbegin \DIFdel{Three }\DIFdelend \DIFaddbegin \DIFadd{Two }\DIFaddend additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems \DIFdelbegin \DIFdel{with which we compare our simulations}\DIFdelend \DIFaddbegin \DIFadd{investigated}\DIFaddend ) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equilibrium pressure}
-y_s \exp\left( \frac{B_s p}{R T} \right) p = c_s(p) R T \exp \left( \frac{\Delta G_\text{solv}}{R T} \right),
+y_s \exp\left( \DIFdelbegin \DIFdel{\frac{B_s P}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{B_s p}{R T} }\DIFaddend \right) \DIFdelbegin \DIFdel{P }\DIFdelend \DIFaddbegin \DIFadd{p }\DIFaddend = c_s\DIFaddbegin \DIFadd{(p) }\DIFaddend R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right),
 \end{equation}
 where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
 In the case of \ce{CO_2}, we employ the correlation for $B_s$ developed by Holste \textit{et al}. \cite{Holste_1987}, which is
@@ -191,11 +260,18 @@ B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
 where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac{K \cdot cm^3}{mol}}$, and $B_2 = -1.22675 \times 10^7~\mathrm{\frac{K^2 \cdot cm^3}{mol}}$.
 
-The equilibrium pressure will be the intersection point between the function $\Delta G_{\text{solv}}(p) $, defined by Eq.~\eqref{eq:equilibrium pressure}, and $\Delta G_{\text{sim}} (p)$, as obtained in simulations. Note that besides  $\Delta G_{\text{sim}}$, we are taking into account variations of $c_s$ with pressure. These computations are greatly facilitated by the technique of reweighting \cite{McDonald1967,McDonald1969}, which uses simulation results from different states to improve the statistics and, particularly important to our case, allows to interpolate expectation values of thermodynamic observables along unsampled states. This implies a significant reduction in computational cost. In particular, we use the Multistate Bennett Acceptance Ratio (MBAR) estimator \cite{Shirts_2008}, which has been successfully used for the purpose of reweighing ~\cite{Aimoli2014, Nichele2018, Schieber2018}.
+\DIFdelbegin \DIFdel{Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here. In this way, no iterative simulations are required to compute the equilibrium pressure when solving Eq.~}%DIFDELCMD < \eqref{eq:equilibrium pressure} %%%
+\DIFdel{for $P$}\DIFdelend \DIFaddbegin \DIFadd{The equilibrium pressure will be the intersection point between the function $\Delta G_{\text{solv}}(p) $, defined by Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{, and $\Delta G_{\text{sim}} (p)$, as obtained in simulations. Note that besides  $\Delta G_{\text{sim}}$, we are taking into account variations of $c_s$ with pressure. These computations are greatly facilitated by the technique of reweighting \mbox{%DIFAUXCMD
+\cite{McDonald1967,McDonald1969}}\hspace{0pt}%DIFAUXCMD
+, which uses simulation results from different states to improve the statistics and, particularly important to our case, allows to interpolate expectation values of thermodynamic observables along unsampled states. This implies a significant reduction in computational cost. In particular, we use the Multistate Bennett Acceptance Ratio (MBAR) estimator \mbox{%DIFAUXCMD
+\cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
+, which has been successfully used for the purpose of reweighing ~\mbox{%DIFAUXCMD
+\cite{Aimoli2014, Nichele2018, Schieber2018}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend .
 
 \subsection*{Activity Coefficients}
 
-The prediction of activity coefficients requires additional simulations of the solute as a pure liquid phase, whose properties we denote here by a superscript ``$0$''.
+\DIFdelbegin \DIFdel{As will be shown below, the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend prediction of activity coefficients requires additional simulations of the solute as a pure liquid phase, whose properties we denote here by a superscript ``$0$''.
 We start by using a standard thermodynamic relation \cite{Tester} to write the solute activity coefficient $\gamma_s$ in terms of chemical potentials as
 \begin{equation}
 \ln \gamma_s = \frac{\mu_s^l - \mu_s^{l,0}}{R T} - \ln x_s,
@@ -207,7 +283,7 @@ Next, we replace $\mu_s^l$ and $\mu_s^{l,0}$ by their corresponding instances of
 \ln \gamma_s = \frac{\Delta G_\text{sim} - \Delta G_\text{sim}^{0}}{R T} + \ln \frac{\tilde{\rho}}{\tilde{\rho}_s^0}.
 \end{equation}
 
-In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient ($\gamma^\infty_s$) can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{IL}$.
+In the special case of a solute at infinite dilution in an ionic liquid solvent, its activity coefficient \DIFaddbegin \DIFadd{(}\DIFaddend $\gamma^\infty_s$\DIFaddbegin \DIFadd{) }\DIFaddend can be computed by replacing $\tilde{\rho}$ in the equation above by the molar density of the pure solvent, $\tilde{\rho}_\textit{IL}$.
 
 \section{Force fields}
 \label{sec:force_field}
@@ -241,7 +317,7 @@ Another set of parameters for \ce{[emim][B(CN)_4]} was derived by Liu \textit{et
 Parameters corresponding to the intramolecular and LJ interactions were extracted from GAFF \cite{Wang_2004}, while the atomic partial charges were computed using the RESP method \cite{Bayly_1993} with B3LYP/6-311+G(d) DFT calculations.
 The net charges of the ions were manually adjusted to $\pm 0.8 ~\mathrm{e}$.
 
-Finally, we also consider the parameterization Weber and Kirchner \cite{Weber_2016} carried out for \ce{[emim][B(CN)_4]} based on the force field developed by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
+Finally, we also consider the parameterization \DIFdelbegin \DIFdel{which }\DIFdelend Weber and Kirchner \cite{Weber_2016} carried out for \ce{[emim][B(CN)_4]} based on the force field developed by P{\'{a}}dua and Canongia Lopes \cite{Canongia_Lopes_2006}.
 As the potential parameters for the anion were specified neither in Ref.~\citenum{Weber_2016} nor in Ref.~\citenum{Canongia_Lopes_2006}, we obtained them by direct communication with the authors of Ref.~\citenum{Weber_2016}.
 The atomic partial charges were derived using the RESP procedure with Hartree-Fock calculations at the \mbox{6-31++G\textsuperscript{**}} level of theory, resulting in net charges of $\pm 0.8 ~\mathrm{e}$.
 
@@ -272,9 +348,12 @@ They concluded that using $\alpha = 0.2~\text{\AA}^{-1}$ and $r_c = 15~\text{\AA
 In this work, detailed comparisons are made in terms of the simulated densities and radial distribution functions.
 In Sec.~\ref{sec:results}, we show that by using the same $\alpha$ value but a considerably smaller cutoff distance ($r_c = 12 \text{\AA}$) one can obtain suitable results.
 These values were employed here for the ILs as well as for solutes containing partially charged atoms.
-The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. That cutoff distance was also used for truncating the LJ interactions, for which we applied analytical tail corrections \cite{allen}. In addition, we used the Lorentz-Berthelot mixing rules to calculate the cross LJ interactions, except for the solutes modeled with the OPLS-AA force fields, which employs geometric combining rules.
+The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. \DIFaddbegin \DIFadd{That cutoff distance was also used for truncating the LJ interactions, for which we applied analytical tail corrections \mbox{%DIFAUXCMD
+\cite{allen}}\hspace{0pt}%DIFAUXCMD
+. In addition, we used the Lorentz-Berthelot mixing rules to calculate the cross LJ interactions, except for the solutes modeled with the OPLS-AA force fields, which employs geometric combining rules.
+}\DIFaddend 
 
-The NpT algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to integrate the equations of motion for rigid bodies.
+The \DIFdelbegin \DIFdel{NPT }\DIFdelend \DIFaddbegin \DIFadd{NpT }\DIFaddend algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to integrate the equations of motion for rigid bodies.
 For flexible molecules, we applied the integration scheme of Shinoda \textit{et al}. \cite{Shinoda2004}, with the lengths of all C-H bonds constrained by the SHAKE method \cite{Ryckaert1977}.
 For both integrators, we used a small time-step size ($\Delta t$) of 1 fs in order to avoid discretization-induced artifacts \cite{Eastwood_2010, Silveira_2017}.
 
@@ -291,18 +370,19 @@ where $\Delta G_\text{vdW}$ is computed by varying $\lambda_\text{vdW} \in [0,1]
 The sets of coupling parameter values we use here in all alchemical simulations are $\lambda_{\text{vdW}}$ = $\{0.0$, $0.05$, $0.1$, $0.2$, $0.25$, $0.3$, $0.35$, $0.4$, $0.45$, $0.5$, $0.6$, $0.7$, $0.8$, $0.9$, $1.0\}$ and $\lambda_{\text{Coul}}$ = $\{0.0$, $0.1$, $0.4$, $0.7$, $0.1\}$.
 
 In this work, we compute $\Delta G_\text{Coul}$ by carrying out an independent simulation of 10 ns at each state of $\lambda_{\text{Coul}}$.
-In the end, we apply the MBAR method \cite{Shirts_2008} by using the \textit{Alchemical Analysis} package \cite{Klimovich_2015}.
+In the end, we apply the \DIFdelbegin \DIFdel{Multistate Bennett Acceptance Ratio (MBAR ) }\DIFdelend \DIFaddbegin \DIFadd{MBAR }\DIFaddend method \cite{Shirts_2008} by using the \textit{Alchemical Analysis} package \cite{Klimovich_2015}.
 
 In the case of $\Delta G_\text{vdW}$, the Expanded Ensemble method \cite{Lyubartsev_1992} is applied for sampling the whole $\lambda_\text{vdW}$ set in a single simulation.
 An expanded ensemble is constructed as a weighted sum of subensembles, each one assuming a different value of the parameter selected for exploring the free energy landscape, which in our case is $\lambda_\text{vdW}$.
-In the method adopted here \cite{Chodera_2011_2}, simulating an expanded ensemble comprises doing molecular dynamics (MD) at fixed N, p, T, and $\lambda_\text{vdW}$ amid Monte Carlo (MC) transitions in the value of $\lambda_\text{vdW}$.
+In the method adopted here \cite{Chodera_2011_2}, simulating an expanded ensemble comprises doing molecular dynamics (MD) at fixed N, \DIFdelbegin \DIFdel{P}\DIFdelend \DIFaddbegin \DIFadd{p}\DIFaddend , T, and $\lambda_\text{vdW}$ amid Monte Carlo (MC) transitions in the value of $\lambda_\text{vdW}$.
 The number of MD steps between transitions is fixed and, at each transition, one of the $\lambda_\text{vdW}$ states is picked at random according to a corresponding set of probabilities \cite{Chodera_2011_2}.
 In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
 Given that sample decorrelation is improved by having short MD runs between MC transitions \cite{Chodera_2011_2}, we used only 5 steps in each run.
 In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
-In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was 110 ns for each system.
+In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. \DIFaddbegin \DIFadd{Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was 110 ns for each system.
+}\DIFaddend 
 
-In order to obtain minimum-energy conformations, we first carried out MD simulations of isolated ion pairs.
+\DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{In order to obtain minimum-energy conformations, we }\DIFaddend first carried out MD simulations of isolated ion pairs\DIFdelbegin \DIFdel{in order to obtain minimum-energy conformations}\DIFdelend .
 For this, we used a Nos\'{e}-Hoover chain thermostat \cite{Martyna1992} with set-point temperature gradually changing down to nearly $0~\text{K}$.
 The resulting coordinates were then used with the PACKMOL algorithm \cite{Mart_nez_2009} via the Playmol package \cite{playmol} to obtain initial liquid-phase configurations.
 The expanded ensemble procedure, the softcore potential, and the DSF method  with linear coupling were implemented by customizing the LAMMPS package \cite{Plimpton1995}, which we used for carrying out all the simulations in this work.
@@ -334,7 +414,7 @@ Please note that, in the united-atom version of \ce{[emim]^+}, all hydrogen atom
 Using the software TRAVIS \cite{Brehm_2011}, we obtained combined distribution functions (CDFs) of the dihedral angles formed in \ce{[emim]^+} by atoms C1-N2-C5-C6 and atoms C2-N2-C5-C6.
 These angles will be referred to as $\psi_1$ and $\psi_2$, respectively.
 In Fig.~\ref{fig:dihedrals_emim}, we show the CDFs obtained for all force fields employed here for \ce{[emim][B(CN)_4]}.
-All CDFs shown in this section were generated from NpT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$ using our standard setup (i.e. flexible ions with PPPM Ewald electrostatics).
+All CDFs shown in this section were generated from \DIFdelbegin \DIFdel{NPT-MD }\DIFdelend \DIFaddbegin \DIFadd{NpT-MD }\DIFaddend simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and \DIFdelbegin \DIFdel{$P = 1.0~\mathrm{bar}$ }\DIFdelend \DIFaddbegin \DIFadd{$p = 0.1~\mathrm{MPa}$ }\DIFaddend using our standard setup (i.e. flexible ions with PPPM Ewald electrostatics).
 Initial inspection reveals that, in all cases, $\psi_1$ and $\psi_2$ populate regions of the diagrams around the two straight lines given by
 \begin{equation}
 \label{eq:dihedral angles}
@@ -372,11 +452,11 @@ The $\psi_1$-angle values for these types are $0^\circ$, $150^\circ$, $180^\circ
   \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{Liu}}%
 \subfloat[Weber and Kirchner~\cite{Weber_2016}]{%
   \includegraphics[width=.4\linewidth,trim={0 0 0 12pt},clip]{Weber}}%
-\caption{Combined distribution functions of the dihedral angles corresponding to atoms C1-N2-C5-C6 and C2-N2-C5-C6 in the cation \ce{[emim]^+} (see Fig.~\ref{fig:atoms_id}), as sampled in NpT-MD simulations of 250 ion pairs using each model for \ce{[emim][B(CN)_4]}.}
+\caption{Combined distribution functions of the dihedral angles corresponding to atoms C1-N2-C5-C6 and C2-N2-C5-C6 in the cation \ce{[emim]^+} (see Fig.~\ref{fig:atoms_id}), as sampled in \DIFdelbeginFL \DIFdelFL{NPT-MD }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{NpT-MD }\DIFaddendFL simulations of 250 ion pairs using each model for \ce{[emim][B(CN)_4]}.}
 \label{fig:dihedrals_emim}
 \end{figure*}
 
-Once the rigid body structures have been determined, we carried out NpT-MD simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$ using the simplified setup (i.e. rigid ions with DSF electrostatics) and all force fields in question.
+Once the rigid body structures have been determined, we carried out \DIFdelbegin \DIFdel{NPT-MD }\DIFdelend \DIFaddbegin \DIFadd{NpT-MD }\DIFaddend simulations of 250 ion pairs at $T = 298.0~\mathrm{K}$ and \DIFdelbegin \DIFdel{$P = 1.0~\mathrm{bar}$ }\DIFdelend \DIFaddbegin \DIFadd{$p = 0.1~\mathrm{MPa}$ }\DIFaddend using the simplified setup (i.e. rigid ions with DSF electrostatics) and all force fields in question.
 In Table~\ref{table:props_dsf}, we compare results for density obtained by using the two methodologies.
 In all cases, the simplified method displays excellent agreement with the standard one.
 In addition, we note that the models of Koller \textit{et al}. \cite{Koller_2012} and Weber and Kirchner \cite{Weber_2016} are the ones that most closely reproduce the experimental density.
@@ -387,7 +467,32 @@ Small deviations are observed in the case of the Liu \textit{et al}. \cite{Liu_2
 The model of Weber and Kirchner \cite{Weber_2016}, on the other hand, presents RDFs for the pairs C5\textsubscript{cation}-N\textsubscript{anion} (that is, C5\textsubscript{cation} with any nitrogen atom in the anion) and C2\textsubscript{cation}-B\textsubscript{anion} with important discrepancies when rigid bodies are used.
 Note that both RDFs are supposed to be affected by the orientations of the ethyl group in the cation.
 
-\begin{table*}
+\DIFdelbegin %DIFDELCMD < \begin{table*}
+%DIFDELCMD < 	\centering
+%DIFDELCMD < 	\caption{Comparison of predicted and experimental densities for different models of \ce{[emim][B(CN)_4]} via NPT-MD simulations at $T = 298.0~\text{K}$ and $P = 1.0~\text{atm}$. The experimental density is $1.036~\mathrm{g/cm^3}$ \cite{Doma_ska_2011}.}
+%DIFDELCMD < 	\begin{tabular}{ccccc}
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		\ce{[emim][B(CN)_4]} model                        & 
+%DIFDELCMD < 		\multicolumn{2}{c}{Flexible ions \& PPPM-Ewald} &
+%DIFDELCMD < 		\multicolumn{2}{c}{Rigid ions \& DSF}      \\
+%DIFDELCMD < 		&
+%DIFDELCMD < 		$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+%DIFDELCMD < 		error (\%)                                  &
+%DIFDELCMD < 		$\rho_\text{sim}$ (g/cm\textsuperscript{3}) &
+%DIFDELCMD < 		error (\%)                                  \\
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		Koller \textit{et al}. \cite{Koller_2012}    & 1.046 & 1.0 & 1.038 & 0.2 \\
+%DIFDELCMD < 		Batista \textit{et al}. \cite{Batista_2015}  & 0.989 & 4.6 & 0.988 & 4.7 \\
+%DIFDELCMD < 		Liu \textit{et al}. \cite{Liu_2014}          & 1.001 & 3.4 & 0.991 & 4.4 \\
+%DIFDELCMD < 		Weber and Kirchner \cite{Weber_2016}         & 1.015 & 2.1 & 1.022 & 1.4  \\
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		\label{table:props_dsf}
+%DIFDELCMD < 	\end{tabular}
+%DIFDELCMD < \end{table*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table*}
 	\centering
 	\caption{Comparison of predicted and experimental densities for different models of \ce{[emim][B(CN)_4]} via NpT-MD simulations at $T = 298.0~\text{K}$ and $p = 0.1~\text{MPa}$. The experimental density is $1.036~\mathrm{g/cm^3}$ \cite{Doma_ska_2011}.}
 	\begin{tabular}{ccccc}
@@ -411,6 +516,7 @@ Note that both RDFs are supposed to be affected by the orientations of the ethyl
 		\label{table:props_dsf}
 	\end{tabular}
 \end{table*}
+\DIFaddend 
 
 In view of the results presented thus far, our guideline for forthcoming \ce{[emim][B(CN)_4]} simulations goes as follows.
 First, the DSF model replaces Ewald-like electrostatics throughout.
@@ -426,13 +532,13 @@ With regard to the anion \ce{[NTf_2]^-}, Deetlefs \textit{et al}. \cite{Deetlefs
 In Fig.~\ref{fig:die_ntf2}, we present the CDF obtained for the contiguous sequences C1-S1-N1-S2 and S1-N1-S2-C2 in \ce{[NTf_2]^-}, which qualitatively confirms the observation of Deetlefs \textit{et al}. \cite{Deetlefs_2006}.
 This CDF also makes clear that \ce{[NTf_2]^-} exhibits a considerable degree of flexibility.
 Due to this observed behaviors of both ions, all simulations of \ce{[emim][NTf_2]} in the present work are performed considering flexible cations and anions, as well as DSF electrostatics.
-This approach results in a mean density of $1.495 \pm 0.009 ~\mathrm{g/cm^3}$ at $T = 298.0~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$.
+This approach results in a mean density of $1.495 \pm 0.009 ~\mathrm{g/cm^3}$ at $T = 298.0~\mathrm{K}$ and \DIFdelbegin \DIFdel{$P = 1.0~\mathrm{bar}$}\DIFdelend \DIFaddbegin \DIFadd{$p = 0.1~\mathrm{MPa}$}\DIFaddend .
 The relative error of this result with respect to the experimental value obtained by Tokuda \textit{et al}. \cite{Tokuda_2005} is only 1.12\%.
 
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{Ludwig_anion}
-\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from NpT-MD simulations of 250 ion pairs of \ce{[emim][NTf_2]} at $T = 298.0~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$ using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.}
+\caption{Combined distribution function of the dihedral angles of the contiguous chains C1-S1-N1-S2 and S1-N1-S2-C2 of anion \ce{[NTf_2]^-}, obtained from \DIFdelbeginFL \DIFdelFL{NPT-MD }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{NpT-MD }\DIFaddendFL simulations of 250 ion pairs of \ce{[emim][NTf_2]} at $T = 298.0~\mathrm{K}$ and \DIFdelbeginFL \DIFdelFL{$P = 1.0~\mathrm{bar}$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$p = 0.1~\mathrm{MPa}$ }\DIFaddendFL using the model of K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007}.}
 \label{fig:die_ntf2}
 \end{figure}
 
@@ -440,15 +546,44 @@ The relative error of this result with respect to the experimental value obtaine
 \label{sec:henry_results}
 
 In Table \ref{table:henry}, we present results from expanded ensemble simulations of a single \ce{CO_2} molecule dissolved in 250 ion pairs of either \ce{[emim][B(CN)_4]} or \ce{[emim][NTf_2]} under periodic boundary conditions.
-The simulations were carried out at $T = 298.0~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$.
-Table~\ref{table:henry} contains simulated molar densities, partial and total solvation free energies, as well as Henry's law constants ($K_s$) computed via Eq.~\eqref{eq:henry_eq}. These should be compared to the experimental data reported by Mahurin \textit{et al}. \cite{Mahurin_2010} ($K_s = 3.941 \pm 0.003 ~\mathrm{MPa}$ for \ce{CO_2} in \ce{[emim][B(CN)_4]}) and by Finotello \textit{et al}. \cite{Finotello_2008} ($K_s = 3.95 \pm 0.01 ~\mathrm{MPa}$ for \ce{CO_2} in \ce{[emim][NTf_2]}).
-Uncertainties in $K_s$ were calculated using a standard error propagation formula, given by
-\begin{equation}
-\delta K_s = \beta K_s \sqrt{\left[ \delta^2 (\Delta G_{\text{vdW}}) + \delta^2(\Delta G_{\text{Coul}}) \right]},
-\end{equation}
-with uncertainties in free energy calculate using MBAR \cite{Shirts_2008}.
+The simulations were carried out at $T = 298.0~\mathrm{K}$ and \DIFdelbegin \DIFdel{$P = 1.0~\mathrm{bar}$}\DIFdelend \DIFaddbegin \DIFadd{$p = 0.1~\mathrm{MPa}$}\DIFaddend .
+Table~\ref{table:henry} contains simulated molar densities, partial and total solvation free energies, as well as Henry's law constants ($K_s$) computed via Eq.~\eqref{eq:henry_eq}. \DIFdelbegin \DIFdel{The uncertainties in $K_s$ were calculated by using a standard error propagation formula.
+The computed values }\DIFdelend \DIFaddbegin \DIFadd{These }\DIFaddend should be compared to the experimental data reported by Mahurin \textit{et al}. \cite{Mahurin_2010} (\DIFdelbegin \DIFdel{$K_s = 38.9 \pm 0.03 ~\mathrm{atm}$ }\DIFdelend \DIFaddbegin \DIFadd{$K_s = 3.941 \pm 0.003 ~\mathrm{MPa}$ }\DIFaddend for \ce{CO_2} in \ce{[emim][B(CN)_4]}) and by Finotello \textit{et al}. \cite{Finotello_2008} (\DIFdelbegin \DIFdel{$K_s = 39.0 \pm 0.1 ~\mathrm{atm}$ }\DIFdelend \DIFaddbegin \DIFadd{$K_s = 3.95 \pm 0.01 ~\mathrm{MPa}$ }\DIFaddend for \ce{CO_2} in \ce{[emim][NTf_2]}).
+\DIFaddbegin \DIFadd{Uncertainties in $K_s$ were calculated using a standard error propagation formula, given by
+}\begin{equation}
+\DIFadd{\delta K_s = \beta K_s \sqrt{\left[ \delta^2 (\Delta G_{\text{vdW}}) + \delta^2(\Delta G_{\text{Coul}}) \right]},
+}\end{equation}
+\DIFadd{with uncertainties in free energy calculate using MBAR \mbox{%DIFAUXCMD
+\cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
+.
+}\DIFaddend 
 
-\begin{table*}
+\DIFdelbegin %DIFDELCMD < \begin{table*}
+%DIFDELCMD < 	\centering
+%DIFDELCMD < 	\caption{Results of solvation free energies and Henry's law constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T = 298.15~\mathrm{K}$ and $P = 1~\mathrm{atm}$. The experimental Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and in \ce{[emim][NTf_2]} are, respectively, $38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010} and $39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008}.}
+%DIFDELCMD < 	\begin{adjustbox}{max width=\textwidth}
+%DIFDELCMD < 		\begin{tabular}{ccccccc}  
+%DIFDELCMD < 			\hline\hline
+%DIFDELCMD < 			Model & $\tilde{\rho}_\text{sim}$ & $\Delta G_\text{vdW}$  & $\Delta G_\text{Coul}$  & $\Delta G_\text{sim}$ & $K_s$ & error \\
+%DIFDELCMD < 			& (mol/dm\textsuperscript{3}) & (kcal/mol) & (kcal/mol) &  (kcal/mol) & (atm)  & (\%) \\
+%DIFDELCMD < 			\hline
+%DIFDELCMD < %			\multicolumn{7}{c}{\ce{[emim][B(CN)_4]}: $K_{s}^{\text{exp}} = 38.9 \pm 0.03 ~\mathrm{atm}$ \cite{Mahurin_2010}} \\
+%DIFDELCMD < 			\multicolumn{7}{c}{\ce{[emim][B(CN)_4]}} \\
+%DIFDELCMD < 			Koller \textit{et al}. \cite{Koller_2012} & $4.5925$ & $0.45 \pm 0.01$ & $-1.06 \pm 0.02$ & $-0.61 \pm 0.02$ & $40 \pm 1$ & $2.8$ \\
+%DIFDELCMD < 			Batista \textit{et al}. \cite{Batista_2015} & $4.3700$ & $0.378 \pm 0.008$ & $-1.24 \pm 0.01$  & $-0.86 \pm 0.01$ & $24.9 \pm 0.5$ & $38.9$ \\
+%DIFDELCMD < 			Liu \textit{et al}. \cite{Liu_2014} & $4.3815$ & $0.226 \pm 0.009$ & $-1.11 \pm 0.01$ & $-0.88 \pm 0.01$ & $24.3 \pm 0.5$ & $37.6$  \\
+%DIFDELCMD < 			Weber and Kirchner \cite{Weber_2016} & $4.5221$ & $0.478 \pm 0.009$ & $-1.23 \pm 0.02$ & $-0.75 \pm 0.02$ & $31 \pm 1$ & $20.3$  \\
+%DIFDELCMD < 			\hline
+%DIFDELCMD < %			\multicolumn{7}{c}{\ce{[emim][NTf_2]}: $K_{s}^{\text{exp}} = 39.0 \pm 0.1 ~\mathrm{atm}$ \cite{Finotello_2008} }\\
+%DIFDELCMD < 			\multicolumn{7}{c}{\ce{[emim][NTf_2]}} \\
+%DIFDELCMD < 			K\"{o}ddermann \textit{et al}. \cite{Koddermann_2007} & $3.8205$ & $0.389 \pm 0.005$ & $-0.901 \pm 0.006$ & $-0.512 \pm 0.008$ & $39.4 \pm 0.5$  & $0.97$  \\
+%DIFDELCMD < 			\hline\hline
+%DIFDELCMD < 			%DIFDELCMD < \label{table:henry} %%%
+%DIFDELCMD < 		\end{tabular}
+%DIFDELCMD < 	\end{adjustbox}
+%DIFDELCMD < \end{table*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table*}
 	\centering
 	\caption{Results of solvation free energies and Henry's law constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]} at $T = 298.15~\mathrm{K}$ and $p = 0.1~\mathrm{MPa}$. The experimental Henry constants of \ce{CO_2} in \ce{[emim][B(CN)_4]} and in \ce{[emim][NTf_2]} are, respectively, $3.941 \pm 0.003 ~\mathrm{MPa}$ \cite{Mahurin_2010} and $3.95 \pm 0.01 ~\mathrm{MPa}$ \cite{Finotello_2008}.}
 	\begin{adjustbox}{max width=\textwidth}
@@ -472,12 +607,13 @@ with uncertainties in free energy calculate using MBAR \cite{Shirts_2008}.
 		\end{tabular}
 	\end{adjustbox}
 \end{table*}
+\DIFaddend 
 
 Is it worth remarking that the result of $\Delta G_\text{sim}$ obtained with the model of Liu \textit{et al}. \cite{Liu_2014} is statistically identical to a value reported by the same authors in Ref.~\citenum{Liu_2014_1}, where they applied the Bennett Acceptance Ratio (BAR) method \cite{Bennett_1976} to independent samples obtained with different values of $\lambda_\text{vdW}$ and $\lambda_\text{Coul}$.
 Moreover, the $\Delta G_\text{sim}$ value we computed for \ce{[emim][NTf_2]} is very close to the one obtained by Kerl \textit{et al}. \cite{Kerl__2017} ($-0.534 ~\mathrm{kcal/mol}$, with no reported uncertainty) using the Free-Energy Perturbation (FEP) method \cite{Zwanzig_1954}.
 %These consistencies have served for validating the methodological approaches of this work.
 
-Table \ref{table:henry} shows that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
+\DIFdelbegin \DIFdel{One can see in Table \ref{table:henry} }\DIFdelend \DIFaddbegin \DIFadd{Table \ref{table:henry} shows }\DIFaddend that the only model able to reproduce the experimental Henry's law constant of \ce{CO_2} in \ce{[emim][B(CN)_4]} with small deviation is that of Koller \textit{et al}. \cite{Koller_2012}.
 The worst results are obtained with the models of Batista \textit{et al}. \cite{Batista_2015} and Liu \textit{et al}. \cite{Liu_2014}.
 These models fail in part because of the small values they predict for $\Delta G_\text{vdW}$.
 In order to analyze the model distinctions in more detail, in Fig.~\ref{fig:deltag} we plot free energy profiles with respect to the coupling parameter $\lambda_\text{vdW}$, as obtained from the simulations with all \ce{[emim][B(CN)_4]} models.
@@ -498,7 +634,7 @@ Such as the model of Koller \textit{et al}. \cite{Koller_2012} does in the case 
 A comparison between the values of $\Delta G_\text{sim}$ obtained from these models, shown in Table \ref{table:henry}, suggests that the solvation of \ce{CO_2} takes place more favorably in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}.
 The fact that $K_s$ has almost the same value in both cases is due to a compensation promoted by the distinct molar densities of these ionic liquids.
 Spatial distribution functions (SDFs) \cite{Svishchev_1993} can help us visualizing how differently the solvent ions interact with the solute molecule.
-By using TRAVIS \cite{Brehm_2011}, we have obtained SDFs of both cation and anion around a \ce{CO_2} molecule, sampled from MD trajectories of either \ce{CO_2}+\ce{[emim][B(CN)_4]} or \ce{CO_2}+\ce{[emim][NTf_2]} systems simulated at $T = 298.0~\text{K}$, $p = 0.1~\mathrm{MPa}$, and $x_\mathrm{CO_2} = 0.1$.
+By using TRAVIS \cite{Brehm_2011}, we have obtained SDFs of both cation and anion around a \ce{CO_2} molecule, sampled from MD trajectories of either \ce{CO_2}+\ce{[emim][B(CN)_4]} or \ce{CO_2}+\ce{[emim][NTf_2]} systems simulated at $T = 298.0~\text{K}$, \DIFdelbegin \DIFdel{$P = 1.0~\mathrm{bar}$}\DIFdelend \DIFaddbegin \DIFadd{$p = 0.1~\mathrm{MPa}$}\DIFaddend , and $x_\mathrm{CO_2} = 0.1$.
 The slightly larger \ce{CO_2} concentration considered here is meant to improve statistics.
 The obtained SDFs were depicted as isosurfaces using VMD \cite{HUMP96}, with isovalues determined so as to highlight the first solvation shell.
 The resulting images are shown in Fig.~\ref{fig:sdf_ions}.
@@ -534,7 +670,30 @@ The thermodynamic conditions specified for these simulations, which are based on
 We have selected these specific conditions because of the proximity observed in the molality of \ce{CO_2} ($m_s$).
 It is worth noting that the marked difference in the molar fractions of \ce{CO_2} in Table~\ref{table:solv} does not imply that \ce{[emim][NTf_2]} is a better solvent than \ce{[emim][B(CN)_4]}, thus exemplifying the observation made by Carvalho \textit{et al}. \cite{Carvalho_2016} and discussed here in Sec.~\ref{sec:intro}.
 
-\begin{table}
+\DIFdelbegin %DIFDELCMD < \begin{table}
+%DIFDELCMD < 	\centering
+%DIFDELCMD < 	\caption{Thermodynamic conditions, based on the experimental observations of Refs.~\citenum{Makino_2014} and \citenum{Schilderman_2007}, employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, as well as the results obtained via expanded ensemble simulations.}
+%DIFDELCMD < 	\begin{tabular}{ccc}
+%DIFDELCMD < 		\hline\hline
+%DIFDELCMD < 		IL & \ce{[emim][B(CN)_4]}  & \ce{[emim][NTf_2]} \\
+%DIFDELCMD < 		\hline
+%DIFDELCMD < %		model & Ref.~\citenum{Koller_2012} & Ref.~\citenum{Koddermann_2007} \\
+%DIFDELCMD < 		\multicolumn{3}{c}{Specification} \\
+%DIFDELCMD < 		$T$  & $313.15~\mathrm{K}$ & $312.13~\mathrm{K}$ \\
+%DIFDELCMD < 		$P$  & $21~\mathrm{atm}$ & $37~\mathrm{atm}$ \\
+%DIFDELCMD < 		$x_s$ & $0.352$ & $0.479$ \\
+%DIFDELCMD < 		$m_s$ & $2.4~\mathrm{mol/kg}$ & $2.35~\mathrm{mol/kg}$ \\
+%DIFDELCMD < 		\hline
+%DIFDELCMD < 		\multicolumn{3}{c}{Simulation Result} \\
+%DIFDELCMD < 		$c_s$ & $3.04~\mathrm{mol/dm^3}$ & $2.22~\mathrm{mol/dm^3}$ \\ 
+%DIFDELCMD < 		$\Delta G_\text{sim}$ & $-0.755~\mathrm{kcal/mol}$ & $-0.542~\mathrm{kcal/mol}$ \\
+%DIFDELCMD < 		$P$ & $18.3~\mathrm{atm}$ & $38.4~\mathrm{atm}$ \\
+%DIFDELCMD < 		\hline\hline
+%DIFDELCMD < 		%DIFDELCMD < \label{table:solv} %%%
+%DIFDELCMD < 	\end{tabular}
+%DIFDELCMD < \end{table}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}
 	\centering
 	\caption{Thermodynamic conditions, based on the experimental observations of Refs.~\citenum{Makino_2014} and \citenum{Schilderman_2007}, employed in the solvation study at high concentrations of \ce{CO_2} in \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, as well as the results obtained via expanded ensemble simulations.}
 	\begin{tabular}{ccc}
@@ -557,30 +716,39 @@ It is worth noting that the marked difference in the molar fractions of \ce{CO_2
 		\label{table:solv} 
 	\end{tabular}
 \end{table}
+\DIFaddend 
 
-We first carried out simulations of liquid solutions at the conditions of Table~\ref{table:solv}. The model of Koller \textit{et al}. \cite{Koller_2012} was the one employed for simulating \ce{[emim][B(CN)_4]}. The computed solvation free energies for the systems \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]} were $-0.755 \pm 0.009 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005~\mathrm{kcal/mol}$, respectively. Using these values as inputs in Eq.~\eqref{eq:equilibrium pressure}, we obtained pressure values of $1.854~\mathrm{MPa}$ and $3.893~\mathrm{MPa}$, as reported in Table~\ref{table:solv}.
-The corresponding gas-phase fugacities of \ce{CO_2} ($f_s^g$) computed by Eq.~\eqref{eq:fgas_d} are given in Table~\ref{table:solv}, as well.
-The results make clear that assuming ideal gas ($p = f_s^g$) would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
+We \DIFdelbegin \DIFdel{carried out expanded ensemble }\DIFdelend \DIFaddbegin \DIFadd{first carried out }\DIFaddend simulations of liquid solutions at the conditions of Table~\ref{table:solv}. The model of Koller \textit{et al}. \cite{Koller_2012} was the one employed for simulating \ce{[emim][B(CN)_4]}. The computed solvation free energies for the systems \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]} were $-0.755 \pm 0.009 ~\mathrm{kcal/mol}$ and $-0.542 \pm 0.005~\mathrm{kcal/mol}$, respectively. \DIFdelbegin \DIFdel{In Fig.~\ref{fig:pressure}, we present our predictions of the equilibrium pressure ($P$) obtained by solving Eq.~}%DIFDELCMD < \eqref{eq:equilibrium pressure}%%%
+\DIFdel{, as well as the }\DIFdelend \DIFaddbegin \DIFadd{Using these values as inputs in Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{, we obtained pressure values of $1.854~\mathrm{MPa}$ and $3.893~\mathrm{MPa}$, as reported in Table~\ref{table:solv}.
+The }\DIFaddend corresponding gas-phase fugacities of \ce{CO_2} ($f_s^g$) computed by Eq.~\eqref{eq:fgas_d} \DIFdelbegin \DIFdel{.
+The dotted lines correspond to the experimental values (i.e. those used to simulate the liquid solutions).
+First, the }\DIFdelend \DIFaddbegin \DIFadd{are given in Table~\ref{table:solv}, as well.
+The }\DIFaddend results make clear that assuming ideal gas (\DIFdelbegin \DIFdel{$P = f_s^g$}\DIFdelend \DIFaddbegin \DIFadd{$p = f_s^g$}\DIFaddend ) would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
+\DIFdelbegin \DIFdel{Second, }\DIFdelend \DIFaddbegin 
 
-In order to obtain $\Delta G_\text{sim} (p)$ and $c_s(p)$, we carried out extra simulations at pressure values  of p = (1.722, 1.823) MPa  for \ce{CO_2}+\ce{[emim][B(CN)_4]} and at p = (4.053, 4.458) MPa for \ce{CO_2}+\ce{[emim][NTf_2]}.
+\DIFadd{In order to obtain $\Delta G_\text{sim} (p)$ }\DIFaddend and \DIFdelbegin \DIFdel{most importantly, the computed pressures }\DIFdelend \DIFaddbegin \DIFadd{$c_s(p)$, we carried out extra simulations at pressure values  of p = (1.722, 1.823) MPa  for \ce{CO_2}+\ce{[emim][B(CN)_4]} and at p = (4.053, 4.458) MPa for \ce{CO_2}+\ce{[emim][NTf_2]}.
 In this case, we considered a wider range of pressure, given the departure from ideal gas behavior mentioned above.
-As described in Sec.~\ref{sec:partial_pressure}, $\Delta G_\text{sim}$ and $c_s$ were interpolated to intermediate pressures by reweighting using MBAR \cite{Shirts_2008}.
-In Fig.~\ref{fig:pressure}, we show for both systems the results of $\Delta G_\text{sim}$, together with the curve of $\Delta G_\text{solv}$ defined by Eq.~\eqref{eq:equilibrium pressure}.
+As described in Sec.~\ref{sec:partial_pressure}, $\Delta G_\text{sim}$ and $c_s$ were interpolated to intermediate pressures by reweighting using MBAR \mbox{%DIFAUXCMD
+\cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
+.
+In Fig.~\ref{fig:pressure}, we show for both systems the results of $\Delta G_\text{sim}$, together with the curve of $\Delta G_\text{solv}$ defined by Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{.
 Although not shown here, the changes in density are negligible: 0.05 \% and 0.07 \% for \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]}, respectively.
 In addition, $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here. 
 This results in small corrections to the equilibrium pressures of Table~\ref{table:solv}: the intersection points are 1.807 MPa and 4.106 MPa, for \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]}, respectively.
-These values did not depart considerably from the specified values, meaning that our results sustain the experimental observations.
+These values }\DIFaddend did not depart considerably from the specified values, meaning that our results sustain the experimental observations.
 Therefore, as the pressure required to reach the same equilibrium molal concentration of \ce{CO_2} in the liquid phase is smaller for \ce{[emim][B(CN)_4]} than for \ce{[emim][NTf_2]}, our results confirm that the former is a better solvent than the latter.
 This confirmation was possible by simulating a purely physical absorption, without considering any quantum effect.
 
 \begin{figure}
-	\centering
-	\subfloat[ \ce{CO_2}+\ce{[emim][B(CN)_4]} ]{
+	\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=\linewidth]{pressure_est.pdf}
+%DIFDELCMD < \caption{%%%
+\DIFdelFL{Prediction of the gas-phase fugacity and partial pressure of \ce{CO_2} for the systems }\DIFdelendFL \DIFaddbeginFL \centering
+	\subfloat[ \DIFaddendFL \ce{CO_2}\DIFdelbeginFL \DIFdelFL{-}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{+}\DIFaddendFL \ce{[emim][B(CN)_4]} \DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL ]{
 		\includegraphics[width=\linewidth]{pressure_koller.pdf}}
-	
-	\subfloat[\ce{CO_2}+\ce{[emim][NTf_2]}]{  
+
+	\subfloat[\DIFaddFL{\ce{CO_2}+}\DIFaddendFL \ce{[emim][NTf_2]}\DIFaddbeginFL ]{  
 		\includegraphics[width=\linewidth]{pressure_ludwig.pdf}}
-	\caption{Solvation free energy $\Delta G_\text{sim}$ (solid line) and $\Delta G_\text{solv}$ of Eq.~\eqref{eq:equilibrium pressure} (dashed line) as a function of pressure.}
+	\caption{\DIFaddFL{Solvation free energy $\Delta G_\text{sim}$ (solid line) and $\Delta G_\text{solv}$ of Eq.~}\eqref{eq:equilibrium pressure} \DIFaddFL{(dashed line) as a function of pressure}\DIFaddendFL .}
 	\label{fig:pressure}
 \end{figure}
 
@@ -589,7 +757,8 @@ This confirmation was possible by simulating a purely physical absorption, witho
 \label{sec:act_results}
 
 Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental Henry's law constant of \ce{CO_2}, we extend its use to the calculation of infinite-dilution activity coefficients ($\gamma^\infty$) of other solutes in \ce{[emim][B(CN)_4]}.
-Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. Uncertainties in activity coefficients were calculated using error propagation, as done for $K_s$.
+Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. \DIFaddbegin \DIFadd{Uncertainties in activity coefficients were calculated using error propagation, as done for $K_s$.
+}\DIFaddend 
 
 The task of accurately predicting $\gamma^\infty$ is challenging because, according to Eq.~\eqref{eq:gamma}, one needs to reproduce the solvation free energies of a solute molecule in both the solvent and the solute itself as a pure liquid.
 In Table~\ref{table:mu_solutes}, we show the simulated densities ($\rho^0_s$) and solvation free energies $(\Delta G^{0}_\text{sim})$ of the pure solutes, which we compare against experimental data extracted from the work of Chang \cite{Chang_2009}.
@@ -619,11 +788,14 @@ The relative errors for the other solutes are around 10\%.
 
 The results concerning the solvation free energies of all solutes in the ionic liquid are presented in Table~\ref{table:gamma}, as well as the computed infinite-dilution activity coefficients.
 For benzene and water, the predictions are very accurate, but this is certainly due to fortuitous error compensations, given the discrepancies observed in Table~\ref{table:mu_solutes}.
+\DIFdelbegin \DIFdel{In }\DIFdelend \DIFaddbegin 
 
-In Fig.~\ref{fig:deltag_solutes}, we show the simulated solvation free energies versus the experimental results. These were obtained by using $\Delta G^{0}_\text{exp}$ of Table~\ref{table:mu_solutes} and $\gamma^\infty$  from Ref. \cite{Doma_ska_2011} as inputs in Eq.~\eqref{eq:gamma}. Cyclohexane was not considered, given that $\Delta G^{0}_\text{exp}$ is not available.
+\DIFadd{In Fig.~\ref{fig:deltag_solutes}, we show the simulated solvation free energies versus the experimental results. These were obtained by using $\Delta G^{0}_\text{exp}$ of Table~\ref{table:mu_solutes} and $\gamma^\infty$  from Ref. \mbox{%DIFAUXCMD
+\cite{Doma_ska_2011} }\hspace{0pt}%DIFAUXCMD
+as inputs in Eq.~}\eqref{eq:gamma}\DIFadd{. Cyclohexane was not considered, given that $\Delta G^{0}_\text{exp}$ is not available.
 For benzene, ethanol and water the results from simulations are consistent with the negative experimental values. However, for hexane the simulations predict a favorable solvation, in clear contradiction with the experimental data.
 From the individual contributions of $\Delta G_\text{vdW}$ and $\Delta G_\text{Coul}$, we can conclude that the vdW contribution is largely underestimated.
-Also, in the case of hexane, one can see in Table \ref{table:gamma} that the available experimental values of $\gamma^\infty$ in \ce{[emim][B(CN)_4]} at very close temperatures ($298.15~\text{K}$ and $303~\text{K}$) differ considerably.
+Also, in }\DIFaddend the case of hexane, one can see in Table \ref{table:gamma} that the available experimental values of $\gamma^\infty$ in \ce{[emim][B(CN)_4]} at very close temperatures ($298.15~\text{K}$ and $303~\text{K}$) differ considerably.
 It is, therefore, difficult to assess the reliability of our results in this case.
 
 \begin{table*}
@@ -646,33 +818,34 @@ It is, therefore, difficult to assess the reliability of our results in this cas
 	\end{adjustbox}
 \end{table*}
 
-%\begin{figure}
-%	\includegraphics[width=\linewidth]{free_energy_solutes}
-%	\caption{Profile of $\Delta G_\text{vdW}$ corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, modeled according to the force fields of Koller \textit{et al}. \cite{Koller_2012} ($\bullet$), Batista \textit{et al}. \cite{Batista_2015} ($\blacksquare$), Liu \textit{et al}. \cite{Liu_2014} ($\times$), and Weber and Kirchner \cite{Weber_2016} ($\blacktriangle$).}
-%	\label{fig:deltag}
-%\end{figure}
+%DIF > \begin{figure}
+%DIF > 	\includegraphics[width=\linewidth]{free_energy_solutes}
+%DIF > 	\caption{Profile of $\Delta G_\text{vdW}$ corresponding to the insertion of a \ce{CO_2} molecule in \ce{[emim][B(CN)_4]}, modeled according to the force fields of Koller \textit{et al}. \cite{Koller_2012} ($\bullet$), Batista \textit{et al}. \cite{Batista_2015} ($\blacksquare$), Liu \textit{et al}. \cite{Liu_2014} ($\times$), and Weber and Kirchner \cite{Weber_2016} ($\blacktriangle$).}
+%DIF > 	\label{fig:deltag}
+%DIF > \end{figure}
+\DIFaddbegin 
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{delta_g_sim_exp}
-	\caption{Simulated free energy $\Delta G_\text{sim}$ versus the experimental result at $T = 298.15~\text{K}$ for the solutes hexane, benzene, ethanol and water in \ce{[emim][B(CN)_4]}.}
+	\caption{\DIFaddFL{Simulated free energy $\Delta G_\text{sim}$ versus the experimental result at $T = 298.15~\text{K}$ for the solutes hexane, benzene, ethanol and water in \ce{[emim][B(CN)_4]}.}}
 	\label{fig:deltag_solutes}
 \end{figure}
 
-\section{Concluding remarks}
+\DIFaddend \section{Concluding remarks}
 \label{sec:conclusion}
 
 One of the goals of this paper was to compare various available molecular models of \ce{[emim][B(CN)_4]} in terms of their capabilities to reproduce the experimental Henry's law constant of \ce{CO_2}.
 We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8\%.
-A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows to accurately reproduce the experimental density of the pure substance.
+A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows \DIFdelbegin \DIFdel{one }\DIFdelend to accurately reproduce the experimental density of the pure substance.
 
 We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
 Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, we concluded that the Damped-Shifted-Force method for electrostatic interactions, with a damping factor $\alpha = 0.2 ~\text{\AA}^{-1}$, is a suitable strategy.
 Other improvement was the use of rigid bodies to simulate \ce{[emim][B(CN)_4]}.
 This required preliminary simulations in order to examine the flexibility of the ethyl chain in \ce{[emim]^+} and the analysis was greatly facilitated by employing useful visualization tools.
-Besides the properties already mentioned, the different models showed quite distinct behaviors in terms of conformational statistics.
+Besides the properties already mentioned, the different models showed quite distinct behaviors \DIFdelbegin \DIFdel{, as well, }\DIFdelend in terms of conformational statistics.
 %This lack of consistency is one of the reasons why in industry molecular simulation has not become a routinely tool yet.
 
-The solvation free energy results suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}, despite the similarity in the Henry's law constants observed in both cases.
+The solvation free energy results \DIFdelbegin \DIFdel{at infinite-dilution condition }\DIFdelend suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}, despite the similarity in the Henry's law constants observed in both cases.
 This picture is further confirmed at high \ce{CO_2} concentrations, in which the simulations correctly predicted that a considerably lower pressure is required to dissolve a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]}, as compared to \ce{[emim][NTf_2]} in an equal-mass basis.
 
 Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} in an attempt to predict infinite-dilution activity coefficients of various solutes in \ce{[emim][B(CN)_4]}.
