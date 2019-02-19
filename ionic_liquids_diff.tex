@@ -1,7 +1,7 @@
 %\documentclass[3p,preprint]{elsarticle}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ionic_liquids_submitted.tex   Tue Feb 12 15:11:10 2019
-%DIF ADD ionic_liquids.tex             Tue Feb 19 16:15:55 2019
+%DIF ADD ionic_liquids.tex             Tue Feb 19 16:21:05 2019
 \documentclass[3p,twocolumn]{elsarticle}
 
 %DIF 4c4
@@ -353,9 +353,9 @@ They concluded that using $\alpha = 0.2~\text{\AA}^{-1}$ and $r_c = 15~\text{\AA
 In this work, detailed comparisons are made in terms of the simulated densities and radial distribution functions.
 In Sec.~\ref{sec:results}, we show that by using the same $\alpha$ value but a considerably smaller cutoff distance ($r_c = 12 \text{\AA}$) one can obtain suitable results.
 These values were employed here for the ILs as well as for solutes containing partially charged atoms.
-The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. \DIFaddbegin \DIFadd{That cutoff distance was also used for truncating the LJ interactions, for which we applied analytical tail corrections \mbox{%DIFAUXCMD
+The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. \DIFaddbegin \DIFadd{The same cutoff distance was used for truncating the LJ interactions, for which we applied analytical tail corrections \mbox{%DIFAUXCMD
 \cite{allen}}\hspace{0pt}%DIFAUXCMD
-. In addition, we used the Lorentz-Berthelot mixing rules to calculate the cross LJ interactions, except for the solutes modeled with the OPLS-AA force fields, which employs geometric combining rules.
+. In addition, we used the Lorentz-Berthelot mixing rule to calculate the LJ interactions of unlike atoms, except for the solutes modeled with the OPLS-AA force fields, in which geometric combining rules are employed.
 }\DIFaddend 
 
 The \DIFdelbegin \DIFdel{NPT }\DIFdelend \DIFaddbegin \DIFadd{NpT }\DIFaddend algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to integrate the equations of motion for rigid bodies.
@@ -387,7 +387,7 @@ In the iteration process for tuning the biasing weights, the simulation times fo
 In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. \DIFaddbegin \DIFadd{Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was $110~\mathrm{ns}$ for each system.
 }\DIFaddend 
 
-\DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{In order to obtain minimum-energy conformations, we }\DIFaddend first carried out MD simulations of isolated ion pairs\DIFdelbegin \DIFdel{in order to obtain minimum-energy conformations}\DIFdelend .
+\DIFdelbegin \DIFdel{We first carried }\DIFdelend \DIFaddbegin \DIFadd{In order to obtain minimum-energy conformations, we started by carrying }\DIFaddend out MD simulations of isolated ion pairs\DIFdelbegin \DIFdel{in order to obtain minimum-energy conformations}\DIFdelend .
 For this, we used a Nos\'{e}-Hoover chain thermostat \cite{Martyna1992} with set-point temperature gradually changing down to nearly $0~\text{K}$.
 The resulting coordinates were then used with the PACKMOL algorithm \cite{Mart_nez_2009} via the Playmol package \cite{playmol} to obtain initial liquid-phase configurations.
 The expanded ensemble procedure, the softcore potential, and the DSF method  with linear coupling were implemented by customizing the LAMMPS package \cite{Plimpton1995}, which we used for carrying out all the simulations in this work.

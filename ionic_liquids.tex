@@ -275,7 +275,7 @@ They concluded that using $\alpha = 0.2~\text{\AA}^{-1}$ and $r_c = 15~\text{\AA
 In this work, detailed comparisons are made in terms of the simulated densities and radial distribution functions.
 In Sec.~\ref{sec:results}, we show that by using the same $\alpha$ value but a considerably smaller cutoff distance ($r_c = 12 \text{\AA}$) one can obtain suitable results.
 These values were employed here for the ILs as well as for solutes containing partially charged atoms.
-The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. That cutoff distance was also used for truncating the LJ interactions, for which we applied analytical tail corrections \cite{allen}. In addition, we used the Lorentz-Berthelot mixing rules to calculate the cross LJ interactions, except for the solutes modeled with the OPLS-AA force fields, which employs geometric combining rules.
+The only exception was hexane, for which the use of undamped Coulombic interactions (i.e. $\alpha = 0$) resulted in improved chemical potential predictions. The same cutoff distance was used for truncating the LJ interactions, for which we applied analytical tail corrections \cite{allen}. In addition, we used the Lorentz-Berthelot mixing rule to calculate the LJ interactions of unlike atoms, except for the solutes modeled with the OPLS-AA force fields, in which geometric combining rules are employed.
 
 The NpT algorithm of Kamberaj \textit{et al}. \cite{Kamberaj_2005} was used to integrate the equations of motion for rigid bodies.
 For flexible molecules, we applied the integration scheme of Shinoda \textit{et al}. \cite{Shinoda2004}, with the lengths of all C-H bonds constrained by the SHAKE method \cite{Ryckaert1977}.
@@ -305,7 +305,7 @@ Given that sample decorrelation is improved by having short MD runs between MC t
 In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
 In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was $110~\mathrm{ns}$ for each system.
 
-In order to obtain minimum-energy conformations, we first carried out MD simulations of isolated ion pairs.
+In order to obtain minimum-energy conformations, we started by carrying out MD simulations of isolated ion pairs.
 For this, we used a Nos\'{e}-Hoover chain thermostat \cite{Martyna1992} with set-point temperature gradually changing down to nearly $0~\text{K}$.
 The resulting coordinates were then used with the PACKMOL algorithm \cite{Mart_nez_2009} via the Playmol package \cite{playmol} to obtain initial liquid-phase configurations.
 The expanded ensemble procedure, the softcore potential, and the DSF method  with linear coupling were implemented by customizing the LAMMPS package \cite{Plimpton1995}, which we used for carrying out all the simulations in this work.
