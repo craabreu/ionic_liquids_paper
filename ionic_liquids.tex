@@ -1,7 +1,7 @@
 %\documentclass[3p,preprint]{elsarticle}
 \documentclass[3p,twocolumn]{elsarticle}
 
-\usepackage[colorlinks,citecolor=blue]{hyperref}
+%\usepackage[colorlinks,citecolor=blue]{hyperref}
 \usepackage{lineno}
 \modulolinenumbers[5]
 \usepackage{amsmath}
@@ -179,7 +179,7 @@ Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), 
 f^{g}_s = c_s R T \exp \left( \frac{\Delta G_\text{solv}}{R T} \right). 
 \end{equation}
 
-Two additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems investigated) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
+Two additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems we investigate here) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equilibrium pressure}
 y_s \exp\left( \frac{B_s p}{R T} \right) p = c_s(p) R T \exp \left( \frac{\Delta G_\text{solv}}{R T} \right),
@@ -191,7 +191,10 @@ B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
 where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac{K \cdot cm^3}{mol}}$, and $B_2 = -1.22675 \times 10^7~\mathrm{\frac{K^2 \cdot cm^3}{mol}}$.
 
-The equilibrium pressure will be the intersection point between the function $\Delta G_{\text{solv}}(p) $, defined by Eq.~\eqref{eq:equilibrium pressure}, and $\Delta G_{\text{sim}} (p)$, as obtained in simulations. Note that besides  $\Delta G_{\text{sim}}$, we are taking into account variations of $c_s$ with pressure. These computations are greatly facilitated by the technique of reweighting \cite{McDonald1967,McDonald1969}, which uses simulation results from different states to improve the statistics and, particularly important to our case, allows to interpolate expectation values of thermodynamic observables along unsampled states. This implies a significant reduction in computational cost. In particular, we use the Multistate Bennett Acceptance Ratio (MBAR) estimator \cite{Shirts_2008}, which has been successfully used for the purpose of reweighing ~\cite{Aimoli2014, Nichele2018, Schieber2018}.
+To determine the equilibrium condition, it is necessary to know how $\Delta G_{\text{sim}}$ and $c_s$ vary with pressure, so that Eqs.~\eqref{eq:free_solv} and \eqref{eq:equilibrium pressure} can be solved together.
+Fortunately, the Multistate Bennett Acceptance Ratio (MBAR) method \cite{Shirts_2008} allows us to combine simulation samples obtained at discrete thermodynamic states and compute interpolated expectation values along a continuous range of unsampled states.
+This technique, known as reweighting \cite{McDonald1967,McDonald1969}, has been successfully employed in previous work \cite{Aimoli2014, Nichele2018, Schieber2018}, where one can find more details about the calculation procedure.
+Here, we carry out solvation simulations at a few pressures in the vicinity of the experimental value and employ MBAR to determine both functions $\Delta G_{\text{sim}}(p)$ and $c_s(p)$.
 
 \subsection*{Activity Coefficients}
 
@@ -300,7 +303,7 @@ The number of MD steps between transitions is fixed and, at each transition, one
 In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
 Given that sample decorrelation is improved by having short MD runs between MC transitions \cite{Chodera_2011_2}, we used only 5 steps in each run.
 In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
-In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was 110 ns for each system.
+In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was $110~\mathrm{ns}$ for each system.
 
 In order to obtain minimum-energy conformations, we first carried out MD simulations of isolated ion pairs.
 For this, we used a Nos\'{e}-Hoover chain thermostat \cite{Martyna1992} with set-point temperature gradually changing down to nearly $0~\text{K}$.
@@ -446,7 +449,7 @@ Uncertainties in $K_s$ were calculated using a standard error propagation formul
 \begin{equation}
 \delta K_s = \beta K_s \sqrt{\left[ \delta^2 (\Delta G_{\text{vdW}}) + \delta^2(\Delta G_{\text{Coul}}) \right]},
 \end{equation}
-with uncertainties in free energy calculate using MBAR \cite{Shirts_2008}.
+with the uncertainties in free energies calculated by MBAR \cite{Shirts_2008}.
 
 \begin{table*}
 	\centering
@@ -589,7 +592,7 @@ This confirmation was possible by simulating a purely physical absorption, witho
 \label{sec:act_results}
 
 Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental Henry's law constant of \ce{CO_2}, we extend its use to the calculation of infinite-dilution activity coefficients ($\gamma^\infty$) of other solutes in \ce{[emim][B(CN)_4]}.
-Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. Uncertainties in activity coefficients were calculated using error propagation, as done for $K_s$.
+Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. Uncertainties in activity coefficients were calculated using error propagation, such as done for $K_s$.
 
 The task of accurately predicting $\gamma^\infty$ is challenging because, according to Eq.~\eqref{eq:gamma}, one needs to reproduce the solvation free energies of a solute molecule in both the solvent and the solute itself as a pure liquid.
 In Table~\ref{table:mu_solutes}, we show the simulated densities ($\rho^0_s$) and solvation free energies $(\Delta G^{0}_\text{sim})$ of the pure solutes, which we compare against experimental data extracted from the work of Chang \cite{Chang_2009}.

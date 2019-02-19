@@ -16,33 +16,46 @@ To: Prof. Jeffrey Potoff
 Associate Editor
 
 Fluid Phase Equlibria
-\vspace{0.3cm}
+\vspace{1cm}
 
-Dear Prof. Jeffrey Potoff:
+Dear Prof. Potoff:
 
-\hspace{0.5cm}Thank you for your message forwarding the reviewers’ comments on our manuscript entitled \textit{A molecular dynamics study of the solvation of carbon dioxide and other compounds in the ionic liquid \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}.
+Thank you for your message forwarding the reviewers’ comments on our manuscript entitled \textit{A molecular dynamics study of the solvation of carbon dioxide and other compounds in the ionic liquid \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}}.
 We have carefully addressed the comments and suggestions of the reviewers, which required us to make changes in the text.
-The most substantial revision took place in section 5.3, for which we carried out additional simulations.
-In addition, we have included the full names of the ionic liquids in the abstract. To facilitate your evaluation, we have crossed out all removed text and incorporated new content in color blue.
+The most substantial revision took place in Sec.~5.3, for which we carried out additional simulations.
+In addition, we have included the full names of the ionic liquids in the abstract.
+To facilitate your evaluation, we attached an annotated version in which all removed text has been crossed out in red and all new content is colored in blue.
 
-\hspace{0.5cm}Please find attached our detailed answers to the comments of each reviewer. We
+Please find attached our detailed answers to the comments of each reviewer.
+We
 hope that the revised version of the manuscript is suitable for publication.
 
-\hspace{0.5cm}Sincerely yours,
-\vspace{0.5cm}
-
-Prof. Charlles R. A. Abreu
+\begin{center}
+Sincerely yours,
+\end{center}
+\begin{flushright}
+Charlles R. A. Abreu
 
 Federal University of Rio de Janeiro
+\end{flushright}
 
 \section{\textbf{Reviewer \#1}}
 {\color{blue}{The manuscript submitted by Silveira \textit{et al.} presents their computational work on the study of solubility primarily of \ce{CO_2} but also for some additional compounds in ILs. They focus on the simulation of \ce{[emim][B(CN)_4]} IL in a comparative manner to \ce{[emim][NTF_2]} IL, using various existing force fields for the former and implementing simplifications in the simulation of the systems under study by introducing rigid body representations for the ions and by using the damped shifted force method to handle the electrostatics. The manuscript is suitable to be published in your journal, after addressing some problems: }}
 
-\textbf{Answer}: We thank the reviewer for careful reading our manuscript and for the valuable comments and suggestions. We have tried to address them in the best possible way, considering the proposed scope of our work. Please find attached an annotated version of the revised manuscript. This is the one whose pages are mentioned in the answers that follow bellow.
+\textbf{Answer}: We thank the reviewer for the careful examination of our manuscript and for the invaluable comments and suggestions.
+We have tried to address them in the best possible way, considering the proposed scope of our work.
+Please find attached an annotated version of the revised manuscript.
+This is the one whose pages are mentioned in the answers that follow.
 
 {\color{blue}{1) The authors chose not to use an iterative scheme to correct the pressure of their simulations. They should justify their choice by including quantitative information from their simulations on how this correction would affect both the differences in the free energy but also the system's density at high concentrations.}}
 
-\textbf{Answer}: Instead of performing an iterative scheme, we were able to correct the equilibrium pressure by using the technique of reweighting, as explained in page 4 of the manuscript. Although the correction term resulted to be small, this suggestion has allowed us to present the results in a rigorous way with considerable less computational effort, in comparison to the iterative scheme.
+\textbf{Answer}:
+In order to address the reviewer's concern on this topic, we decided to carry out a more rigorous strategy to compute the equilibrium pressure.
+Instead of performing an iterative scheme, we executed some simulations at different pressures in the vicinity of the experimental value.
+This allowed us to employ a multistate analysis method (MBAR) and compute the solvation free energy along a continuous range of pressures via reweighting.
+The resulting curves confirmed our previous assertion that such free energy depends only slightly on the pressure.
+Besides, we could use these curves to find, for each case, the pressure at which the equilibrium equations are satisfied.
+We believe that the new procedure, which is explained on page 4 of the annotated manuscript, improves our analysis of the equilibrium condition in a significant way.
 
 {\color{blue}{2) Among the various existing models used in this work, some explicitly report the use of LJ long range corrections in the energy and pressure. The authors should clearly state if they have taken that into account in their simulations.}}
 

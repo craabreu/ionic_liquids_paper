@@ -1,10 +1,14 @@
 %\documentclass[3p,preprint]{elsarticle}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ionic_liquids_submitted.tex   Tue Feb 12 15:11:10 2019
-%DIF ADD ionic_liquids.tex             Thu Feb 14 17:03:25 2019
+%DIF ADD ionic_liquids.tex             Fri Feb 15 19:58:27 2019
 \documentclass[3p,twocolumn]{elsarticle}
 
-\usepackage[colorlinks,citecolor=blue]{hyperref}
+%DIF 4c4
+%DIF < \usepackage[colorlinks,citecolor=blue]{hyperref}
+%DIF -------
+%\usepackage[colorlinks,citecolor=blue]{hyperref} %DIF > 
+%DIF -------
 \usepackage{lineno}
 \modulolinenumbers[5]
 \usepackage{amsmath}
@@ -32,8 +36,8 @@
 %DIF UNDERLINE PREAMBLE %DIF PREAMBLE
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
 \RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
-\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
-\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
 %DIF SAFE PREAMBLE %DIF PREAMBLE
 \providecommand{\DIFaddbegin}{} %DIF PREAMBLE
 \providecommand{\DIFaddend}{} %DIF PREAMBLE
@@ -46,9 +50,6 @@
 \providecommand{\DIFaddendFL}{} %DIF PREAMBLE
 \providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
 \providecommand{\DIFdelendFL}{} %DIF PREAMBLE
-%DIF HYPERREF PREAMBLE %DIF PREAMBLE
-\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
-\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
 \newcommand{\DIFscaledelfig}{0.5}
 %DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
 \RequirePackage{settobox} %DIF PREAMBLE
@@ -248,7 +249,7 @@ Then, by considering a system at phase equilibrium ($\mu^{l}_s$ = $\mu^{g}_s$), 
 f^{g}_s = c_s R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right). 
 \end{equation}
 
-\DIFdelbegin \DIFdel{Three }\DIFdelend \DIFaddbegin \DIFadd{Two }\DIFaddend additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems \DIFdelbegin \DIFdel{with which we compare our simulations}\DIFdelend \DIFaddbegin \DIFadd{investigated}\DIFaddend ) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
+\DIFdelbegin \DIFdel{Three }\DIFdelend \DIFaddbegin \DIFadd{Two }\DIFaddend additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems \DIFdelbegin \DIFdel{with which we compare our simulations}\DIFdelend \DIFaddbegin \DIFadd{we investigate here}\DIFaddend ) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equilibrium pressure}
 y_s \exp\left( \DIFdelbegin \DIFdel{\frac{B_s P}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{B_s p}{R T} }\DIFaddend \right) \DIFdelbegin \DIFdel{P }\DIFdelend \DIFaddbegin \DIFadd{p }\DIFaddend = c_s\DIFaddbegin \DIFadd{(p) }\DIFaddend R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right),
@@ -260,14 +261,18 @@ B_s = B_0 + \frac{B_1}{T} + \frac{B_2}{T^2},
 \end{equation}
 where $B_0 = 23.02991~\mathrm{\frac{cm^3}{mol}}$, $B_1 = -2455.297~\mathrm{\frac{K \cdot cm^3}{mol}}$, and $B_2 = -1.22675 \times 10^7~\mathrm{\frac{K^2 \cdot cm^3}{mol}}$.
 
-\DIFdelbegin \DIFdel{Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here. In this way, no iterative simulations are required to compute the equilibrium pressure when solving Eq.~}%DIFDELCMD < \eqref{eq:equilibrium pressure} %%%
-\DIFdel{for $P$}\DIFdelend \DIFaddbegin \DIFadd{The equilibrium pressure will be the intersection point between the function $\Delta G_{\text{solv}}(p) $, defined by Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{, and $\Delta G_{\text{sim}} (p)$, as obtained in simulations. Note that besides  $\Delta G_{\text{sim}}$, we are taking into account variations of $c_s$ with pressure. These computations are greatly facilitated by the technique of reweighting \mbox{%DIFAUXCMD
+\DIFdelbegin \DIFdel{Our third assumption, supported by preliminary simulations, is that $\Delta G_\text{sim}$ does not vary appreciably }\DIFdelend \DIFaddbegin \DIFadd{To determine the equilibrium condition, it is necessary to know how $\Delta G_{\text{sim}}$ and $c_s$ vary }\DIFaddend with pressure, \DIFdelbegin \DIFdel{at least over the range of experimental data considered here.
+In this way, no iterative simulations are required to compute the equilibrium pressure when solving Eq.
+~}\DIFdelend \DIFaddbegin \DIFadd{so that Eqs.~}\eqref{eq:free_solv} \DIFadd{and }\DIFaddend \eqref{eq:equilibrium pressure} \DIFdelbegin \DIFdel{for $P$}\DIFdelend \DIFaddbegin \DIFadd{can be solved together.
+Fortunately, the Multistate Bennett Acceptance Ratio (MBAR) method \mbox{%DIFAUXCMD
+\cite{Shirts_2008} }\hspace{0pt}%DIFAUXCMD
+allows us to combine simulation samples obtained at discrete thermodynamic states and compute interpolated expectation values along a continuous range of unsampled states.
+This technique, known as reweighting \mbox{%DIFAUXCMD
 \cite{McDonald1967,McDonald1969}}\hspace{0pt}%DIFAUXCMD
-, which uses simulation results from different states to improve the statistics and, particularly important to our case, allows to interpolate expectation values of thermodynamic observables along unsampled states. This implies a significant reduction in computational cost. In particular, we use the Multistate Bennett Acceptance Ratio (MBAR) estimator \mbox{%DIFAUXCMD
-\cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
-, which has been successfully used for the purpose of reweighing ~\mbox{%DIFAUXCMD
+, has been successfully employed in previous work \mbox{%DIFAUXCMD
 \cite{Aimoli2014, Nichele2018, Schieber2018}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend .
+, where one can find more details about the calculation procedure.
+Here, we carry out solvation simulations at a few pressures in the vicinity of the experimental value and employ MBAR to determine both functions $\Delta G_{\text{sim}}(p)$ and $c_s(p)$}\DIFaddend .
 
 \subsection*{Activity Coefficients}
 
