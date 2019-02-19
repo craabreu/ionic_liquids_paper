@@ -1,7 +1,7 @@
 %\documentclass[3p,preprint]{elsarticle}
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL ionic_liquids_submitted.tex   Tue Feb 12 15:11:10 2019
-%DIF ADD ionic_liquids.tex             Fri Feb 15 19:58:27 2019
+%DIF ADD ionic_liquids.tex             Tue Feb 19 16:15:55 2019
 \documentclass[3p,twocolumn]{elsarticle}
 
 %DIF 4c4
@@ -252,7 +252,7 @@ f^{g}_s = c_s R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R 
 \DIFdelbegin \DIFdel{Three }\DIFdelend \DIFaddbegin \DIFadd{Two }\DIFaddend additional assumptions are made here. First, we assume that the gas phase is either pure solute (which is consistent with the ionic-liquid systems \DIFdelbegin \DIFdel{with which we compare our simulations}\DIFdelend \DIFaddbegin \DIFadd{we investigate here}\DIFaddend ) or can be approximated by an ideal solution. Second, we assume that the system pressure is moderate, so that a truncated virial equation is enough to represent the gas phase. In this case, Eq.~\eqref{eq:fgas_d} becomes
 \begin{equation}
 \label{eq:equilibrium pressure}
-y_s \exp\left( \DIFdelbegin \DIFdel{\frac{B_s P}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{B_s p}{R T} }\DIFaddend \right) \DIFdelbegin \DIFdel{P }\DIFdelend \DIFaddbegin \DIFadd{p }\DIFaddend = c_s\DIFaddbegin \DIFadd{(p) }\DIFaddend R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right),
+y_s \exp\left( \DIFdelbegin \DIFdel{\frac{B_s P}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{B_s p}{R T} }\DIFaddend \right) \DIFdelbegin \DIFdel{P }\DIFdelend \DIFaddbegin \DIFadd{p }\DIFaddend = c_s R T \exp \left( \DIFdelbegin \DIFdel{\frac{\Delta G_\text{sim}}{R T} }\DIFdelend \DIFaddbegin \DIFadd{\frac{\Delta G_\text{solv}}{R T} }\DIFaddend \right),
 \end{equation}
 where $y_s$ is the molar fraction of solute in the gas phase ($y_s \rightarrow 1$ for the systems we analyze here) and $B_s$ is the second virial coefficient of the solute.
 In the case of \ce{CO_2}, we employ the correlation for $B_s$ developed by Holste \textit{et al}. \cite{Holste_1987}, which is
@@ -384,7 +384,7 @@ The number of MD steps between transitions is fixed and, at each transition, one
 In addition, a set of biasing weights is included in the MC acceptance criterion, thus making it possible to enhance the sampling procedure by iteratively tuning these weights until all $\lambda_\text{vdW}$ states are visited with equal frequency \cite{Lyubartsev_1992}.
 Given that sample decorrelation is improved by having short MD runs between MC transitions \cite{Chodera_2011_2}, we used only 5 steps in each run.
 In the iteration process for tuning the biasing weights, the simulation times for the preliminary and the final expanded ensemble rounds are 10 and 40 ns, respectively.
-In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. \DIFaddbegin \DIFadd{Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was 110 ns for each system.
+In this way, 3 iterations were sufficient in all cases for attaining, in the final round, an acceptable uncertainty in $\Delta G_\text{sim}$ estimated via MBAR \cite{Shirts_2008, Klimovich_2015}. \DIFaddbegin \DIFadd{Considering also the MD runs at each $\lambda_{\text{Coul}}$, the simulation time was $110~\mathrm{ns}$ for each system.
 }\DIFaddend 
 
 \DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{In order to obtain minimum-energy conformations, we }\DIFaddend first carried out MD simulations of isolated ion pairs\DIFdelbegin \DIFdel{in order to obtain minimum-energy conformations}\DIFdelend .
@@ -558,7 +558,7 @@ The computed values }\DIFdelend \DIFaddbegin \DIFadd{These }\DIFaddend should be
 }\begin{equation}
 \DIFadd{\delta K_s = \beta K_s \sqrt{\left[ \delta^2 (\Delta G_{\text{vdW}}) + \delta^2(\Delta G_{\text{Coul}}) \right]},
 }\end{equation}
-\DIFadd{with uncertainties in free energy calculate using MBAR \mbox{%DIFAUXCMD
+\DIFadd{with the free-energy uncertainties computed by MBAR \mbox{%DIFAUXCMD
 \cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
 .
 }\DIFaddend 
@@ -731,16 +731,20 @@ First, the }\DIFdelend \DIFaddbegin \DIFadd{are given in Table~\ref{table:solv},
 The }\DIFaddend results make clear that assuming ideal gas (\DIFdelbegin \DIFdel{$P = f_s^g$}\DIFdelend \DIFaddbegin \DIFadd{$p = f_s^g$}\DIFaddend ) would have been an oversimplification, specially in the case of \ce{[emim][NTf_2]}.
 \DIFdelbegin \DIFdel{Second, }\DIFdelend \DIFaddbegin 
 
-\DIFadd{In order to obtain $\Delta G_\text{sim} (p)$ }\DIFaddend and \DIFdelbegin \DIFdel{most importantly, the computed pressures }\DIFdelend \DIFaddbegin \DIFadd{$c_s(p)$, we carried out extra simulations at pressure values  of p = (1.722, 1.823) MPa  for \ce{CO_2}+\ce{[emim][B(CN)_4]} and at p = (4.053, 4.458) MPa for \ce{CO_2}+\ce{[emim][NTf_2]}.
-In this case, we considered a wider range of pressure, given the departure from ideal gas behavior mentioned above.
-As described in Sec.~\ref{sec:partial_pressure}, $\Delta G_\text{sim}$ and $c_s$ were interpolated to intermediate pressures by reweighting using MBAR \mbox{%DIFAUXCMD
+\DIFadd{As one can see in Table~\ref{table:solv}, the estimated equilibrium pressure differs from the specified value for both ionic liquids.
+In order to obtain $\Delta G_\text{sim}(p)$ and $c_s(p)$ so that the proper corrections could be made, we carried out additional simulations at some nearby pressures in each case.
+Then, new results were obtained at $1.722$ }\DIFaddend and \DIFdelbegin \DIFdel{most importantly, the computed pressuresdid not depart considerably from the specified values}\DIFdelend \DIFaddbegin \DIFadd{$1.823~\mathrm{MPa}$ for \ce{CO_2}+\ce{[emim][B(CN)_4]} and at $4.053$ and $4.458~\mathrm{MPa}$ for \ce{CO_2}+\ce{[emim][NTf_2]}.
+These ranges were selected after carrying out some short, exploratory simulations.
+%DIF > In this case, we considered a wider range of pressure, given the departure from ideal gas behavior mentioned above.
+As described in Sec.~\ref{sec:partial_pressure}, $\Delta G_\text{sim}$ and $c_s$ were interpolated along the whole pressure ranges by doing reweighting via MBAR \mbox{%DIFAUXCMD
 \cite{Shirts_2008}}\hspace{0pt}%DIFAUXCMD
 .
-In Fig.~\ref{fig:pressure}, we show for both systems the results of $\Delta G_\text{sim}$, together with the curve of $\Delta G_\text{solv}$ defined by Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{.
-Although not shown here, the changes in density are negligible: 0.05 \% and 0.07 \% for \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]}, respectively.
-In addition, $\Delta G_\text{sim}$ does not vary appreciably with pressure, at least over the range of experimental data considered here. 
-This results in small corrections to the equilibrium pressures of Table~\ref{table:solv}: the intersection points are 1.807 MPa and 4.106 MPa, for \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]}, respectively.
-These values }\DIFaddend did not depart considerably from the specified values, meaning that our results sustain the experimental observations.
+Each MBAR analysis involved 60 simulation samples (20 coupling parameter states at 3 distinct pressures).
+In Fig.~\ref{fig:pressure}, we show the results of $\Delta G_\text{sim}(p)$ for both systems, together with the corresponding curves of $\Delta G_\text{solv}(p)$ defined by Eq.~}\eqref{eq:equilibrium pressure}\DIFadd{.
+The observed variations in density throughout the pressure ranges (results not shown) were negligible: 0.05\% and 0.07\% for \ce{CO_2}+\ce{[emim][B(CN)_4]} and \ce{CO_2}+\ce{[emim][NTf_2]}, respectively.
+It is also clear from Fig.~\ref{fig:pressure} that $\Delta G_\text{sim}$ does not vary appreciably either.
+As a result, the corrections required for the equilibrium pressures shown in Table~\ref{table:solv} are small.
+The intersection points in the mentioned curves occur at 1.807 MPa for \ce{CO_2}+\ce{[emim][B(CN)_4]} and at 4.106 MPa \ce{CO_2}+\ce{[emim][NTf_2]}}\DIFaddend , meaning that our results \DIFdelbegin \DIFdel{sustain }\DIFdelend \DIFaddbegin \DIFadd{corroborate }\DIFaddend the experimental observations.
 Therefore, as the pressure required to reach the same equilibrium molal concentration of \ce{CO_2} in the liquid phase is smaller for \ce{[emim][B(CN)_4]} than for \ce{[emim][NTf_2]}, our results confirm that the former is a better solvent than the latter.
 This confirmation was possible by simulating a purely physical absorption, without considering any quantum effect.
 
@@ -762,7 +766,7 @@ This confirmation was possible by simulating a purely physical absorption, witho
 \label{sec:act_results}
 
 Having selected the model of \ce{[emim][B(CN)_4]} that best reproduces the experimental Henry's law constant of \ce{CO_2}, we extend its use to the calculation of infinite-dilution activity coefficients ($\gamma^\infty$) of other solutes in \ce{[emim][B(CN)_4]}.
-Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. \DIFaddbegin \DIFadd{Uncertainties in activity coefficients were calculated using error propagation, as done for $K_s$.
+Due to the availability of experimental data \cite{Yan_2010, Doma_ska_2011}, the solutes chosen for this study are benzene, hexane, cyclohexane, ethanol, and water. \DIFaddbegin \DIFadd{Uncertainties in activity coefficients were evaluated by error propagation, such as done for Henry's law constants.
 }\DIFaddend 
 
 The task of accurately predicting $\gamma^\infty$ is challenging because, according to Eq.~\eqref{eq:gamma}, one needs to reproduce the solvation free energies of a solute molecule in both the solvent and the solute itself as a pure liquid.
@@ -795,12 +799,14 @@ The results concerning the solvation free energies of all solutes in the ionic l
 For benzene and water, the predictions are very accurate, but this is certainly due to fortuitous error compensations, given the discrepancies observed in Table~\ref{table:mu_solutes}.
 \DIFdelbegin \DIFdel{In }\DIFdelend \DIFaddbegin 
 
-\DIFadd{In Fig.~\ref{fig:deltag_solutes}, we show the simulated solvation free energies versus the experimental results. These were obtained by using $\Delta G^{0}_\text{exp}$ of Table~\ref{table:mu_solutes} and $\gamma^\infty$  from Ref. \mbox{%DIFAUXCMD
-\cite{Doma_ska_2011} }\hspace{0pt}%DIFAUXCMD
-as inputs in Eq.~}\eqref{eq:gamma}\DIFadd{. Cyclohexane was not considered, given that $\Delta G^{0}_\text{exp}$ is not available.
-For benzene, ethanol and water the results from simulations are consistent with the negative experimental values. However, for hexane the simulations predict a favorable solvation, in clear contradiction with the experimental data.
-From the individual contributions of $\Delta G_\text{vdW}$ and $\Delta G_\text{Coul}$, we can conclude that the vdW contribution is largely underestimated.
-Also, in }\DIFaddend the case of hexane, one can see in Table \ref{table:gamma} that the available experimental values of $\gamma^\infty$ in \ce{[emim][B(CN)_4]} at very close temperatures ($298.15~\text{K}$ and $303~\text{K}$) differ considerably.
+\DIFadd{In Fig.~\ref{fig:deltag_solutes}, we compare solvation free energies obtained by simulation with those computed from experimental results.
+These were obtained by using $\Delta G^{0}_\text{exp}$ of Table~\ref{table:mu_solutes} and $\gamma^\infty$ from Ref. ~\mbox{%DIFAUXCMD
+\citenum{Doma_ska_2011} }\hspace{0pt}%DIFAUXCMD
+as inputs to Eq.~}\eqref{eq:gamma}\DIFadd{.
+Because $\Delta G^{0}_\text{exp}$ is not available for cyclohexane, such substance was not considered in the comparison.
+For benzene, ethanol, and water, the results from simulations are consistent with the negative experimental values. For hexane, however, the simulation prediction of a favorable solvation is in clear contradiction with the experimental data.
+From the individual contributions of $\Delta G_\text{vdW}$ and $\Delta G_\text{Coul}$, we can conclude that the van der Waals contribution is largely underestimated.
+Also, in }\DIFaddend the case of hexane, one can see in Table\DIFaddbegin \DIFadd{~}\DIFaddend \ref{table:gamma} that the available experimental values of $\gamma^\infty$ in \ce{[emim][B(CN)_4]} at very close temperatures ($298.15~\text{K}$ and $303~\text{K}$) differ considerably.
 It is, therefore, difficult to assess the reliability of our results in this case.
 
 \begin{table*}
@@ -832,7 +838,7 @@ It is, therefore, difficult to assess the reliability of our results in this cas
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{delta_g_sim_exp}
-	\caption{\DIFaddFL{Simulated free energy $\Delta G_\text{sim}$ versus the experimental result at $T = 298.15~\text{K}$ for the solutes hexane, benzene, ethanol and water in \ce{[emim][B(CN)_4]}.}}
+	\caption{\DIFaddFL{Solvation free energies at infinite dilution obtained from simulations ($\Delta G_\text{sim}$) in comparison to values computed from experimental data ($\Delta G_\text{exp}$) for the solutes hexane, benzene, ethanol, and water in \ce{[emim][B(CN)_4]}  at $T = 298.15~\text{K}$.}}
 	\label{fig:deltag_solutes}
 \end{figure}
 
@@ -841,7 +847,7 @@ It is, therefore, difficult to assess the reliability of our results in this cas
 
 One of the goals of this paper was to compare various available molecular models of \ce{[emim][B(CN)_4]} in terms of their capabilities to reproduce the experimental Henry's law constant of \ce{CO_2}.
 We have found that only the force field developed by Koller \textit{et al}. \cite{Koller_2012} is able to perform such task, with a small relative error of 2.8\%.
-A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows \DIFdelbegin \DIFdel{one }\DIFdelend to accurately reproduce the experimental density of the pure substance.
+A key factor for its success seems to be the reparametrization of the LJ parameters for the boron atom carried out in the original work, which also allows \DIFdelbegin \DIFdel{one }\DIFdelend \DIFaddbegin \DIFadd{us }\DIFaddend to accurately reproduce the experimental density of the pure substance.
 
 We focused also on exploring alternative simulation strategies with the goal of gaining computational efficiency.
 Particularly, for both \ce{[emim][B(CN)_4]} and \ce{[emim][NTf_2]}, we concluded that the Damped-Shifted-Force method for electrostatic interactions, with a damping factor $\alpha = 0.2 ~\text{\AA}^{-1}$, is a suitable strategy.
@@ -850,7 +856,7 @@ This required preliminary simulations in order to examine the flexibility of the
 Besides the properties already mentioned, the different models showed quite distinct behaviors \DIFdelbegin \DIFdel{, as well, }\DIFdelend in terms of conformational statistics.
 %This lack of consistency is one of the reasons why in industry molecular simulation has not become a routinely tool yet.
 
-The solvation free energy results \DIFdelbegin \DIFdel{at infinite-dilution condition }\DIFdelend suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}, despite the similarity in the Henry's law constants observed in both cases.
+The solvation free energy results at \DIFdelbegin \DIFdel{infinite-dilution }\DIFdelend \DIFaddbegin \DIFadd{infinite dilution }\DIFaddend condition suggest that a more favorable solvation of \ce{CO_2} occurs in \ce{[emim][B(CN)_4]} than in \ce{[emim][NTf_2]}, despite the similarity in the Henry's law constants observed in both cases.
 This picture is further confirmed at high \ce{CO_2} concentrations, in which the simulations correctly predicted that a considerably lower pressure is required to dissolve a certain amount of \ce{CO_2} in \ce{[emim][B(CN)_4]}, as compared to \ce{[emim][NTf_2]} in an equal-mass basis.
 
 Finally, we employed the model of Koller \textit{et al}. \cite{Koller_2012} in an attempt to predict infinite-dilution activity coefficients of various solutes in \ce{[emim][B(CN)_4]}.
